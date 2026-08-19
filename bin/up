@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+set -eu
+docker compose up --detach --build
+docker compose port web 8080
