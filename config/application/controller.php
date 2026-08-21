@@ -7,6 +7,6 @@ use Fight\Common\Application\Service\Container;
 
 /** @var Container $container */
 
-$container->set(IndexAction::class, function (Container $container) {
+$container->set(IndexAction::class, function () {
     return new IndexAction();
 });
