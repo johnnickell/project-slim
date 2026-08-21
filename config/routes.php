@@ -8,7 +8,6 @@ use Symfony\Component\Finder\Finder;
 
 /** @var App $app */
 /** @var ContainerInterface $container */
-
 /**
  * Loads application routes
  */
