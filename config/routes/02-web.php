@@ -10,4 +10,4 @@ use Slim\App;
 /** @var ContainerInterface $container */
 
 // index route
-$app->get('/', [IndexAction::class, 'handle']);
+$app->get('/', [$container->get(IndexAction::class), 'handle']);

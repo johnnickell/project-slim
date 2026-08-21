@@ -22,6 +22,5 @@ $finder->files()->name('*.php')->in(sprintf('%s/routes', __DIR__))->sortByName()
 
 foreach ($finder as $file) {
     $filePath = $file->getRealPath();
-
     load_routes($filePath, $container, $app);
 }
