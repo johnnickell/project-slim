@@ -1,3 +1,13 @@
 # Roadmap
 
-The next local planning work begins only after the governed Slim foundation is accepted. Future walking slices remain repository-local.
+## In progress
+
+No epics are currently active.
+
+## Route to 1.0
+
+The bootstrap foundation is complete. Future walking slices will be defined through the Wayfinder process and charted via local planning tickets.
+
+## Completed / Released
+
+The governed Slim Starter Foundation is complete: T-00001 has successful repository-local and hosted `./bin/build` receipts.
