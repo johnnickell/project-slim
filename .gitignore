@@ -4,3 +4,4 @@
 /.phpunit.result.cache
 /var/
 /.env.local
+/.runs/
