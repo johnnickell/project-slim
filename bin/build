@@ -4,7 +4,7 @@ set -eu
 image=project-slim-build
 docker build --file etc/docker/cli/Dockerfile --tag "$image" .
 docker run --rm --volume "$(pwd):/app" --workdir /app "$image" sh -ec '
-  composer validate
+  sh scripts/validate-composer-candidate.sh
   composer install --no-interaction --prefer-dist --no-progress
   php vendor/bin/phpunit
   root=$(mktemp -d)

@@ -1,6 +1,6 @@
 {
     "schema_version": "fight-common.framework-support-receipt/v1",
-    "content_id": "17b082be398843cc4a8b25b216f380831c91c41fbe7eabd5f68a8b5e626d8fe5",
+    "content_id": "ead95ca156a338b5af9e69564822ccc7217b2fc0922ce8d3ac792d98a431f566",
     "candidate": {
         "package": "johnnickell/fight-common",
         "version": "dev-develop",
@@ -15,7 +15,7 @@
             "slim/twig-view 3.4.1"
         ]
     },
-    "lock_sha256": "171572cee8761b9413a8646087ba676a891660e6f7a187d420e4d2cbca0bd885",
+    "lock_sha256": "910fbbad561470c4779e6eabbf2a77e1356776a4a9a9070d4297af00c05cdcc9",
     "capabilities": {
         "container": "ship",
         "validation_security": "ship",
@@ -41,7 +41,7 @@
     "evidence": {
         "build": "./bin/build",
         "planning_check": "./bin/planning-check",
-        "receipt_sha256": "17b082be398843cc4a8b25b216f380831c91c41fbe7eabd5f68a8b5e626d8fe5"
+        "receipt_sha256": "ead95ca156a338b5af9e69564822ccc7217b2fc0922ce8d3ac792d98a431f566"
     },
     "next_action": null
 }

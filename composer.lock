@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c88b7658af58127da1659ed3c4b7025",
+    "content-hash": "28628278c09b6f443cbaac5f21dcb207",
     "packages": [
         {
             "name": "doctrine/collections",
@@ -7512,8 +7512,8 @@
         {
             "package": "johnnickell/fight-common",
             "version": "dev-develop",
-            "alias": "1.2.0",
-            "alias_normalized": "1.2.0.0"
+            "alias": "1.2.0-dev",
+            "alias_normalized": "1.2.0.0-dev"
         }
     ],
     "minimum-stability": "dev",
