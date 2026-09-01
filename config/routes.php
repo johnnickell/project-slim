@@ -11,15 +11,14 @@ use Symfony\Component\Finder\Finder;
 /**
  * Loads application routes
  */
-function load_routes(string $filePath, ContainerInterface $container, App $app): void
-{
+$loadRoutes = static function (string $filePath, ContainerInterface $container, App $app): void {
     include $filePath;
-}
+};
 
 $finder = new Finder();
 $finder->files()->name('*.php')->in(sprintf('%s/routes', __DIR__))->sortByName();
 
 foreach ($finder as $file) {
     $filePath = $file->getRealPath();
-    load_routes($filePath, $container, $app);
+    $loadRoutes($filePath, $container, $app);
 }

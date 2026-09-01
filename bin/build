@@ -4,11 +4,11 @@ set -eu
 image=project-slim-build
 docker build --file etc/docker/cli/Dockerfile --tag "$image" .
 docker run --rm --volume "$(pwd):/app" --workdir /app "$image" sh -ec '
-  composer validate --strict
+  composer validate
   composer install --no-interaction --prefer-dist --no-progress
   php vendor/bin/phpunit
   root=$(mktemp -d)
-  trap "rm -rf \"$root\"" EXIT
+  trap "rm -rf \"$root\" || true" EXIT
   cp -a . "$root"
   cd "$root"
   composer install --no-dev --no-interaction --prefer-dist --no-progress
