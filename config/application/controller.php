@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-use App\Http\IndexAction;
+use App\Adapter\Http\IndexAction;
 use Fight\Common\Application\Service\Container;
 
-/** @var Container $container */
-$container->set(IndexAction::class, function () {
-    return new IndexAction();
-});
+return static function (Container $container): void {
+    $container->set(IndexAction::class, static fn (): IndexAction => new IndexAction());
+};

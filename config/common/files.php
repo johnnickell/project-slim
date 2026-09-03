@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types=1);
+
+use Fight\Common\Adapter\FileStorage\FlysystemStorage;
+use Fight\Common\Adapter\FileTransfer\Null\NullFileTransport;
+use Fight\Common\Adapter\Filesystem\Symfony\SymfonyFilesystem as FightSymfonyFilesystem;
+use Fight\Common\Application\FileStorage\FileStorage;
+use Fight\Common\Application\FileStorage\StorageService;
+use Fight\Common\Application\FileTransfer\FileTransferService;
+use Fight\Common\Application\FileTransfer\Transport\FileTransport;
+use Fight\Common\Application\Filesystem\Filesystem as FightFilesystem;
+use Fight\Common\Application\Service\Container;
+use League\Flysystem\Filesystem;
+use League\Flysystem\FilesystemOperator;
+use League\Flysystem\Local\LocalFilesystemAdapter;
+use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
+
+return static function (Container $container): void {
+    $container->set(FilesystemOperator::class, static fn (Container $c): FilesystemOperator => new Filesystem(new LocalFilesystemAdapter($c['app.storage_dir'])));
+    $container->set(FileStorage::class, static fn (Container $c): FileStorage => new FlysystemStorage($c->get(FilesystemOperator::class)));
+    $container->set(FileTransport::class, static fn (): FileTransport => new NullFileTransport());
+    $container->set(SymfonyFilesystem::class, static fn (): SymfonyFilesystem => new SymfonyFilesystem());
+    $container->set(FightFilesystem::class, static fn (Container $c): FightFilesystem => new FightSymfonyFilesystem($c->get(SymfonyFilesystem::class)));
+    $container->set(StorageService::class, static function (Container $c): StorageService {
+        $storage = new StorageService();
+        $storage->addStorage('local', $c->get(FileStorage::class));
+        return $storage;
+    });
+    $container->set(FileTransferService::class, static function (Container $c): FileTransferService {
+        $transfers = new FileTransferService();
+        $transfers->addTransport('null', $c->get(FileTransport::class));
+        return $transfers;
+    });
+};

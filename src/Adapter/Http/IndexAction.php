@@ -2,19 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Http;
+namespace App\Adapter\Http;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-/**
- * Class IndexAction
- */
-class IndexAction
+final class IndexAction
 {
-    /**
-     * Handles the index request
-     */
     public function handle(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $response->getBody()->write('Fight Slim starter is ready.');
