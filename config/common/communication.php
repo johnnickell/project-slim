@@ -24,10 +24,14 @@ use Symfony\Component\Mercure\Jwt\StaticTokenProvider;
 use Symfony\Component\Mercure\MockHub;
 
 return static function (Container $container): void {
-    $container->set(MailerInterface::class, static fn (): MailerInterface => new Mailer(Transport::fromDsn(getenv('MAILER_DSN') ?: 'null://null')));
+    $container->set(MailerInterface::class, static function (): MailerInterface {
+        return new Mailer(Transport::fromDsn(getenv('MAILER_DSN') ?: 'null://null'));
+    });
     $container->set(MailTransport::class, static fn (Container $c): MailTransport => getenv('MAILER_DSN') ? new SymfonyMailTransport($c->get(MailerInterface::class)) : new NullMailTransport());
     $container->set(MailService::class, static fn (Container $c): MailService => new MailService($c->get(MailTransport::class), new SymfonyMailFactory()));
-    $container->set(SmsTransport::class, static fn (): SmsTransport => new NullSmsTransport());
+    $container->set(SmsTransport::class, static function (): SmsTransport {
+        return new NullSmsTransport();
+    });
     $container->set(SmsService::class, static fn (Container $c): SmsService => new SmsService($c->get(SmsTransport::class)));
     $container->set(HubInterface::class, static function (): HubInterface {
         $url = getenv('MERCURE_URL');
@@ -40,7 +44,13 @@ return static function (Container $container): void {
             return new Hub($url, new StaticTokenProvider($token));
         }
 
-        return new MockHub('http://localhost/.well-known/mercure', new StaticTokenProvider('local-mercure-token'), static fn (): string => 'local');
+        return new MockHub(
+            'http://localhost/.well-known/mercure',
+            new StaticTokenProvider('local-mercure-token'),
+            static function (): string {
+                return 'local';
+            }
+        );
     });
     $container->set(Publisher::class, static fn (Container $c): Publisher => new MercureHubPublisher($c->get(HubInterface::class)));
     $container->set(PrivatePublisher::class, static fn (Container $c): PrivatePublisher => new PrivateMercureHubPublisher($c->get(HubInterface::class)));

@@ -27,22 +27,34 @@ return static function (Container $container): void {
         return $value;
     };
 
-    $container->set(ValidatorInterface::class, static fn (): ValidatorInterface => Validation::createValidator());
-    $container->set(PasswordHasher::class, static fn (): PasswordHasher => new PhpPasswordHasher(PASSWORD_ARGON2ID));
-    $container->set(PasswordValidator::class, static fn (): PasswordValidator => new PhpPasswordValidator(PASSWORD_ARGON2ID));
+    $container->set(ValidatorInterface::class, static function (): ValidatorInterface {
+        return Validation::createValidator();
+    });
+    $container->set(PasswordHasher::class, static function (): PasswordHasher {
+        return new PhpPasswordHasher(PASSWORD_ARGON2ID);
+    });
+    $container->set(PasswordValidator::class, static function (): PasswordValidator {
+        return new PhpPasswordValidator(PASSWORD_ARGON2ID);
+    });
     $container->set(
         TokenEncoder::class,
-        static fn (): TokenEncoder => new JwtEncoder($requiredEnvironmentValue('APP_HMAC_SECRET'))
+        static function () use ($requiredEnvironmentValue): TokenEncoder {
+            return new JwtEncoder($requiredEnvironmentValue('APP_HMAC_SECRET'));
+        }
     );
     $container->set(
         TokenDecoder::class,
-        static fn (): TokenDecoder => new JwtDecoder($requiredEnvironmentValue('APP_HMAC_SECRET'))
+        static function () use ($requiredEnvironmentValue): TokenDecoder {
+            return new JwtDecoder($requiredEnvironmentValue('APP_HMAC_SECRET'));
+        }
     );
     $container->set(
         RequestService::class,
-        static fn (): RequestService => new HmacRequestService(
-            $requiredEnvironmentValue('APP_HMAC_KEY'),
-            $requiredEnvironmentValue('APP_HMAC_SECRET')
-        )
+        static function () use ($requiredEnvironmentValue): RequestService {
+            return new HmacRequestService(
+                $requiredEnvironmentValue('APP_HMAC_KEY'),
+                $requiredEnvironmentValue('APP_HMAC_SECRET')
+            );
+        }
     );
 };

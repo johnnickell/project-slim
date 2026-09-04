@@ -19,8 +19,12 @@ use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
 return static function (Container $container): void {
     $container->set(FilesystemOperator::class, static fn (Container $c): FilesystemOperator => new Filesystem(new LocalFilesystemAdapter($c['app.storage_dir'])));
     $container->set(FileStorage::class, static fn (Container $c): FileStorage => new FlysystemStorage($c->get(FilesystemOperator::class)));
-    $container->set(FileTransport::class, static fn (): FileTransport => new NullFileTransport());
-    $container->set(SymfonyFilesystem::class, static fn (): SymfonyFilesystem => new SymfonyFilesystem());
+    $container->set(FileTransport::class, static function (): FileTransport {
+        return new NullFileTransport();
+    });
+    $container->set(SymfonyFilesystem::class, static function (): SymfonyFilesystem {
+        return new SymfonyFilesystem();
+    });
     $container->set(FightFilesystem::class, static fn (Container $c): FightFilesystem => new FightSymfonyFilesystem($c->get(SymfonyFilesystem::class)));
     $container->set(StorageService::class, static function (Container $c): StorageService {
         $storage = new StorageService();

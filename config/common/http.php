@@ -16,10 +16,18 @@ use Slim\Psr7\Factory\ServerRequestFactory;
 use Slim\Psr7\Factory\StreamFactory;
 
 return static function (Container $container): void {
-    $container->set(ResponseFactoryInterface::class, static fn () => new ResponseFactory());
-    $container->set(ServerRequestFactoryInterface::class, static fn () => new ServerRequestFactory());
-    $container->set(StreamFactoryInterface::class, static fn () => new StreamFactory());
+    $container->set(ResponseFactoryInterface::class, static function (): ResponseFactory {
+        return new ResponseFactory();
+    });
+    $container->set(ServerRequestFactoryInterface::class, static function (): ServerRequestFactory {
+        return new ServerRequestFactory();
+    });
+    $container->set(StreamFactoryInterface::class, static function (): StreamFactory {
+        return new StreamFactory();
+    });
     $container->set(JSendResponseFactory::class, static fn (Container $c): JSendResponseFactory => new JSendResponseFactory($c->get(ResponseFactoryInterface::class), $c->get(StreamFactoryInterface::class)));
-    $container->set(Client::class, static fn (): Client => new Client(['http_errors' => false]));
+    $container->set(Client::class, static function (): Client {
+        return new Client(['http_errors' => false]);
+    });
     ContainerCapabilityRegistrar::registerHttpClient($container, static fn (Container $c): GuzzleClient => new GuzzleClient($c->get(Client::class)));
 };

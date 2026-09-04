@@ -15,7 +15,13 @@ use Psr\Log\LoggerInterface;
 
 return static function (Container $container): void {
     $container->set(LoggerInterface::class, static function (): Logger { $logger = new Logger('slim'); $logger->pushHandler(new NullHandler()); return $logger; });
-    $container->set(HealthAggregator::class, static fn (): HealthAggregator => new HealthReporter());
-    $container->set(MetricsCollector::class, static fn (): MetricsCollector => new NullMetricsCollector());
-    $container->set(AuditLog::class, static fn (): AuditLog => new NullAuditLog());
+    $container->set(HealthAggregator::class, static function (): HealthAggregator {
+        return new HealthReporter();
+    });
+    $container->set(MetricsCollector::class, static function (): MetricsCollector {
+        return new NullMetricsCollector();
+    });
+    $container->set(AuditLog::class, static function (): AuditLog {
+        return new NullAuditLog();
+    });
 };
