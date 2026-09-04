@@ -3,40 +3,26 @@
 declare(strict_types=1);
 
 use Fight\Common\Application\Service\Container;
-use Symfony\Component\Finder\Finder;
-
-/**
- * Loads services
- */
-function load_services(string $filePath, Container $container): void
-{
-    include $filePath;
-}
 
 $container = new Container();
 
-// PARAMETERS
-$finder = new Finder();
-$finder->files()->name('*.php')->in(sprintf('%s/parameters', __DIR__));
-foreach ($finder as $file) {
-    $filePath = $file->getRealPath();
-    load_services($filePath, $container);
-}
-
-// COMMON
-$finder = new Finder();
-$finder->files()->name('*.php')->in(sprintf('%s/common', __DIR__));
-foreach ($finder as $file) {
-    $filePath = $file->getRealPath();
-    load_services($filePath, $container);
-}
-
-// APPLICATION
-$finder = new Finder();
-$finder->files()->name('*.php')->in(sprintf('%s/application', __DIR__));
-foreach ($finder as $file) {
-    $filePath = $file->getRealPath();
-    load_services($filePath, $container);
+/** @var callable(Container): void $configure */
+foreach ([
+    'parameters/paths.php',
+    'common/security.php',
+    'common/observability.php',
+    'common/cache.php',
+    'common/persistence.php',
+    'common/messaging.php',
+    'common/files.php',
+    'common/http.php',
+    'common/system.php',
+    'common/communication.php',
+    'common/presentation.php',
+    'application/controller.php',
+] as $manifestEntry) {
+    $configure = require sprintf('%s/%s', __DIR__, $manifestEntry);
+    $configure($container);
 }
 
 return $container;

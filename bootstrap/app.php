@@ -14,7 +14,9 @@ $container = require sprintf('%s/config/services.php', dirname(__DIR__));
 AppFactory::setContainer($container);
 AppFactory::setResponseFactory(new ResponseFactory());
 $app = AppFactory::create();
+$container->set(Slim\App::class, static fn (): Slim\App => $app);
 
 require sprintf('%s/config/routes.php', dirname(__DIR__));
+require sprintf('%s/config/middleware.php', dirname(__DIR__));
 
 return $app;

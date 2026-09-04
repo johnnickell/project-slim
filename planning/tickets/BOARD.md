@@ -22,9 +22,7 @@ When asked for the next wayfinder target, offer to chart a new feature rather th
 
 ## Ready Frontier
 
-| Rank | Ticket | Parent PRD | Why now |
-| --- | --- | --- | --- |
-| 1 | [T-00002 — Adopt Fight Common 1.2](00002-TICKET.md) | [PRD-00002](../specs/00002-PRD.md) | Resolve, boot, and commit the Slim support receipt. |
+No implementation ticket is ready. T-00003 remains a human-information item, not an executable 2.0 migration.
 
 ## Waiting
 
@@ -40,4 +38,5 @@ No ticket is currently waiting on an unfinished local dependency.
 
 | Ticket | Parent PRD | Outcome |
 |--------|------------|---------|
+| [T-00002 — Adopt Fight Common 1.2](00002-TICKET.md) | [PRD-00002](../specs/00002-PRD.md) | Exact candidate resolved; local-safe platform profile and receipt passed local gates. |
 | [T-00001 — Establish the Governed Slim Starter Foundation](00001-TICKET.md) | [PRD-00001](../specs/00001-PRD.md) | Local and hosted `./bin/build` receipts are green. The governed bootstrap handoff is accepted. |

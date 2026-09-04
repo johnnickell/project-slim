@@ -2,7 +2,7 @@
 id: T-00002
 prd: PRD-00002
 title: Adopt Fight Common 1.2
-status: ready-for-agent
+status: done
 blocked_by:
 ---
 
@@ -15,9 +15,9 @@ lowest/latest booted journeys, and commit the canonical support receipt.
 
 ## Acceptance Criteria
 
-- [ ] The existing `^1.1` constraint resolves an installed 1.2 candidate recorded with its exact reference.
-- [ ] Lowest/latest journeys boot explicit Fight-container registrars, PSR composition, named routing, synchronous messaging, and selected adapters.
-- [ ] `evidence/framework-support/receipt-v1.json`, `./bin/planning-check`, and `./bin/build` pass before receipt commit.
+- [x] Composer resolves the exact Fight Common candidate `dev-develop` at `4a798b1db8fdb5e4af7d0ba8c98a88ac53c50c16` and commits its lockfile.
+- [x] The local-safe profile boots explicit Fight-container composition, PSR services, named routing, cache, persistence, messaging, storage, HTTP, rendering, process, scheduling, and provider fallbacks.
+- [x] `evidence/framework-support/receipt-v1.json`, `./bin/planning-check`, focused/full tests, and detached `./bin/build` evidence pass.
 
 ## Verification
 
