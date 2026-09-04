@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
+require_once __DIR__.'/framework-support-profile.php';
+
 const FRAMEWORK_SUPPORT_SCHEMA = 'fight-common.framework-support-receipt/v1';
-const FIGHT_COMMON_PACKAGE = 'johnnickell/fight-common';
-const FIGHT_COMMON_VERSION = '1.2.0-dev';
-const FIGHT_COMMON_LOCK_VERSION = 'dev-develop';
-const FIGHT_COMMON_REFERENCE = '4a798b1db8fdb5e4af7d0ba8c98a88ac53c50c16';
 
 /** @return array<string, array<string, mixed>> */
 function frameworkSupportLockedPackages(string $lockPath): array
@@ -56,9 +54,11 @@ function frameworkSupportReceipt(string $projectRoot): array
 {
     $lockPath = $projectRoot.'/composer.lock';
     $packages = frameworkSupportLockedPackages($lockPath);
-    $candidate = $packages[FIGHT_COMMON_PACKAGE] ?? throw new RuntimeException('Fight Common is missing from composer.lock.');
+    $profile = frameworkSupportProfile($projectRoot);
+    $candidateProfile = $profile['candidate'];
+    $candidate = $packages[$candidateProfile['package']] ?? throw new RuntimeException('Fight Common is missing from composer.lock.');
     $reference = $candidate['source']['reference'] ?? $candidate['dist']['reference'] ?? null;
-    if (($candidate['version'] ?? null) !== FIGHT_COMMON_LOCK_VERSION || $reference !== FIGHT_COMMON_REFERENCE) {
+    if (($candidate['version'] ?? null) !== $candidateProfile['lock_version'] || $reference !== $candidateProfile['reference']) {
         throw new RuntimeException('composer.lock does not contain the exact Fight Common candidate.');
     }
 
@@ -69,9 +69,9 @@ function frameworkSupportReceipt(string $projectRoot): array
         'schema_version' => FRAMEWORK_SUPPORT_SCHEMA,
         'content_id' => str_repeat('0', 64),
         'candidate' => [
-            'package' => FIGHT_COMMON_PACKAGE,
-            'version' => FIGHT_COMMON_VERSION,
-            'reference' => FIGHT_COMMON_REFERENCE,
+            'package' => $candidateProfile['package'],
+            'version' => $candidateProfile['version'],
+            'reference' => $candidateProfile['reference'],
         ],
         'framework' => [
             'name' => 'slim',

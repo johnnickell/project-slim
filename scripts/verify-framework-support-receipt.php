@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 $projectRoot = dirname(__DIR__);
+require $projectRoot.'/scripts/framework-support-profile.php';
+
 $candidateRoot = $argv[1] ?? '';
 $authorityFile = $candidateRoot.'/release/src/Application/StarterSupportReceiptAuthority.php';
 if ($candidateRoot === '' || !is_file($authorityFile)) {
@@ -11,7 +13,8 @@ if ($candidateRoot === '' || !is_file($authorityFile)) {
 }
 
 $reference = trim((string) shell_exec(sprintf('git -C %s rev-parse HEAD', escapeshellarg($candidateRoot))));
-if ($reference !== '4a798b1db8fdb5e4af7d0ba8c98a88ac53c50c16') {
+$candidate = frameworkSupportProfile($projectRoot)['candidate'];
+if ($reference !== $candidate['reference']) {
     fwrite(STDERR, "Fight Common receipt authority checkout is not the exact candidate.\n");
     exit(1);
 }

@@ -2,16 +2,20 @@
 
 declare(strict_types=1);
 
+use Fight\Common\Adapter\Http\Psr17\JSendResponseFactory;
+use Fight\Common\Application\Http\JSend\JSendEnvelope;
+use Fight\Common\Application\Validation\Data\ApplicationData;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\App;
-use Fight\Common\Adapter\Http\Psr17\JSendResponseFactory;
-use Fight\Common\Application\Http\JSend\JSendEnvelope;
-use Fight\Common\Application\Validation\Data\ApplicationData;
 
 /** @var App $app */
+$app = require sprintf('%s/bootstrap/app.php', dirname(__DIR__, 3));
+
 /** @var ContainerInterface $container */
+$container = $app->getContainer();
+
 $app->post(
     '/api/echo',
     function (ServerRequestInterface $request) use ($container): ResponseInterface {
@@ -27,3 +31,5 @@ $app->post(
 $app->post('/api/fail', function (): never {
     throw new RuntimeException('The HTTP journey failed.');
 });
+
+return $app;

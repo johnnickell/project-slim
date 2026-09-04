@@ -17,11 +17,32 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Validator\Validation;
 
 return static function (Container $container): void {
-    $secret = getenv('APP_HMAC_SECRET') ?: str_repeat('a1', 32);
+    $requiredEnvironmentValue = static function (string $name): string {
+        $value = getenv($name);
+
+        if ($value === false || $value === '') {
+            throw new \RuntimeException(sprintf('%s must be configured.', $name));
+        }
+
+        return $value;
+    };
+
     $container->set(ValidatorInterface::class, static fn (): ValidatorInterface => Validation::createValidator());
     $container->set(PasswordHasher::class, static fn (): PasswordHasher => new PhpPasswordHasher(PASSWORD_ARGON2ID));
     $container->set(PasswordValidator::class, static fn (): PasswordValidator => new PhpPasswordValidator(PASSWORD_ARGON2ID));
-    $container->set(TokenEncoder::class, static fn (): TokenEncoder => new JwtEncoder($secret));
-    $container->set(TokenDecoder::class, static fn (): TokenDecoder => new JwtDecoder($secret));
-    $container->set(RequestService::class, static fn (): RequestService => new HmacRequestService(getenv('APP_HMAC_KEY') ?: 'local', $secret));
+    $container->set(
+        TokenEncoder::class,
+        static fn (): TokenEncoder => new JwtEncoder($requiredEnvironmentValue('APP_HMAC_SECRET'))
+    );
+    $container->set(
+        TokenDecoder::class,
+        static fn (): TokenDecoder => new JwtDecoder($requiredEnvironmentValue('APP_HMAC_SECRET'))
+    );
+    $container->set(
+        RequestService::class,
+        static fn (): RequestService => new HmacRequestService(
+            $requiredEnvironmentValue('APP_HMAC_KEY'),
+            $requiredEnvironmentValue('APP_HMAC_SECRET')
+        )
+    );
 };

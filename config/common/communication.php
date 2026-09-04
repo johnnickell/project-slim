@@ -31,12 +31,16 @@ return static function (Container $container): void {
     $container->set(SmsService::class, static fn (Container $c): SmsService => new SmsService($c->get(SmsTransport::class)));
     $container->set(HubInterface::class, static function (): HubInterface {
         $url = getenv('MERCURE_URL');
-        $token = getenv('MERCURE_JWT') ?: 'local-mercure-token';
         if ($url) {
+            $token = getenv('MERCURE_JWT');
+            if (!is_string($token) || $token === '') {
+                throw new RuntimeException('MERCURE_JWT must be configured when MERCURE_URL is set.');
+            }
+
             return new Hub($url, new StaticTokenProvider($token));
         }
 
-        return new MockHub('http://localhost/.well-known/mercure', new StaticTokenProvider($token), static fn (): string => 'local');
+        return new MockHub('http://localhost/.well-known/mercure', new StaticTokenProvider('local-mercure-token'), static fn (): string => 'local');
     });
     $container->set(Publisher::class, static fn (Container $c): Publisher => new MercureHubPublisher($c->get(HubInterface::class)));
     $container->set(PrivatePublisher::class, static fn (Container $c): PrivatePublisher => new PrivateMercureHubPublisher($c->get(HubInterface::class)));

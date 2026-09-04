@@ -12,7 +12,8 @@ docker run --rm --volume "$(pwd):/app" --workdir /app "$image" sh -ec '
   work_root=$(mktemp -d)
   trap "rm -rf \"$work_root\" || true" EXIT
   git clone --quiet --no-checkout https://github.com/johnnickell/fight-common "$work_root/fight-common"
-  git -C "$work_root/fight-common" checkout --quiet --detach 4a798b1db8fdb5e4af7d0ba8c98a88ac53c50c16
+  candidate_reference=$(php scripts/framework-support-profile.php --candidate-reference)
+  git -C "$work_root/fight-common" checkout --quiet --detach "$candidate_reference"
   php scripts/verify-framework-support-receipt.php "$work_root/fight-common"
 
   ./bin/planning-check
@@ -24,5 +25,5 @@ docker run --rm --volume "$(pwd):/app" --workdir /app "$image" sh -ec '
   cd "$production_root"
   composer install --no-dev --no-interaction --prefer-dist --no-progress
   php scripts/public-contract-check.php
-  php -r '\''$app = require "bootstrap/app.php"; $response = $app->handle((new Slim\Psr7\Factory\ServerRequestFactory())->createServerRequest("GET", "/")); if ($response->getStatusCode() !== 200 || (string) $response->getBody() !== "Fight Slim starter is ready.") { throw new RuntimeException("Production Slim request failed."); }'\''
+  php scripts/verify-production-framework-support-profile.php
 '

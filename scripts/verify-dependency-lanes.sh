@@ -3,7 +3,6 @@ set -eu
 
 project_root=$(CDPATH= cd -- "$(dirname "$0")/.." && pwd)
 mode=${1:-verify}
-candidate_reference=4a798b1db8fdb5e4af7d0ba8c98a88ac53c50c16
 
 copy_lane() {
     target=$1
@@ -16,35 +15,7 @@ copy_lane() {
 
 assert_runtime_graph() {
     lane_root=$1
-    php -r '
-        $lock = json_decode(file_get_contents($argv[1]), true, 512, JSON_THROW_ON_ERROR);
-        $packages = array_merge($lock["packages"], $lock["packages-dev"] ?? []);
-        $byName = [];
-        foreach ($packages as $package) { $byName[$package["name"]] = $package; }
-        $candidate = $byName["johnnickell/fight-common"] ?? null;
-        if (($candidate["version"] ?? null) !== "dev-develop" || ($candidate["source"]["reference"] ?? null) !== $argv[2]) {
-            fwrite(STDERR, "Fight Common candidate identity is not locked as required.\n");
-            exit(1);
-        }
-        $runtimeAbsent = [
-            "laravel/framework", "symfony/framework-bundle", "codeigniter4/framework", "cakephp/cakephp",
-            "php-di/php-di", "php-di/slim-bridge", "slim/csrf", "slim/twig-view",
-            "symfony/finder", "symfony/messenger", "symfony/scheduler", "twilio/sdk"
-        ];
-        foreach ($runtimeAbsent as $package) {
-            if (isset($byName[$package])) {
-                fwrite(STDERR, sprintf("Unselected package is present in dependency lane: %s\n", $package));
-                exit(1);
-            }
-        }
-        $manifest = json_decode(file_get_contents($argv[3]), true, 512, JSON_THROW_ON_ERROR);
-        foreach (["php-di/php-di", "php-di/slim-bridge", "slim/csrf", "slim/twig-view", "symfony/console", "symfony/finder", "symfony/messenger", "symfony/scheduler", "twilio/sdk"] as $package) {
-            if (isset($manifest["require"][$package])) {
-                fwrite(STDERR, sprintf("Unselected package remains a direct dependency: %s\n", $package));
-                exit(1);
-            }
-        }
-    ' "$lane_root/composer.lock" "$candidate_reference" "$lane_root/composer.json"
+    php "$project_root/scripts/framework-support-profile.php" --assert-lane "$lane_root"
 }
 
 if [ "$mode" = "refresh-lowest" ]; then
@@ -93,7 +64,13 @@ for lane in latest lowest; do
             tests/BootstrapTest.php \
             tests/Integration/ContainerContractsTest.php \
             tests/Integration/MessagingJourneyTest.php \
-            tests/Integration/ProviderJourneyTest.php \
+            tests/Integration/SecurityConfigurationTest.php \
+            tests/Integration/SecurityAndValidationJourneyTest.php \
+            tests/Integration/HttpRoutingAndPresentationJourneyTest.php \
+            tests/Integration/PersistenceAndStorageJourneyTest.php \
+            tests/Integration/SystemAndObservabilityJourneyTest.php \
+            tests/Integration/CommunicationJourneyTest.php \
+            tests/Functional/Http/ProductionRouteBoundaryTest.php \
             tests/Functional/Http/HttpPipelineTest.php
     )
     rm -rf "$lane_root"

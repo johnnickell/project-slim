@@ -22,7 +22,7 @@ final class HttpPipelineTest extends TestCase
 
     public function test_a_state_changing_json_request_is_parsed_before_the_route_handles_it(): void
     {
-        $app = require sprintf('%s/bootstrap/app.php', dirname(__DIR__, 3));
+        $app = require sprintf('%s/tests/Fixture/Http/boot.php', dirname(__DIR__, 3));
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/api/echo')
             ->withHeader('Content-Type', 'application/json')
@@ -39,7 +39,7 @@ final class HttpPipelineTest extends TestCase
 
     public function test_invalid_json_is_returned_as_a_jsend_error_response(): void
     {
-        $app = require sprintf('%s/bootstrap/app.php', dirname(__DIR__, 3));
+        $app = require sprintf('%s/tests/Fixture/Http/boot.php', dirname(__DIR__, 3));
         $request = (new ServerRequestFactory())
             ->createServerRequest('POST', '/api/echo')
             ->withHeader('Content-Type', 'application/json')
@@ -56,7 +56,7 @@ final class HttpPipelineTest extends TestCase
 
     public function test_downstream_failures_are_returned_as_jsend_error_responses(): void
     {
-        $app = require sprintf('%s/bootstrap/app.php', dirname(__DIR__, 3));
+        $app = require sprintf('%s/tests/Fixture/Http/boot.php', dirname(__DIR__, 3));
 
         $response = $app->handle((new ServerRequestFactory())->createServerRequest('POST', '/api/fail'));
 
