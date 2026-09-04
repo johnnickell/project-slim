@@ -16,11 +16,11 @@ return static function (Container $container): void {
     $container->set(Connection::class, static function (Container $container): Connection {
         return DriverManager::getConnection((new DsnParser(['sqlite' => 'pdo_sqlite']))->parse($container['app.database_url']));
     });
-    $container->set(EntityManagerInterface::class, static function (Container $c): EntityManagerInterface {
+    $container->set(EntityManagerInterface::class, static function (Container $container): EntityManagerInterface {
         $configuration = ORMSetup::createAttributeMetadataConfiguration([], true);
         $configuration->enableNativeLazyObjects(true);
 
-        return new EntityManager($c->get(Connection::class), $configuration);
+        return new EntityManager($container->get(Connection::class), $configuration);
     });
     $container->set(TransactionalUnitOfWork::class, static function (Container $container): TransactionalUnitOfWork {
         return new DoctrineTransactionalUnitOfWork($container->get(EntityManagerInterface::class));

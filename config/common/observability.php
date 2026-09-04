@@ -14,7 +14,12 @@ use Monolog\Logger;
 use Psr\Log\LoggerInterface;
 
 return static function (Container $container): void {
-    $container->set(LoggerInterface::class, static function (): Logger { $logger = new Logger('slim'); $logger->pushHandler(new NullHandler()); return $logger; });
+    $container->set(LoggerInterface::class, static function (): Logger {
+        $logger = new Logger('slim');
+        $logger->pushHandler(new NullHandler());
+
+        return $logger;
+    });
     $container->set(HealthAggregator::class, static function (): HealthAggregator {
         return new HealthReporter();
     });

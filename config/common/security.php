@@ -21,7 +21,7 @@ return static function (Container $container): void {
         $value = getenv($name);
 
         if ($value === false || $value === '') {
-            throw new \RuntimeException(sprintf('%s must be configured.', $name));
+            throw new RuntimeException(sprintf('%s must be configured.', $name));
         }
 
         return $value;

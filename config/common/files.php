@@ -32,14 +32,16 @@ return static function (Container $container): void {
     $container->set(FightFilesystem::class, static function (Container $container): FightFilesystem {
         return new FightSymfonyFilesystem($container->get(SymfonyFilesystem::class));
     });
-    $container->set(StorageService::class, static function (Container $c): StorageService {
+    $container->set(StorageService::class, static function (Container $container): StorageService {
         $storage = new StorageService();
-        $storage->addStorage('local', $c->get(FileStorage::class));
+        $storage->addStorage('local', $container->get(FileStorage::class));
+
         return $storage;
     });
-    $container->set(FileTransferService::class, static function (Container $c): FileTransferService {
+    $container->set(FileTransferService::class, static function (Container $container): FileTransferService {
         $transfers = new FileTransferService();
-        $transfers->addTransport('null', $c->get(FileTransport::class));
+        $transfers->addTransport('null', $container->get(FileTransport::class));
+
         return $transfers;
     });
 };
