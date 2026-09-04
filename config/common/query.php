@@ -10,10 +10,18 @@ use Fight\Common\Application\Service\Container;
 
 return [
     'services' => [
-        'messaging.query.router' => static fn (Container $container): ServiceAwareQueryRouter => new ServiceAwareQueryRouter($container),
-        'messaging.query.routing' => static fn (Container $container): RoutingQueryBus => new RoutingQueryBus($container->get('messaging.query.router')),
-        'messaging.query.bus' => static fn (Container $container): QueryPipeline => new QueryPipeline($container->get('messaging.query.routing')),
-        QueryBus::class => static fn (Container $container): QueryBus => $container->get('messaging.query.bus'),
+        'messaging.query.router' => static function (Container $container): ServiceAwareQueryRouter {
+            return new ServiceAwareQueryRouter($container);
+        },
+        'messaging.query.routing' => static function (Container $container): RoutingQueryBus {
+            return new RoutingQueryBus($container->get('messaging.query.router'));
+        },
+        'messaging.query.bus' => static function (Container $container): QueryPipeline {
+            return new QueryPipeline($container->get('messaging.query.routing'));
+        },
+        QueryBus::class => static function (Container $container): QueryBus {
+            return $container->get('messaging.query.bus');
+        },
     ],
     'handlers' => [],
     'filters' => [],

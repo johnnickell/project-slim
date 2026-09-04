@@ -27,12 +27,20 @@ return static function (Container $container): void {
     $container->set(MailerInterface::class, static function (): MailerInterface {
         return new Mailer(Transport::fromDsn(getenv('MAILER_DSN') ?: 'null://null'));
     });
-    $container->set(MailTransport::class, static fn (Container $c): MailTransport => getenv('MAILER_DSN') ? new SymfonyMailTransport($c->get(MailerInterface::class)) : new NullMailTransport());
-    $container->set(MailService::class, static fn (Container $c): MailService => new MailService($c->get(MailTransport::class), new SymfonyMailFactory()));
+    $container->set(MailTransport::class, static function (Container $container): MailTransport {
+        return getenv('MAILER_DSN')
+            ? new SymfonyMailTransport($container->get(MailerInterface::class))
+            : new NullMailTransport();
+    });
+    $container->set(MailService::class, static function (Container $container): MailService {
+        return new MailService($container->get(MailTransport::class), new SymfonyMailFactory());
+    });
     $container->set(SmsTransport::class, static function (): SmsTransport {
         return new NullSmsTransport();
     });
-    $container->set(SmsService::class, static fn (Container $c): SmsService => new SmsService($c->get(SmsTransport::class)));
+    $container->set(SmsService::class, static function (Container $container): SmsService {
+        return new SmsService($container->get(SmsTransport::class));
+    });
     $container->set(HubInterface::class, static function (): HubInterface {
         $url = getenv('MERCURE_URL');
         if ($url) {
@@ -52,6 +60,10 @@ return static function (Container $container): void {
             }
         );
     });
-    $container->set(Publisher::class, static fn (Container $c): Publisher => new MercureHubPublisher($c->get(HubInterface::class)));
-    $container->set(PrivatePublisher::class, static fn (Container $c): PrivatePublisher => new PrivateMercureHubPublisher($c->get(HubInterface::class)));
+    $container->set(Publisher::class, static function (Container $container): Publisher {
+        return new MercureHubPublisher($container->get(HubInterface::class));
+    });
+    $container->set(PrivatePublisher::class, static function (Container $container): PrivatePublisher {
+        return new PrivateMercureHubPublisher($container->get(HubInterface::class));
+    });
 };

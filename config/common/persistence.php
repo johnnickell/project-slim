@@ -13,12 +13,16 @@ use Fight\Common\Application\Repository\TransactionalUnitOfWork;
 use Fight\Common\Application\Service\Container;
 
 return static function (Container $container): void {
-    $container->set(Connection::class, static fn (Container $c): Connection => DriverManager::getConnection((new DsnParser(['sqlite' => 'pdo_sqlite']))->parse($c['app.database_url'])));
+    $container->set(Connection::class, static function (Container $container): Connection {
+        return DriverManager::getConnection((new DsnParser(['sqlite' => 'pdo_sqlite']))->parse($container['app.database_url']));
+    });
     $container->set(EntityManagerInterface::class, static function (Container $c): EntityManagerInterface {
         $configuration = ORMSetup::createAttributeMetadataConfiguration([], true);
         $configuration->enableNativeLazyObjects(true);
 
         return new EntityManager($c->get(Connection::class), $configuration);
     });
-    $container->set(TransactionalUnitOfWork::class, static fn (Container $c): TransactionalUnitOfWork => new DoctrineTransactionalUnitOfWork($c->get(EntityManagerInterface::class)));
+    $container->set(TransactionalUnitOfWork::class, static function (Container $container): TransactionalUnitOfWork {
+        return new DoctrineTransactionalUnitOfWork($container->get(EntityManagerInterface::class));
+    });
 };

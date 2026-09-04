@@ -14,7 +14,9 @@ return static function (Container $container): void {
     $container->set(Environment::class, static function (): Environment {
         return new Environment(new ArrayLoader(['profile' => 'Slim {{ value }}']));
     });
-    $container->set(TemplateEngine::class, static fn (Container $c): TemplateEngine => new TwigEngine($c->get(Environment::class)));
+    $container->set(TemplateEngine::class, static function (Container $container): TemplateEngine {
+        return new TwigEngine($container->get(Environment::class));
+    });
     $container->set(Serializer::class, static function (): Serializer {
         return new JsonSerializer();
     });

@@ -14,6 +14,10 @@ return static function (Container $container): void {
     $container->set(CacheItemPoolInterface::class, static function (): CacheItemPoolInterface {
         return new ArrayAdapter();
     });
-    $container->set(CacheInterface::class, static fn (Container $c): CacheInterface => new Psr16Cache($c->get(CacheItemPoolInterface::class)));
-    $container->set(PsrCache::class, static fn (Container $c): PsrCache => new PsrCache($c->get(CacheItemPoolInterface::class), $c->get(LoggerInterface::class)));
+    $container->set(CacheInterface::class, static function (Container $container): CacheInterface {
+        return new Psr16Cache($container->get(CacheItemPoolInterface::class));
+    });
+    $container->set(PsrCache::class, static function (Container $container): PsrCache {
+        return new PsrCache($container->get(CacheItemPoolInterface::class), $container->get(LoggerInterface::class));
+    });
 };

@@ -9,9 +9,15 @@ use Fight\Common\Application\Service\Container;
 
 return [
     'services' => [
-        'messaging.event.dispatcher' => static fn (Container $container): ServiceAwareEventDispatcher => new ServiceAwareEventDispatcher($container),
-        EventDispatcher::class => static fn (Container $container): EventDispatcher => $container->get('messaging.event.dispatcher'),
-        SynchronousEventDispatcher::class => static fn (Container $container): SynchronousEventDispatcher => $container->get('messaging.event.dispatcher'),
+        'messaging.event.dispatcher' => static function (Container $container): ServiceAwareEventDispatcher {
+            return new ServiceAwareEventDispatcher($container);
+        },
+        EventDispatcher::class => static function (Container $container): EventDispatcher {
+            return $container->get('messaging.event.dispatcher');
+        },
+        SynchronousEventDispatcher::class => static function (Container $container): SynchronousEventDispatcher {
+            return $container->get('messaging.event.dispatcher');
+        },
     ],
     'subscribers' => [],
 ];
