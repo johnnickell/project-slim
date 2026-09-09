@@ -22,3 +22,8 @@ lowest/latest booted journeys, and commit the canonical support receipt.
 ## Verification
 
 Run documented lowest/latest Composer and booted journeys, receipt canonicalization, `./bin/planning-check`, and `./bin/build`.
+## Supersession
+
+Fight Common's 2026-09-09 authorship-only history rewrite supersedes the commit identity recorded above without
+changing its source tree: `4a798b1db8fdb5e4af7d0ba8c98a88ac53c50c16 -> fad24ae9fdcf4ac00fa55c59ef7d35f7c7531911`. T-00005 owns the fresh consumer locks,
+receipt digests, and verification for the rewritten identity; the original certification remains historical fact.

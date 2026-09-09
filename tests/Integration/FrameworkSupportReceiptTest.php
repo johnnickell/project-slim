@@ -20,7 +20,7 @@ final class FrameworkSupportReceiptTest extends TestCase
         self::assertSame('johnnickell/fight-common', $profile['candidate']['package']);
         self::assertSame('dev-develop', $profile['candidate']['lock_version']);
         self::assertSame('1.2.0-dev', $profile['candidate']['version']);
-        self::assertSame('4a798b1db8fdb5e4af7d0ba8c98a88ac53c50c16', $profile['candidate']['reference']);
+        self::assertSame('fad24ae9fdcf4ac00fa55c59ef7d35f7c7531911', $profile['candidate']['reference']);
 
         $directPackages = array_keys($manifest['require']);
         unset($directPackages[array_search('php', $directPackages, true)]);
