@@ -17,8 +17,9 @@ deprecation-removal inventory, and migration guide exist.
 
 ## Wayfinder Review
 
-No active Wayfinder map currently exists. When an active map has an unblocked frontier ticket, list it here.
-When asked for the next wayfinder target, offer to chart a new feature rather than fabricating one.
+[Slim AccessControl Application](../wayfinder/slim-access-control-application-map.md) is active. Its one current
+frontier is [WF-002 — Local Development Runtime Contract](../wayfinder/tickets/WF-002-local-development-runtime-contract.md),
+the unblocked HITL decision for the complete worktree-safe local Docker and environment contract.
 
 ## Ready Frontier
 
