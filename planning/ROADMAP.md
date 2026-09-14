@@ -4,11 +4,11 @@
 
 | PRD | Target | Status | Current outcome |
 | --- | --- | --- | --- |
-| [PRD-00002](specs/00002-PRD.md) | Fight Common 1.2 | in-progress | 1.2 candidate adoption and Slim receipt are complete; retain 2.0 preparation as needs-info. |
+| [PRD-00002](specs/00002-PRD.md) | Fight Common 1.2 | in-progress | T-00006 owns the lean Slim gate; 1.2 adoption and receipt records remain historical and 2.0 remains needs-info. |
 
 ## Route to 1.0
 
-1. Preserve the completed candidate lock and Slim platform receipt as adoption evidence.
+1. Implement T-00006's one lean local and hosted `./bin/build` gate with direct Unit-only coverage and retained Slim journeys.
 2. Revisit 2.0 only after Fight Common publishes its migration authority.
 
 ## Completed / Released

@@ -23,7 +23,9 @@ the unblocked HITL decision for the complete worktree-safe local Docker and envi
 
 ## Ready Frontier
 
-No implementation ticket is ready. T-00003 remains a human-information item, not an executable 2.0 migration.
+| Suggested Order | Ticket | Parent PRD | Why now |
+| --- | --- | --- | --- |
+| 1 | [T-00006 — Establish the Lean Slim Pre-Submit Quality Gate](00006-TICKET.md) | [PRD-00002](../specs/00002-PRD.md) | Direct successor to Fight Common T-00087; remove receipt/profile/lane fixtures and monolithic topology. |
 
 ## Waiting
 
