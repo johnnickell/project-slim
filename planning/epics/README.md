@@ -2,7 +2,7 @@
 
 | Epic | Destination | Status |
 | --- | --- | --- |
-| [EPIC-00001](00001-EPIC.md) | Align Engineering and Delivery | in-progress — TASK-00001 reconciliation independently accepted; landing authorized; TASK-00002 first ready successor |
+| [EPIC-00001](00001-EPIC.md) | Align Engineering and Delivery | in-progress — TASK-00001 accepted, [PR #12](https://github.com/johnnickell/project-slim/pull/12) open; TASK-00002 first ready successor |
 | [EPIC-00002](00002-EPIC.md) | Governed Slim Starter Foundation | done — migration-only grouping of historical acceptance |
 | [EPIC-00003](00003-EPIC.md) | Fight Common Adoption Continuity | in-progress — migrated adoption evidence; Common 2.0 and incoming lean-gate scope/coverage unresolved |
 

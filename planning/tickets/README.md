@@ -19,8 +19,8 @@ The [TASK Board](BOARD.md) is the execution entrypoint; [TASKs](../tasks/README.
 | 6 | [TICKET-00012](00012-TICKET.md) | Safe and Predictable HTTP Failures | ready-for-agent | TICKET-00008, TICKET-00010, TICKET-00011 |
 
 The ten alignment TASKs retain their graph. TASK-00001's reconciliation is independently accepted at `6203941`;
-landing is authorized, with publication and merge separate. TASK-00002 is the first ready successor. Completed edges
-remain history.
+[PR #12](https://github.com/johnnickell/project-slim/pull/12) is open, with human approval/merge separate.
+TASK-00002 is the first ready successor. Completed edges remain history.
 
 ## Migrated Requirements
 

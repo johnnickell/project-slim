@@ -12,9 +12,9 @@ remain TASK-00002 work. [MIGRATION.md](../MIGRATION.md) distinguishes historical
 
 ## Now
 
-[TASK-00001](../tasks/00001-TASK.md)'s advanced-base reconciliation is independently accepted at `6203941` against
-`c19e0b9`; no findings remain. Landing is authorized on `feature/engineering-alignment-planning`; publication is being
-verified separately and does not grant human approval or merge authority.
+Review [PR #12](https://github.com/johnnickell/project-slim/pull/12) for [TASK-00001](../tasks/00001-TASK.md) and its
+hosted checks before a separate human merge decision. Independent acceptance covers `6203941` against `c19e0b9` with
+no findings; subsequent landing edits record acceptance/publication metadata only.
 
 Decide [TASK-00016](../tasks/00016-TASK.md)'s overlap with the alignment slices and exact-100%-direct-Unit coverage
 requirement versus their deferred-threshold policy before gate/coverage implementation. The incoming handoff is
@@ -70,7 +70,7 @@ historical evidence; completion and review do not imply publication or merge.
 
 | TASK | Parent requirement | Outcome |
 | --- | --- | --- |
-| [TASK-00001 — Migrate Planning to the New Schema](../tasks/00001-TASK.md) | [TICKET-00007](00007-TICKET.md) | done: reconciled schema independently accepted at 6203941; preservation checks and canonical build pass; landing authorized, merge separate. |
+| [TASK-00001 — Migrate Planning to the New Schema](../tasks/00001-TASK.md) | [TICKET-00007](00007-TICKET.md) | done: reconciled schema independently accepted at 6203941; preservation checks and canonical build pass; [PR #12](https://github.com/johnnickell/project-slim/pull/12) open; human merge separate. |
 | [TASK-00015 — Establish the Requirement, Task, and Review Planning Surface](../tasks/00015-TASK.md) | [TICKET-00015](00015-TICKET.md) | wontfix: bootstrap-first sequence superseded without implementation; not PR #11's lean-gate handoff. |
 | [TASK-00014 — Re-certify Rewritten Fight Common Candidate](../tasks/00014-TASK.md) | [TICKET-00014](00014-TICKET.md) | done: historical tree-equivalent candidate recertification, lock/receipt digests, and canonical build. |
 | [TASK-00012 — Adopt Fight Common 1.2](../tasks/00012-TASK.md) | [TICKET-00014](00014-TICKET.md) | done: historical exact candidate/local-safe profile and receipt gates. |
