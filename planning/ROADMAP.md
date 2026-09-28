@@ -4,13 +4,14 @@
 
 | Epic | Target | Status | Current outcome |
 | --- | --- | --- | --- |
-| [EPIC-00001](epics/00001-EPIC.md) | Unversioned engineering alignment | in-progress | TASK-00001 reconciliation locally verified; fresh independent review required. TASK-00002 first ready successor. |
+| [EPIC-00001](epics/00001-EPIC.md) | Unversioned engineering alignment | in-progress | TASK-00001 reconciliation independently accepted; landing authorized, merge separate. TASK-00002 first ready successor. |
 | [EPIC-00003](epics/00003-EPIC.md) | Existing adoption evidence and incoming gate handoff | in-progress | Historical adoption/receipt evidence retained. Common 2.0 remains needs-info in TASK-00013; migrated lean-gate TASK-00016 needs a scope/coverage decision. |
 
 ## Route to 1.0
 
-1. Independently review [TASK-00001](tasks/00001-TASK.md)'s locally verified advanced-base reconciliation. All records
-   use EPIC/TICKET/TASK; [MIGRATION.md](MIGRATION.md) distinguishes the two historical T-00006 sources. TASK-00002 is
+1. Publish the independently accepted [TASK-00001](tasks/00001-TASK.md) through its authorized landing; human review
+   and merge remain separate. All records use EPIC/TICKET/TASK; [MIGRATION.md](MIGRATION.md) distinguishes the two
+   historical T-00006 sources. TASK-00002 is
    the first ready successor; generated views/archive tooling and review handoffs remain separate work.
 2. Resolve [TASK-00016](tasks/00016-TASK.md)'s incoming lean-gate handoff against the alignment slices before gate/
    coverage implementation: assign its overlapping scope and decide exact 100% direct-Unit coverage versus the

@@ -12,9 +12,9 @@ remain TASK-00002 work. [MIGRATION.md](../MIGRATION.md) distinguishes historical
 
 ## Now
 
-Obtain fresh independent Spec/Standards review of [TASK-00001](../tasks/00001-TASK.md)'s locally verified advanced-base
-reconciliation on `feature/engineering-alignment-planning`. The prior accept covers head `7f37936` only; the revised
-portfolio passes preservation checks and the canonical build but is not yet independently accepted or published.
+[TASK-00001](../tasks/00001-TASK.md)'s advanced-base reconciliation is independently accepted at `6203941` against
+`c19e0b9`; no findings remain. Landing is authorized on `feature/engineering-alignment-planning`; publication is being
+verified separately and does not grant human approval or merge authority.
 
 Decide [TASK-00016](../tasks/00016-TASK.md)'s overlap with the alignment slices and exact-100%-direct-Unit coverage
 requirement versus their deferred-threshold policy before gate/coverage implementation. The incoming handoff is
@@ -65,12 +65,12 @@ require the explicit scope/coverage decision in TASK-00016 before execution; it 
 
 ## Recently Closed / Done
 
-TASK-00001 has fresh local reconciliation evidence, not independent acceptance of this revision. Other entries
-retain historical evidence.
+TASK-00001 has fresh local evidence and independent acceptance of the reconciled snapshot. Other entries retain
+historical evidence; completion and review do not imply publication or merge.
 
 | TASK | Parent requirement | Outcome |
 | --- | --- | --- |
-| [TASK-00001 — Migrate Planning to the New Schema](../tasks/00001-TASK.md) | [TICKET-00007](00007-TICKET.md) | done: all records reconciled to adopted schema, preservation checks and canonical build pass; fresh review pending. |
+| [TASK-00001 — Migrate Planning to the New Schema](../tasks/00001-TASK.md) | [TICKET-00007](00007-TICKET.md) | done: reconciled schema independently accepted at 6203941; preservation checks and canonical build pass; landing authorized, merge separate. |
 | [TASK-00015 — Establish the Requirement, Task, and Review Planning Surface](../tasks/00015-TASK.md) | [TICKET-00015](00015-TICKET.md) | wontfix: bootstrap-first sequence superseded without implementation; not PR #11's lean-gate handoff. |
 | [TASK-00014 — Re-certify Rewritten Fight Common Candidate](../tasks/00014-TASK.md) | [TICKET-00014](00014-TICKET.md) | done: historical tree-equivalent candidate recertification, lock/receipt digests, and canonical build. |
 | [TASK-00012 — Adopt Fight Common 1.2](../tasks/00012-TASK.md) | [TICKET-00014](00014-TICKET.md) | done: historical exact candidate/local-safe profile and receipt gates. |

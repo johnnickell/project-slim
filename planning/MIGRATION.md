@@ -67,7 +67,9 @@ to the new records; upstream Common IDs remain external provenance. The gate wor
 not misclassified as the wontfix bootstrap. No archive occurs.
 
 The incoming diff/source are retained at `.runs/2026-09-28-task-00001-reconcile/`. This substantive reconciliation
-requires fresh independent review; the prior accept report remains unchanged and does not certify the new tree.
+required fresh independent review rather than reuse of the prior acceptance. That review independently accepted
+`6203941` against `c19e0b9`; its canonical report and evidence are recorded in TASK-00001. The older acceptance remains
+historical evidence for its own snapshot, not certification of the reconciled tree.
 
 ## Semantic Preservation
 

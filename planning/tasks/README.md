@@ -11,7 +11,7 @@ Old IDs are not executable aliases; all work records now use EPIC/TICKET/TASK.
 
 | Order | TASK | Parent requirement | Status | TASK blockers |
 | --- | --- | --- | --- | --- |
-| 1 | [TASK-00001 — Migrate Planning to the New Schema](00001-TASK.md) | [TICKET-00007](../tickets/00007-TICKET.md) | done; reconciled advanced base, fresh review pending | — |
+| 1 | [TASK-00001 — Migrate Planning to the New Schema](00001-TASK.md) | [TICKET-00007](../tickets/00007-TICKET.md) | done; reconciled advanced base independently accepted, landing authorized | — |
 | 2 | [TASK-00002 — Generate Planning Views Safely](00002-TASK.md) | [TICKET-00007](../tickets/00007-TICKET.md) | ready-for-agent | [TASK-00001](00001-TASK.md) |
 | 3 | [TASK-00003 — Establish Independent Review Handoffs](00003-TASK.md) | [TICKET-00007](../tickets/00007-TICKET.md) | ready-for-agent | [TASK-00001](00001-TASK.md) |
 | 4 | [TASK-00004 — Establish Ownership and PHP Conventions](00004-TASK.md) | [TICKET-00008](../tickets/00008-TICKET.md) | ready-for-agent | [TASK-00001](00001-TASK.md) |
