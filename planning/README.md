@@ -1,24 +1,32 @@
 # Planning
 
-This directory is the committed source of truth for Fight Slim Starter planning.
+This directory is the committed source of truth for Fight Slim Starter planning. The only supported work hierarchy
+is `EPIC -> TICKET -> TASK`; requirements and implementation records have distinct authority.
 
 - `ROADMAP.md` records strategic progress.
 - `epics/` describes destinations.
-- `specs/` describes coherent product requirements.
-- `tickets/` contains executable work; each ticket is canonical for its own status and dependencies.
-- `tickets/BOARD.md` ranks the current execution frontier.
+- `tickets/` owns requirements under `TICKET-NNNNN` identities.
+- `tasks/` owns bounded implementation under `TASK-NNNNN` identities and their approved dependency graph.
+- `tickets/BOARD.md` is the current execution entrypoint for TASKs; generation is still pending.
 - `adr/` records architectural decisions.
 - `agents/` contains focused working instructions.
-- `wayfinder/` contains planning-only investigation maps and decision tickets for efforts whose
-  implementation route is not clear enough for an epic or PRD yet.
+- `wayfinder/` holds planning-only investigation maps and decision records, not executable work.
 
-Every artifact directory keeps a `_…_TEMPLATE.md` copy-ready starting point. `wayfinder/README.md` is the
-continuity index for charting work and its next decision frontier. Archives remain part of this committed
-planning record: use `./bin/archive-planning` only when explicitly asked, review its dry run, then use `--apply`
-to move eligible terminal records and repair local Markdown links.
+[MIGRATION.md](MIGRATION.md) maps the removed PRD/T-ticket paths to their new records, preserving historical outcomes,
+unresolved information gates, and supersession evidence. Old IDs are provenance only, not parser aliases. There is no
+compatibility parser, legacy execution frontier, or legacy archive mode. TASK-00001's implementation/verification
+status remains separate from independent review.
 
-Identifiers are independent five-digit sequences. Ticket identifiers are displayed as `T-NNNNN`. Valid statuses are `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `in-progress`, `done`, and `wontfix`. Blocking is derived from unfinished `blocked_by` edges and is not stored as a status.
+Use copy-ready `_…_TEMPLATE.md` files beside records. IDs have five digits and separate sequences for EPICs, TICKETs,
+and TASKs; preserve gaps and avoid live/archive identity and path collisions or reusing historical allocations.
+Requirements are not executable merely because they are ready. Blocking is derived from unfinished dependency edges.
 
-`CONVENTIONS.md` is the canonical reference for planning structure, file naming, ticket lifecycle, BOARD.md, wayfinder maps, epics, PRDs, and pre-PR synchronization.
+`CONVENTIONS.md` defines metadata, lifecycle, authority, and the migration boundary. Preserve historical meaning through
+provenance and link repair, not dual mutable records. Archive only on explicit request using the owning new-schema
+command once implemented; schema migration does not authorize moving records into archives.
 
-Run `./bin/planning-check` after changing planning files. Coordinate-build scratch belongs in gitignored `.runs/`, never here.
+Run `./bin/planning-check` after planning changes: it validates only EPIC/TICKET/TASK and local Markdown file targets,
+read-only. Heading anchors are not validated. There is no `--write` or drift detection yet; unsupported options fail.
+TASK-00002 owns generated views and new-schema archive tooling. The archive command is disabled (exit 2, no mutation).
+Direct checks are not the full canonical gate; do not commit or publish with a failing required gate. Scratch belongs
+in ignored `.runs/`, never here.

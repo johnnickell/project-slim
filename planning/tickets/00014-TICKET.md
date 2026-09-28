@@ -1,10 +1,26 @@
 ---
-id: PRD-00002
+id: TICKET-00014
+epic: EPIC-00003
 title: Fight Common Version Adoption and Support Evidence
 status: in-progress
+order:
+blocked_by:
 ---
 
 # Fight Common Version Adoption and Support Evidence
+
+## Migration Provenance and Current Boundary
+
+Converted from PRD-00002 under [TASK-00001](../tasks/00001-TASK.md); see the [mapping](../MIGRATION.md).
+EPIC-00003 is a migration-only grouping, not a new program or release commitment. Status remains in-progress because
+Common 2.0 preparation is still unresolved, not because ongoing certification is newly authorized.
+
+Children: [TASK-00012](../tasks/00012-TASK.md) (historical adoption), [TASK-00014](../tasks/00014-TASK.md) (historical
+recertification), and [TASK-00013](../tasks/00013-TASK.md) (needs-info; no Common 2.0 implementation authority).
+[EPIC-00001](../epics/00001-EPIC.md) supersedes the historical ongoing matrix/receipt obligations below. Retirement is
+TASK-00005 work. The source body is preserved as historical evidence, not current certification policy or a fresh gate.
+
+## Historical Requirement Body
 
 ## Problem Statement
 

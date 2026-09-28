@@ -1,10 +1,22 @@
 ---
-id: PRD-00001
+id: TICKET-00013
+epic: EPIC-00002
 title: Slim Starter Product and Walking-Slice Acceptance
 status: done
+order:
+blocked_by:
 ---
 
 # Slim Starter Product and Walking-Slice Acceptance
+
+## Migration Provenance
+
+Converted from PRD-00001 under [TASK-00001](../tasks/00001-TASK.md); see the [mapping](../MIGRATION.md).
+Parent EPIC-00002 is a migration-only grouping of this already-accepted foundation, not a new approval.
+The body below preserves historical requirements and acceptance context, not fresh verification.
+Implementation: [TASK-00011](../tasks/00011-TASK.md), formerly T-00001. No additional execution is authorized.
+
+## Historical Requirement Body
 
 ## Problem Statement
 

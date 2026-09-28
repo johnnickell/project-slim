@@ -27,7 +27,7 @@ typed `/api/v1/access` contract?
 - Own the generator command, checked-in artifact, Swagger UI, servers, tags, paths, operations, security schemes,
   status codes, framework errors, and drift check while matching Symfony paths, methods, operation IDs, payloads,
   safe errors, and authentication behavior.
-- Record the accepted architecture in a Slim-local ADR before implementation tickets are created.
+- Record the accepted architecture in a Slim-local ADR before implementation TASKs are created.
 
 ## Resolution boundary
 
