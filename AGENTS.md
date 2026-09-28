@@ -6,7 +6,7 @@ Slim owns `src/`, its explicit Fight Common container definitions, routes, middl
 
 ## Work Routing
 
-When asked "What's next?" or invoked without a task, read `planning/tickets/BOARD.md` and return the current human decision under **Now** and the first ticket under **Ready Frontier**. Use `planning/CONVENTIONS.md` to interpret ticket status and ordering.
+When asked "What's next?" or invoked without a task, read `planning/tickets/BOARD.md` and return the current human decision under **Now** and the first TASK under **Ready Frontier**. Use `planning/CONVENTIONS.md` to interpret record status and ordering.
 
 ## Run and Worktree Isolation
 
@@ -29,18 +29,18 @@ Always run before committing or creating a PR:
 ## Planning
 
 See `planning/CONVENTIONS.md` for the canonical planning structure: ticket lifecycle, BOARD.md execution frontier,
-Wayfinder maps, PRD and epic conventions, file naming, templates, and explicit-only archive operations. Never
-archive planning records as a completion side effect; run `./bin/archive-planning` only on an explicit request,
-review its dry run, and then apply it.
+Wayfinder maps, EPIC/TICKET/TASK conventions, file naming, templates, and explicit-only archive operations. Old IDs
+are provenance only; see `planning/MIGRATION.md`. Never archive as a completion side effect. `./bin/archive-planning`
+is disabled pending TASK-00002; once implemented, require an explicit request and review the dry run before apply.
 
 ### Pre-PR Sync Checklist
 
 Before final commit and PR for any feature or bug fix:
 
-1. Mark the ticket `done` with verified acceptance criteria
-2. Move the ticket to **Recently Done** in `planning/tickets/BOARD.md`
+1. Mark the implementation TASK `done` only with verified acceptance criteria; only EPIC → TICKET → TASK is supported, and old IDs are provenance, not executable aliases
+2. Reflect that implementation outcome in `planning/tickets/BOARD.md` during the documented planning transition
 3. Recalculate the "What's Next?" contract if dependencies shifted
-4. Update parent PRD and epic progress sections
+4. Update parent TICKET and EPIC progress sections
 5. Update `ROADMAP.md` if strategic progress changed
-6. Verify no downstream ticket still lists the completed ticket as `blocked_by`
-7. Run `./bin/planning-check`
+6. Verify completed dependency edges are no longer treated as unresolved blockers; retain those edges as history
+7. Run read-only `./bin/planning-check`; `--write`/generated drift checks are deferred to TASK-00002. Do not commit or publish with a failing required gate

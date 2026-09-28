@@ -16,8 +16,8 @@ editable React SPA in `client/` compiled into `public/dist/`.
 
 **Done** = WF-001 through WF-010 are closed; every released package capability has an intentional HTTP, CLI,
 worker, or composition-only delivery boundary; the Symfony client dependency has been verified; remaining fog is
-resolved or explicitly excluded; and WF-010 links the resulting epic, PRDs, and independently verifiable
-implementation tickets.
+resolved or explicitly excluded; and WF-010 links the resulting EPIC, requirement TICKETs, and independently verifiable
+implementation TASKs.
 
 ## Notes
 
@@ -106,7 +106,7 @@ next grillable decision.
 - WF-009 owns the verified source-client inventory, one-time adoption boundary, independently owned component and
   route inventory, ESBuild and Sass configuration, generated-type workflow, authentication lifecycle, accessibility,
   realtime UX, fallback behavior, and human journey evidence.
-- WF-010 owns epic and PRD boundaries, vertical implementation ticket size and ordering, acceptance evidence, and
+- WF-010 owns EPIC and requirement TICKET boundaries, vertical implementation TASK size and ordering, acceptance evidence, and
   the final definition of implementation readiness.
 
 ## Out of scope
