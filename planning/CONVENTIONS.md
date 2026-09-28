@@ -58,8 +58,10 @@ identity resolver. ADRs and Wayfinder decisions retain distinct roles and are no
 Each record kind has its own five-digit sequence. Inspect live and archived identities, historical allocations,
 and occupied paths before allocation; preserve gaps and never reuse an identity. Allocate above the existing maximum,
 not into old gaps. TICKETs 00001–00006 remain reserved historical filename slots. TASK-00006 is dependency qualification;
-former T-00006 migrated to TASK-00015, not an alias. Work records live directly in their kind's directory or its
-`archive/` subdirectory; duplicate IDs across live/archive and case-insensitive path collisions are invalid.
+the uncommitted bootstrap T-00006 migrated to TASK-00015, while PR #11's distinct lean-gate T-00006 migrated to
+TASK-00016. Their source revisions/titles/parents distinguish historical provenance; neither is an identity alias.
+Work records live directly in their kind's directory or its `archive/` subdirectory; duplicate IDs across live/archive
+and case-insensitive path collisions are invalid.
 
 Keep copy-ready `_…_TEMPLATE.md` files beside records. Templates are not records and receive no ID. Use the appropriate
 template when authoring a record; never change a template to store a live decision.

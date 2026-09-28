@@ -12,8 +12,10 @@ blocked_by:
 ## Migration Provenance
 
 Converted from PRD-00003; see the [mapping](../MIGRATION.md). Child [TASK-00015](../tasks/00015-TASK.md), formerly
-T-00006, is also wontfix. No approval or execution is transferred. Everything below is the superseded proposal,
-including its obsolete identity/compatibility/sequence rules: it is not operative guidance. Current conventions
+the uncommitted bootstrap T-00006, is also wontfix. PR #11's different lean-gate T-00006 belongs to
+[TASK-00016](../tasks/00016-TASK.md) under TICKET-00014, not this proposal. No approval or execution is transferred.
+Everything below is the superseded proposal, including its obsolete identity/compatibility/sequence rules: it is not
+operative guidance. Current conventions
 support only EPIC/TICKET/TASK. Status and unchecked historical criteria are unchanged.
 
 ## Historical Proposal Body (Nonoperative)

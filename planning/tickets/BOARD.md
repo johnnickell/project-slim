@@ -2,7 +2,7 @@
 
 Record metadata owns status, priority, and blockers. This manually maintained view routes to TASKs only.
 Requirements are not executable work; see the [requirement index](README.md). Generated views and drift detection
-remain TASK-00002 work. [MIGRATION.md](../MIGRATION.md) maps historical IDs, not supported execution aliases.
+remain TASK-00002 work. [MIGRATION.md](../MIGRATION.md) distinguishes historical source identities, not execution aliases.
 
 ## "What's Next?" Contract
 
@@ -12,25 +12,27 @@ remain TASK-00002 work. [MIGRATION.md](../MIGRATION.md) maps historical IDs, not
 
 ## Now
 
-Obtain independent Spec/Standards re-review of [TASK-00001](../tasks/00001-TASK.md)'s revised committed snapshot.
-The prior review returned `revise` for F-01 (host/container Graphify ignore mismatch); the correction is locally
-verified with a green canonical build on the authorized branch, `feature/engineering-alignment-planning`.
-No independent acceptance, publication, merge, archive, or release is claimed.
+Obtain fresh independent Spec/Standards review of [TASK-00001](../tasks/00001-TASK.md)'s locally verified advanced-base
+reconciliation on `feature/engineering-alignment-planning`. The prior accept covers head `7f37936` only; the revised
+portfolio passes preservation checks and the canonical build but is not yet independently accepted or published.
 
-[TASK-00002](../tasks/00002-TASK.md) is the first ready implementation successor, not an automatic instruction to start.
-New-only validation works; generated views/`--write` and archive tooling remain undelivered. Archives are disabled.
-Common 2.0 remains needs-info in TASK-00013.
+Decide [TASK-00016](../tasks/00016-TASK.md)'s overlap with the alignment slices and exact-100%-direct-Unit coverage
+requirement versus their deferred-threshold policy before gate/coverage implementation. The incoming handoff is
+needs-info, not the different wontfix bootstrap proposal in TASK-00015. Schema migration selects no coverage policy.
+New-only validation works; generated views/`--write` and archive execution remain undelivered. Common 2.0 remains
+needs-info in TASK-00013.
 
 ## Wayfinder Review
 
 [Slim AccessControl Application](../wayfinder/slim-access-control-application-map.md) remains active. Its one current
 frontier is [WF-002 — Local Development Runtime Contract](../wayfinder/tickets/WF-002-local-development-runtime-contract.md),
 the unblocked HITL decision for the complete worktree-safe local Docker and environment contract. Schema migration
-changed vocabulary, not product decision status or authority.
+changes vocabulary, not product decision status or authority.
 
 ## Ready Frontier
 
-Completed TASK-00001 edges remain in the records but no longer block these TASKs.
+Completed TASK-00001 edges remain as history and no longer block these TASKs. TASK-00002 is the first ready successor;
+readiness never grants execution authority automatically.
 
 | Order | TASK | Parent requirement | Unfinished TASK blockers |
 | --- | --- | --- | --- |
@@ -51,22 +53,25 @@ All statuses below are ready-for-agent; unfinished TASK dependencies derive thei
 | 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | TASK-00002, TASK-00003, TASK-00004, TASK-00008 |
 | 10 | [TASK-00010 — Sanitize HTTP Failures](../tasks/00010-TASK.md) | [TICKET-00012](00012-TICKET.md) | TASK-00009 |
 
-Requirement-level dependencies are not automatically blockers on every child TASK.
+Requirement-level dependencies are not automatically blockers on every child TASK. TASK-00008/00009 additionally
+require the explicit scope/coverage decision in TASK-00016 before execution; it is not a duplicate gate to implement.
 
 ## Needs Info
 
-| TASK | Parent requirement | Missing evidence |
+| TASK | Parent requirement | Missing decision or evidence |
 | --- | --- | --- |
 | [TASK-00013 — Prepare Fight Common 2.0 Migration](../tasks/00013-TASK.md) | [TICKET-00014](00014-TICKET.md) | Common 2.0 contract, deprecation-removal inventory, and migration guide. |
+| [TASK-00016 — Establish the Lean Slim Pre-Submit Quality Gate](../tasks/00016-TASK.md) | [TICKET-00014](00014-TICKET.md) | Assignment of overlapping gate scope and exact direct-Unit coverage versus deferred-threshold policy. |
 
 ## Recently Closed / Done
 
-TASK-00001 has fresh local evidence, not independent acceptance. The other entries retain historical evidence.
+TASK-00001 has fresh local reconciliation evidence, not independent acceptance of this revision. Other entries
+retain historical evidence.
 
 | TASK | Parent requirement | Outcome |
 | --- | --- | --- |
-| [TASK-00001 — Migrate Planning to the New Schema](../tasks/00001-TASK.md) | [TICKET-00007](00007-TICKET.md) | done: migration plus F-01 correction locally verified; canonical build passes, independent re-review pending. |
-| [TASK-00015 — Establish the Requirement, Task, and Review Planning Surface](../tasks/00015-TASK.md) | [TICKET-00015](00015-TICKET.md) | wontfix: bootstrap-first sequence superseded without implementation; continuing work belongs to TICKET-00007. |
+| [TASK-00001 — Migrate Planning to the New Schema](../tasks/00001-TASK.md) | [TICKET-00007](00007-TICKET.md) | done: all records reconciled to adopted schema, preservation checks and canonical build pass; fresh review pending. |
+| [TASK-00015 — Establish the Requirement, Task, and Review Planning Surface](../tasks/00015-TASK.md) | [TICKET-00015](00015-TICKET.md) | wontfix: bootstrap-first sequence superseded without implementation; not PR #11's lean-gate handoff. |
 | [TASK-00014 — Re-certify Rewritten Fight Common Candidate](../tasks/00014-TASK.md) | [TICKET-00014](00014-TICKET.md) | done: historical tree-equivalent candidate recertification, lock/receipt digests, and canonical build. |
 | [TASK-00012 — Adopt Fight Common 1.2](../tasks/00012-TASK.md) | [TICKET-00014](00014-TICKET.md) | done: historical exact candidate/local-safe profile and receipt gates. |
 | [TASK-00011 — Establish the Governed Slim Starter Foundation](../tasks/00011-TASK.md) | [TICKET-00013](00013-TICKET.md) | done: historical local/hosted gate receipts and accepted foundation handoff. |

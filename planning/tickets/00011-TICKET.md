@@ -82,3 +82,8 @@ The human maintainer approved these slices; each keeps the then-operative gate c
 
 Requirement and TASK split approved; all three TASKs are authored but not implemented. No runtime, tooling,
 test-suite, coverage, or hosted workflow result is claimed.
+
+PR #11's additional lean-gate handoff is preserved as [TASK-00016](../tasks/00016-TASK.md) under its original migrated
+parent TICKET-00014. Its exact-100%-direct-Unit requirement conflicts with this record's deferred threshold, and its
+scope overlaps the existing slices. Resolve that needs-info decision before gate/coverage implementation; this
+schema migration neither chooses a coverage policy nor approves a duplicate implementation.

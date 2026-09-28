@@ -92,10 +92,11 @@ The approved slices now target only the new schema:
 ## Progress
 
 Requirement and TASK split approved, with the subsequent human decision replacing legacy compatibility with a
-one-time migration and new-only tooling. TASK-00001 is implemented and locally verified: eight old records converted,
-references repaired, new-only validation passing, archive execution disabled. Independent review requested revision
-for F-01 (host/container Graphify ignore mismatch). A repository-owned exclusion now passes direct and canonical
-verification; independent re-review of the correction remains outstanding.
+one-time migration and new-only tooling. TASK-00001's initial migration and F-01 correction were independently
+accepted at `7f37936`. PR #11's additional legacy gate record is now TASK-00016 under the same new-only model.
+Both historical T-00006 sources are distinguished; gate scope/coverage remains an explicit needs-info decision,
+not a migration policy choice. Reconciliation is locally verified by preservation checks and the canonical build;
+fresh independent review of this revision remains outstanding.
 AC-02 is covered; AC-01/04 have migration portions delivered but still need their downstream guidance/archive work.
 Generated views, archive implementation, and detailed review handoffs remain TASK-00002/00003 work, so this requirement
-is not done. TASK-00002 is the first ready successor; completed dependency edges remain provenance.
+is not done. TASK-00002 is the first ready successor; completed dependency edges remain history.

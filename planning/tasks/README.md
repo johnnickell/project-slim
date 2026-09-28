@@ -11,7 +11,7 @@ Old IDs are not executable aliases; all work records now use EPIC/TICKET/TASK.
 
 | Order | TASK | Parent requirement | Status | TASK blockers |
 | --- | --- | --- | --- | --- |
-| 1 | [TASK-00001 — Migrate Planning to the New Schema](00001-TASK.md) | [TICKET-00007](../tickets/00007-TICKET.md) | done; independent review pending | — |
+| 1 | [TASK-00001 — Migrate Planning to the New Schema](00001-TASK.md) | [TICKET-00007](../tickets/00007-TICKET.md) | done; reconciled advanced base, fresh review pending | — |
 | 2 | [TASK-00002 — Generate Planning Views Safely](00002-TASK.md) | [TICKET-00007](../tickets/00007-TICKET.md) | ready-for-agent | [TASK-00001](00001-TASK.md) |
 | 3 | [TASK-00003 — Establish Independent Review Handoffs](00003-TASK.md) | [TICKET-00007](../tickets/00007-TICKET.md) | ready-for-agent | [TASK-00001](00001-TASK.md) |
 | 4 | [TASK-00004 — Establish Ownership and PHP Conventions](00004-TASK.md) | [TICKET-00008](../tickets/00008-TICKET.md) | ready-for-agent | [TASK-00001](00001-TASK.md) |
@@ -30,7 +30,11 @@ Old IDs are not executable aliases; all work records now use EPIC/TICKET/TASK.
 | [TASK-00012 — Adopt Fight Common 1.2](00012-TASK.md) | [TICKET-00014](../tickets/00014-TICKET.md) | done (historical) | — |
 | [TASK-00013 — Prepare Fight Common 2.0 Migration](00013-TASK.md) | [TICKET-00014](../tickets/00014-TICKET.md) | needs-info | — |
 | [TASK-00014 — Re-certify Rewritten Fight Common Candidate](00014-TASK.md) | [TICKET-00014](../tickets/00014-TICKET.md) | done (historical) | — |
-| [TASK-00015 — Establish the Requirement, Task, and Review Planning Surface](00015-TASK.md) | [TICKET-00015](../tickets/00015-TICKET.md) | wontfix | — |
+| [TASK-00015 — Establish the Requirement, Task, and Review Planning Surface](00015-TASK.md) | [TICKET-00015](../tickets/00015-TICKET.md) | wontfix (bootstrap proposal) | — |
+| [TASK-00016 — Establish the Lean Slim Pre-Submit Quality Gate](00016-TASK.md) | [TICKET-00014](../tickets/00014-TICKET.md) | needs-info (incoming gate scope/coverage) | — |
+
+TASK-00015 and TASK-00016 preserve different historical T-00006 sources, not duplicate identities in this schema.
+TASK-00016's scope and coverage conflict must be decided before TASK-00008/00009 execute; migration chooses no policy.
 
 The checker validates the new schema read-only. Explicit refresh/drift checking and archive tooling belong to
 TASK-00002; `--write` is rejected and archive execution is disabled. Indexes/Board remain manually maintained.

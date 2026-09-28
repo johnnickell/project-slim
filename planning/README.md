@@ -15,7 +15,9 @@ is `EPIC -> TICKET -> TASK`; requirements and implementation records have distin
 [MIGRATION.md](MIGRATION.md) maps the removed PRD/T-ticket paths to their new records, preserving historical outcomes,
 unresolved information gates, and supersession evidence. Old IDs are provenance only, not parser aliases. There is no
 compatibility parser, legacy execution frontier, or legacy archive mode. TASK-00001's implementation/verification
-status remains separate from independent review.
+status remains separate from independent review. The mapping distinguishes the two historical T-00006 sources:
+the wontfix bootstrap is TASK-00015; PR #11's lean-gate handoff is TASK-00016 under TICKET-00014, needs-info for
+scope/coverage reconciliation. No old identity or path is retained as an executable compatibility record.
 
 Use copy-ready `_…_TEMPLATE.md` files beside records. IDs have five digits and separate sequences for EPICs, TICKETs,
 and TASKs; preserve gaps and avoid live/archive identity and path collisions or reusing historical allocations.
