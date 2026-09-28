@@ -93,7 +93,9 @@ The approved slices now target only the new schema:
 
 Requirement and TASK split approved, with the subsequent human decision replacing legacy compatibility with a
 one-time migration and new-only tooling. TASK-00001 is implemented and locally verified: eight old records converted,
-references repaired, new-only validation passing, archive execution disabled. Independent review remains outstanding.
+references repaired, new-only validation passing, archive execution disabled. Independent review requested revision
+for F-01 (host/container Graphify ignore mismatch). A repository-owned exclusion now passes direct and canonical
+verification; independent re-review of the correction remains outstanding.
 AC-02 is covered; AC-01/04 have migration portions delivered but still need their downstream guidance/archive work.
 Generated views, archive implementation, and detailed review handoffs remain TASK-00002/00003 work, so this requirement
 is not done. TASK-00002 is the first ready successor; completed dependency edges remain provenance.

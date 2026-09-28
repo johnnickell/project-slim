@@ -12,9 +12,10 @@ remain TASK-00002 work. [MIGRATION.md](../MIGRATION.md) maps historical IDs, not
 
 ## Now
 
-Obtain independent Spec/Standards review of [TASK-00001](../tasks/00001-TASK.md)'s committed snapshot. It is locally
-complete on the authorized current checkout/branch, `feature/engineering-alignment-planning`, with approved planning
-preserved and a green canonical build. No review acceptance, publication, merge, archive, or release is claimed.
+Obtain independent Spec/Standards re-review of [TASK-00001](../tasks/00001-TASK.md)'s revised committed snapshot.
+The prior review returned `revise` for F-01 (host/container Graphify ignore mismatch); the correction is locally
+verified with a green canonical build on the authorized branch, `feature/engineering-alignment-planning`.
+No independent acceptance, publication, merge, archive, or release is claimed.
 
 [TASK-00002](../tasks/00002-TASK.md) is the first ready implementation successor, not an automatic instruction to start.
 New-only validation works; generated views/`--write` and archive tooling remain undelivered. Archives are disabled.
@@ -64,7 +65,7 @@ TASK-00001 has fresh local evidence, not independent acceptance. The other entri
 
 | TASK | Parent requirement | Outcome |
 | --- | --- | --- |
-| [TASK-00001 — Migrate Planning to the New Schema](../tasks/00001-TASK.md) | [TICKET-00007](00007-TICKET.md) | done: migrated with provenance, new-only validation and canonical build pass; independent review pending. |
+| [TASK-00001 — Migrate Planning to the New Schema](../tasks/00001-TASK.md) | [TICKET-00007](00007-TICKET.md) | done: migration plus F-01 correction locally verified; canonical build passes, independent re-review pending. |
 | [TASK-00015 — Establish the Requirement, Task, and Review Planning Surface](../tasks/00015-TASK.md) | [TICKET-00015](00015-TICKET.md) | wontfix: bootstrap-first sequence superseded without implementation; continuing work belongs to TICKET-00007. |
 | [TASK-00014 — Re-certify Rewritten Fight Common Candidate](../tasks/00014-TASK.md) | [TICKET-00014](00014-TICKET.md) | done: historical tree-equivalent candidate recertification, lock/receipt digests, and canonical build. |
 | [TASK-00012 — Adopt Fight Common 1.2](../tasks/00012-TASK.md) | [TICKET-00014](00014-TICKET.md) | done: historical exact candidate/local-safe profile and receipt gates. |

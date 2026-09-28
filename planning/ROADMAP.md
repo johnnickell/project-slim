@@ -4,15 +4,15 @@
 
 | Epic | Target | Status | Current outcome |
 | --- | --- | --- | --- |
-| [EPIC-00001](epics/00001-EPIC.md) | Unversioned engineering alignment | in-progress | TASK-00001 locally complete: new-only migration/validation, provenance, disabled archives. Independent review pending; TASK-00002 first ready successor. |
+| [EPIC-00001](epics/00001-EPIC.md) | Unversioned engineering alignment | in-progress | TASK-00001 locally complete: new-only migration/validation, provenance, disabled archives. F-01 correction locally verified; independent re-review pending. TASK-00002 first ready successor. |
 | [EPIC-00003](epics/00003-EPIC.md) | Existing adoption evidence; Common 2.0 authority unresolved | in-progress | Historical candidate adoption/receipt evidence preserved; ongoing certification superseded by EPIC-00001. TASK-00013 remains needs-info. |
 
 ## Route to 1.0
 
-1. Independently review [TASK-00001 — Migrate Planning to the New Schema](tasks/00001-TASK.md), locally verified in
-   the authorized current checkout/branch. Migration preserves historical evidence through [MIGRATION.md](MIGRATION.md),
-   not a compatibility parser. TASK-00002 is the first ready successor; generated views/archive tooling and review
-   handoffs remain separately authorized work.
+1. Independently re-review [TASK-00001 — Migrate Planning to the New Schema](tasks/00001-TASK.md), including the
+   locally verified F-01 host/container ignore correction in the authorized current checkout/branch. Migration
+   preserves historical evidence through [MIGRATION.md](MIGRATION.md), not a compatibility parser. TASK-00002 is the
+   first ready successor; generated views/archive tooling and review handoffs remain separately authorized work.
 2. Transition to the accepted architecture, HTTP, testing, gate, planning, and review model. Retire the dependency
    matrix and no-dev certification without substituting equivalent certification requirements; preserve historical
    outcomes and meaningful behavior evidence.
