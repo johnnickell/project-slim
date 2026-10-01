@@ -25,6 +25,22 @@ validate heading anchors. Unsupported arguments, including `--write`, fail expli
 read-only drift checks, and new-schema archive tooling; archive execution is disabled until then. Direct checks do
 not replace `./bin/build`, and no failing required gate permits a commit/publication.
 
+## Automatic parent completion
+
+When a TASK becomes `done` or `wontfix`, complete eligible parent TICKETs and then EPICs in the same operation.
+Count live and archived children. A live, non-terminal parent with at least one child closes when every child
+is terminal: use `wontfix` if every child is `wontfix`, otherwise `done`. Parents without children or with an
+unfinished child remain open. Preserve already-terminal and archived parents.
+
+Child acceptance and intentional `wontfix` decisions remain with the child records. Parent completion requires
+no separate assessment, independent review, QA, confirmation, or skill invocation. Record any remaining work as
+an unfinished child rather than a separate parent-closeout gate. Parent status does not assert review, merge,
+release, deployment or publication, and completion never archives records automatically.
+
+The completing agent updates parent metadata and affected indexes, Board and Roadmap in this same action.
+Run the existing read-only `./bin/planning-check` afterward; no `--write` mode is available.
+
+
 ## Directory Structure
 
 ```

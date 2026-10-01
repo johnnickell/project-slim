@@ -16,9 +16,9 @@
 2. Resolve [TASK-00016](tasks/00016-TASK.md)'s incoming lean-gate handoff against the alignment slices before gate/
    coverage implementation: assign its overlapping scope and decide exact 100% direct-Unit coverage versus the
    deferred-threshold policy. Preserve the upstream handoff without silently choosing either policy or building two gates.
-3. Transition to the accepted architecture, HTTP, testing, gate, planning, and review model. Retire the dependency
-   matrix and no-dev certification without substituting equivalent certification requirements; preserve historical
-   outcomes and meaningful behavior evidence.
+3. Transition to the accepted architecture, HTTP, testing, gate, planning, and review model.
+   [TASK-00005](tasks/00005-TASK.md) has retired framework certification, its readers and tests; the single-lock
+   build passes. Continue the remaining alignment without restoring that machinery.
 4. Qualify a stable released dependency baseline through separately authorized work, without assuming another
    consumer's versions are compatible.
 5. Revisit 2.0 only after Fight Common publishes its migration authority. This roadmap does not authorize a release.

@@ -43,7 +43,7 @@ implementation TASKs.
 ## Decisions so far
 
 1. **[Released Package Contract Audit](tickets/WF-001-released-package-contract-audit.md) is open.** It will establish the released public capability inventory and intentional delivery classification.
-2. **[Local Development Runtime Contract](tickets/WF-002-local-development-runtime-contract.md) is open.** It will settle the complete isolated Docker development runtime and environment contract.
+2. **[Local Development Runtime Contract](tickets/WF-002-local-development-runtime-contract.md) is open and paused.** Partial runtime/HTTPS/Mercure direction is recorded there; shared-resource ownership, worktree test isolation, and ingress integration await Fight Agent OS direction.
 3. **[Slim ADR and OpenAPI Contract](tickets/WF-003-slim-adr-and-openapi-contract.md) is open.** It will settle the Slim HTTP architecture, response language, error boundary, versioned path, and OpenAPI authority.
 4. **[Doctrine Persistence and Bootstrap Contract](tickets/WF-004-doctrine-persistence-and-bootstrap-contract.md) is open.** It will settle durable adapters, atomicity, reconciliation, and first-administrator bootstrap.
 5. **[Authentication and Account Security Contract](tickets/WF-005-authentication-and-account-security-contract.md) is open.** It will settle browser-safe authentication, credentials, throttling, restoration, logout, and revocation.
@@ -58,7 +58,7 @@ implementation TASKs.
 | Ticket | Type | Mode | Status | Depends On | Gate |
 |---|---|---|---|---|---|
 | [WF-001 — Released Package Contract Audit](tickets/WF-001-released-package-contract-audit.md) | Research | AFK | **Open** | — | Installable Fight Common 1.2.0 and Fight AccessControl 0.2.0 |
-| [WF-002 — Local Development Runtime Contract](tickets/WF-002-local-development-runtime-contract.md) | Grilling | HITL | **Open** | — | — |
+| [WF-002 — Local Development Runtime Contract](tickets/WF-002-local-development-runtime-contract.md) | Grilling | HITL | **Open** | — | Fight Agent OS shared-resource, test-isolation, and ingress direction |
 | [WF-003 — Slim ADR and OpenAPI Contract](tickets/WF-003-slim-adr-and-openapi-contract.md) | Prototype | HITL | **Open** | WF-001, WF-002 | Symfony canonical wire contract |
 | [WF-004 — Doctrine Persistence and Bootstrap Contract](tickets/WF-004-doctrine-persistence-and-bootstrap-contract.md) | Prototype | HITL | **Open** | WF-001, WF-003 | — |
 | [WF-005 — Authentication and Account Security Contract](tickets/WF-005-authentication-and-account-security-contract.md) | Grilling | HITL | **Open** | WF-003, WF-004 | Symfony authentication contract |
@@ -82,15 +82,17 @@ WF-001 through WF-009 ───────────────────�
 
 ## Frontier
 
-[WF-002 — Local Development Runtime Contract](tickets/WF-002-local-development-runtime-contract.md) is the one
-next grillable decision.
+[WF-002 — Local Development Runtime Contract](tickets/WF-002-local-development-runtime-contract.md) remains the
+one authored frontier, but its interview is paused pending Fight Agent OS direction on shared resources,
+worktree test isolation, and ingress integration. No available next decision is selected while this gate remains.
 
 ## Not yet specified (fog)
 
 - WF-001 owns the exact released capability inventory and whether each capability is HTTP, CLI, worker, or
   composition-only.
 - WF-002 owns image and service versions, ports, health probes, mounts, worker and scheduler process topology,
-  wrapper semantics, worktree-safe isolation, and every `.env.example` key and default.
+  wrapper semantics, and every `.env.example` key and default. Shared-resource ownership and worktree test isolation
+  await Fight Agent OS direction; full per-worktree infrastructure duplication is not assumed.
 - WF-003 owns Action and Responder namespaces and signatures, CQRS dispatch seams, validation mechanics, JSend and
   error schemas, the exact `/api/v1/access` route shape, operation naming, and one-pass OpenAPI generation/drift.
 - WF-004 owns Doctrine mappings, repository mechanics, migration topology, transaction and audit atomicity,

@@ -8,7 +8,8 @@ none is available, offer to chart a new feature.
 
 - [Slim AccessControl Application](slim-access-control-application-map.md) — charts the complete local Docker,
   AccessControl delivery, OpenAPI, Mercure, and independently owned React SPA contract. Current frontier:
-  [WF-002 — Local Development Runtime Contract](tickets/WF-002-local-development-runtime-contract.md).
+  [WF-002 — Local Development Runtime Contract](tickets/WF-002-local-development-runtime-contract.md), open but
+  paused pending Fight Agent OS direction on shared resources, worktree test isolation, and ingress integration.
 
 Use `_MAP_TEMPLATE.md` and `tickets/_WAYFINDER_TICKET_TEMPLATE.md` for new work. `research/` holds linked
 evidence, never a parallel decision record. Archive only on an explicit request after a map is Closed, its decisions

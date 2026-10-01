@@ -2,7 +2,7 @@
 id: TICKET-00009
 epic: EPIC-00001
 title: Single-Lock Development Without Framework Certification
-status: ready-for-agent
+status: done
 order: 3
 blocked_by:
 ---
@@ -41,16 +41,16 @@ intermediate gate coherent rather than partially referencing removed files.
 
 ## Acceptance Criteria
 
-- [ ] **AC-01:** Only the application lock remains authoritative; the lowest lock/digest and dependency-lane execution
+- [x] **AC-01:** Only the application lock remains authoritative; the lowest lock/digest and dependency-lane execution
   are removed, with no replacement matrix or ongoing no-dev obligation.
-- [ ] **AC-02:** Gate paths no longer generate/verify support receipts, clone upstream source solely for certification,
+- [x] **AC-02:** Gate paths no longer generate/verify support receipts, clone upstream source solely for certification,
   or install a separate no-dev graph. Every deleted mechanism has its live callers and obsolete documentation removed.
-- [ ] **AC-03:** Existing tests have an explicit disposition: meaningful application/integration behavior is retained,
+- [x] **AC-03:** Existing tests have an explicit disposition: meaningful application/integration behavior is retained,
   certification-only checks are retired, and no replacement product tests of quality tooling are introduced.
-- [ ] **AC-04:** Operative support claims describe one application lock. Historical TASK-00012/TASK-00014 outcomes remain
+- [x] **AC-04:** Operative support claims describe one application lock. Historical TASK-00012/TASK-00014 outcomes remain
   addressable and clearly historical; removed artifact paths are not presented as active verification commands.
 - [ ] **AC-05:** Ordinary setup and the remaining canonical gate work locally and in hosted CI without changing the
-  selected dependency versions or intended application behavior.
+  selected dependency versions or intended application behavior. Local evidence passes; hosted execution is pending publication.
 
 ## Verification
 
@@ -66,4 +66,6 @@ callers, certification files, obsolete tests, and operative docs. It is blocked 
 ## Progress
 
 Retirement and the TASK split are approved as an intentional narrowing of ongoing compatibility claims. TASK-00005
-is authored but not implemented; no certification machinery has been removed.
+is implemented and locally verified on 2026-10-01. Its single-lock build passed 26 tests / 152 assertions;
+certification machinery and tests are removed, and the main lock is unchanged. This TICKET closes automatically
+with its only child. Hosted verification and independent review are recorded separately in the PR.
