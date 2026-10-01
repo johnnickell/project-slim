@@ -44,3 +44,13 @@ Before final commit and PR for any feature or bug fix:
 5. Update `ROADMAP.md` if strategic progress changed
 6. Verify completed dependency edges are no longer treated as unresolved blockers; retain those edges as history
 7. Run read-only `./bin/planning-check`; `--write`/generated drift checks are deferred to TASK-00002. Do not commit or publish with a failing required gate
+
+When completing a TASK, apply [Automatic parent completion](planning/CONVENTIONS.md#automatic-parent-completion)
+in the same operation; do not leave a separate parent assessment or closeout action for the user.
+
+## Certification retirement
+
+Test owned application behavior and meaningful package integrations. Do not create or restore framework-support
+certification files, receipt readers/generators, dependency certification matrices, or tests of those mechanisms.
+Validate build, configuration and planning tools directly with their owning commands, outside product suites.
+Historical certification notes remain history, not current gates.

@@ -15,7 +15,7 @@ Old IDs are not executable aliases; all work records now use EPIC/TICKET/TASK.
 | 2 | [TASK-00002 — Generate Planning Views Safely](00002-TASK.md) | [TICKET-00007](../tickets/00007-TICKET.md) | ready-for-agent | [TASK-00001](00001-TASK.md) |
 | 3 | [TASK-00003 — Establish Independent Review Handoffs](00003-TASK.md) | [TICKET-00007](../tickets/00007-TICKET.md) | ready-for-agent | [TASK-00001](00001-TASK.md) |
 | 4 | [TASK-00004 — Establish Ownership and PHP Conventions](00004-TASK.md) | [TICKET-00008](../tickets/00008-TICKET.md) | ready-for-agent | [TASK-00001](00001-TASK.md) |
-| 5 | [TASK-00005 — Retire Framework Certification](00005-TASK.md) | [TICKET-00009](../tickets/00009-TICKET.md) | ready-for-agent | [TASK-00001](00001-TASK.md) |
+| 5 | [TASK-00005 — Retire Framework Certification](00005-TASK.md) | [TICKET-00009](../tickets/00009-TICKET.md) | done | [TASK-00001](00001-TASK.md) |
 | 6 | [TASK-00006 — Qualify Released Dependencies](00006-TASK.md) | [TICKET-00010](../tickets/00010-TICKET.md) | ready-for-agent | [TASK-00005](00005-TASK.md) |
 | 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](00007-TASK.md) | [TICKET-00011](../tickets/00011-TICKET.md) | ready-for-agent | [TASK-00001](00001-TASK.md) |
 | 8 | [TASK-00008 — Align Behavior Suites and Coverage](00008-TASK.md) | [TICKET-00011](../tickets/00011-TICKET.md) | ready-for-agent | [TASK-00006](00006-TASK.md), [TASK-00007](00007-TASK.md) |

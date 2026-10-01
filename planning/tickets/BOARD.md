@@ -26,8 +26,9 @@ needs-info in TASK-00013.
 
 [Slim AccessControl Application](../wayfinder/slim-access-control-application-map.md) remains active. Its one current
 frontier is [WF-002 — Local Development Runtime Contract](../wayfinder/tickets/WF-002-local-development-runtime-contract.md),
-the unblocked HITL decision for the complete worktree-safe local Docker and environment contract. Schema migration
-changes vocabulary, not product decision status or authority.
+open but paused pending Fight Agent OS direction on shared resources, worktree test isolation, and ingress
+integration. Partial decisions are recorded in WF-002; no Wayfinder review candidate is currently available.
+This planning pause does not change TASK scopes or the implementation frontier.
 
 ## Ready Frontier
 
@@ -39,7 +40,7 @@ readiness never grants execution authority automatically.
 | 2 | [TASK-00002 — Generate Planning Views Safely](../tasks/00002-TASK.md) | [TICKET-00007](00007-TICKET.md) | — |
 | 3 | [TASK-00003 — Establish Independent Review Handoffs](../tasks/00003-TASK.md) | [TICKET-00007](00007-TICKET.md) | — |
 | 4 | [TASK-00004 — Establish Ownership and PHP Conventions](../tasks/00004-TASK.md) | [TICKET-00008](00008-TICKET.md) | — |
-| 5 | [TASK-00005 — Retire Framework Certification](../tasks/00005-TASK.md) | [TICKET-00009](00009-TICKET.md) | — |
+| 6 | [TASK-00006 — Qualify Released Dependencies](../tasks/00006-TASK.md) | [TICKET-00010](00010-TICKET.md) | — |
 | 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](../tasks/00007-TASK.md) | [TICKET-00011](00011-TICKET.md) | — |
 
 ## Waiting
@@ -48,7 +49,6 @@ All statuses below are ready-for-agent; unfinished TASK dependencies derive thei
 
 | Order | TASK | Parent requirement | Unfinished TASK blockers |
 | --- | --- | --- | --- |
-| 6 | [TASK-00006 — Qualify Released Dependencies](../tasks/00006-TASK.md) | [TICKET-00010](00010-TICKET.md) | TASK-00005 |
 | 8 | [TASK-00008 — Align Behavior Suites and Coverage](../tasks/00008-TASK.md) | [TICKET-00011](00011-TICKET.md) | TASK-00006, TASK-00007 |
 | 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | TASK-00002, TASK-00003, TASK-00004, TASK-00008 |
 | 10 | [TASK-00010 — Sanitize HTTP Failures](../tasks/00010-TASK.md) | [TICKET-00012](00012-TICKET.md) | TASK-00009 |
@@ -70,6 +70,7 @@ historical evidence; completion and review do not imply publication or merge.
 
 | TASK | Parent requirement | Outcome |
 | --- | --- | --- |
+| [TASK-00005 — Retire Framework Certification](../tasks/00005-TASK.md) | [TICKET-00009](00009-TICKET.md) | done: certification files/readers/tests retired; single-lock build passes 26 tests / 152 assertions; review and hosted checks separate. |
 | [TASK-00001 — Migrate Planning to the New Schema](../tasks/00001-TASK.md) | [TICKET-00007](00007-TICKET.md) | done: reconciled schema independently accepted at 6203941; preservation checks and canonical build pass; [PR #12](https://github.com/johnnickell/project-slim/pull/12) open; human merge separate. |
 | [TASK-00015 — Establish the Requirement, Task, and Review Planning Surface](../tasks/00015-TASK.md) | [TICKET-00015](00015-TICKET.md) | wontfix: bootstrap-first sequence superseded without implementation; not PR #11's lean-gate handoff. |
 | [TASK-00014 — Re-certify Rewritten Fight Common Candidate](../tasks/00014-TASK.md) | [TICKET-00014](00014-TICKET.md) | done: historical tree-equivalent candidate recertification, lock/receipt digests, and canonical build. |

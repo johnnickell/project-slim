@@ -13,7 +13,7 @@ The [TASK Board](BOARD.md) is the execution entrypoint; [TASKs](../tasks/README.
 | --- | --- | --- | --- | --- |
 | 1 | [TICKET-00007](00007-TICKET.md) | Consistent Planning and Independent Review | in-progress | — |
 | 2 | [TICKET-00008](00008-TICKET.md) | Explicit Application Ownership and PHP Standards | ready-for-agent | — |
-| 3 | [TICKET-00009](00009-TICKET.md) | Single-Lock Development Without Framework Certification | ready-for-agent | — |
+| 3 | [TICKET-00009](00009-TICKET.md) | Single-Lock Development Without Framework Certification | done | — |
 | 4 | [TICKET-00010](00010-TICKET.md) | Qualified Released Dependency Baseline | ready-for-agent | TICKET-00009 |
 | 5 | [TICKET-00011](00011-TICKET.md) | Reproducible Runtime and One Quality Gate | ready-for-agent | TICKET-00007, TICKET-00008, TICKET-00009, TICKET-00010 |
 | 6 | [TICKET-00012](00012-TICKET.md) | Safe and Predictable HTTP Failures | ready-for-agent | TICKET-00008, TICKET-00010, TICKET-00011 |
