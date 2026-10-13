@@ -1,12 +1,22 @@
 # AGENTS.md
 
+## Work routing
+
+For “What's next?”, `next`, or an unqualified `/ask-matt`, go straight to the [Board](planning/tickets/BOARD.md)
+before general project orientation. Read its current human decision and active work; otherwise select the first
+executable ready TASK in Board order. Use the [Wayfinder index](planning/wayfinder/README.md) for map status and current frontier pointers.
+Follow [lightweight work routing](planning/CONVENTIONS.md#lightweight-work-routing) for validation,
+bounded evidence reads and planning handoffs. Recommend and stop; load execution guidance when work is invoked.
+This routing path does not require reading README, architecture, full project context, task history or receiving skills.
+
+## Project guidance
+
+For execution or substantive planning changes, load the applicable guidance below. The read-only routing
+path above takes precedence over broad orientation reads; it does not waive engineering or delivery rules.
+
 Read `ARCHITECTURE.md`, `planning/README.md`, `planning/CONVENTIONS.md`, and `planning/agents/` before changing behavior. Work in independently verifiable vertical slices. Use the repository-owned `./bin/build`, `./bin/phpunit`, `./bin/up`, `./bin/down`, `./bin/composer`, and `./bin/exec` commands; `./bin/build` is the single noninteractive local and hosted gate.
 
 Slim owns `src/`, its explicit Fight Common container definitions, routes, middleware, handlers, HTTP, presentation, and future adapters. Fight Common and Fight AccessControl are public Composer dependencies only. Do not implement login, persistence, browser journeys, releases, tags, Packagist publication, template enablement, or create-project distribution without a local ticket.
-
-## Work Routing
-
-When asked "What's next?" or invoked without a task, read `planning/tickets/BOARD.md` and return the current human decision under **Now** and the first TASK under **Ready Frontier**. Use `planning/CONVENTIONS.md` to interpret record status and ordering.
 
 ## Run and Worktree Isolation
 
