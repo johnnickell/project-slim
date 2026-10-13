@@ -1,5 +1,13 @@
 # TASK Execution Board
 
+## Routing index
+
+Read only current human decisions and active work below; otherwise the first ready TASK.
+Use [lightweight routing](../CONVENTIONS.md#lightweight-work-routing) for validation and evidence limits.
+[Wayfinder status and frontiers](../wayfinder/README.md) answer the decision-routing question.
+Use the [Roadmap](../ROADMAP.md) and current handoffs for planning phases; do not infer full decomposition from closed maps.
+Read the referenced current section, not the full historical record. Missing handoff/phase needs owner input.
+
 Record metadata owns status, priority, and blockers. This manually maintained view routes to TASKs only.
 Requirements are not executable work; see the [requirement index](README.md). Generated views and drift detection
 remain TASK-00002 work. [MIGRATION.md](../MIGRATION.md) distinguishes historical source identities, not execution aliases.
