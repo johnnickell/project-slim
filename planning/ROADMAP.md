@@ -2,9 +2,13 @@
 
 ## In progress
 
+[TASK-00017 — Require and Verify the Patched PHP Runtime](tasks/00017-TASK.md) is locally complete in its isolated
+worktree; independent Review/QA and delivery are next. TASK-00002 is again the first ready implementation handoff.
+The bounded security repair does not change the strategic adoption scope below.
+
 | Epic | Target | Status | Current outcome |
 | --- | --- | --- | --- |
-| [EPIC-00001](epics/00001-EPIC.md) | Unversioned engineering alignment | in-progress | TASK-00001 independently accepted; [PR #12](https://github.com/johnnickell/project-slim/pull/12) open, human merge separate. TASK-00002 first ready successor. |
+| [EPIC-00001](epics/00001-EPIC.md) | Unversioned engineering alignment | in-progress | TASK-00001 independently accepted; [PR #12](https://github.com/johnnickell/project-slim/pull/12) open, human merge separate. TASK-00002 first ready alignment successor; standalone TASK-00017 locally complete, independent Review/QA pending. |
 | [EPIC-00003](epics/00003-EPIC.md) | Existing adoption evidence and incoming gate handoff | in-progress | Historical adoption/receipt evidence retained. Common 2.0 remains needs-info in TASK-00013; migrated lean-gate TASK-00016 needs a scope/coverage decision. |
 
 ## Route to 1.0
@@ -12,7 +16,8 @@
 1. Review [TASK-00001](tasks/00001-TASK.md)'s published [PR #12](https://github.com/johnnickell/project-slim/pull/12)
    and hosted checks before a separate human merge decision. All records use EPIC/TICKET/TASK;
    [MIGRATION.md](MIGRATION.md) distinguishes the two historical T-00006 sources. TASK-00002 is the first ready
-   successor; generated views/archive tooling and review handoffs remain separate work.
+   alignment successor; standalone TASK-00017's runtime repair is locally verified, with independent Review/QA
+   pending. Generated views/archive tooling and review handoffs remain separate work.
 2. Resolve [TASK-00016](tasks/00016-TASK.md)'s incoming lean-gate handoff against the alignment slices before gate/
    coverage implementation: assign its overlapping scope and decide exact 100% direct-Unit coverage versus the
    deferred-threshold policy. Preserve the upstream handoff without silently choosing either policy or building two gates.
@@ -24,6 +29,10 @@
 5. Revisit 2.0 only after Fight Common publishes its migration authority. This roadmap does not authorize a release.
 
 ## Completed / Released
+
+[TASK-00017](tasks/00017-TASK.md) requires and executes PHP 8.5.12, rejects stale/unavailable runtimes, preserves
+all locked package entries and passes root HTTP plus 26 tests / 152 assertions. Temporary session-upload startup
+mitigation is documented. Local completion does not assert independent acceptance, publication or deployment.
 
 [EPIC-00002 — Governed Slim Starter Foundation](epics/00002-EPIC.md) groups the historical completed foundation:
 [TASK-00011](tasks/00011-TASK.md) retains local/hosted build receipts, not fresh verification of this change.
