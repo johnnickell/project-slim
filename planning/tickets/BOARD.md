@@ -29,7 +29,7 @@ No PR #16 merge action remains. TASK-00002 has independent Review acceptance and
 candidate `f2312e78ccc7f9e35068e7d45e488f7bf9ce87df`; [PR #17](https://github.com/johnnickell/project-slim/pull/17)
 is its separately authorized `develop` delivery PR. See its [current completion evidence](../tasks/00002-TASK.md#completion-notes).
 Human review and merge remain separate; no PR approval, merge, archive, release, or deployment is implied.
-There is no new human policy/merge decision for that TASK yet.
+Human review and merge of [PR #17](https://github.com/johnnickell/project-slim/pull/17) is the next action for that TASK.
 
 The maintainer selected one-to-one non-domain adoption in [EPIC-00001](../epics/00001-EPIC.md#current-adoption-amendment--2026-10-24).
 TASK-00016 is superseded as wontfix: TASK-00008/00009 own the adopted coverage/gate implementation. No policy decision
