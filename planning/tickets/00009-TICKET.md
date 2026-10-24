@@ -63,6 +63,14 @@ and their rationale, not a misleading comparison of raw test counts. Do not requ
 [TASK-00005 — Retire Framework Certification](../tasks/00005-TASK.md) covers AC-01 through AC-05, spanning gate
 callers, certification files, obsolete tests, and operative docs. It is blocked by TASK-00001.
 
+## Child TASK status projection
+
+<!-- planning:children:start -->
+| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| 5 | [TASK-00005 — Retire Framework Certification](../tasks/00005-TASK.md) | [TICKET-00009](00009-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
+<!-- planning:children:end -->
+
 ## Progress
 
 Retirement and the TASK split are approved as an intentional narrowing of ongoing compatibility claims. TASK-00005

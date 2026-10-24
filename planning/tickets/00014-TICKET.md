@@ -25,6 +25,17 @@ TASK-00005 work. The 2026-10-24 adoption decision assigns remaining dependency/c
 in EPIC-00001, not either historical threshold proposal. Parent completion does not apply while TASK-00013 remains
 unfinished. The source body from `c19e0b9` is retained below as history, not fresh gate evidence.
 
+## Child TASK status projection
+
+<!-- planning:children:start -->
+| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| — | [TASK-00012 — Adopt Fight Common 1.2](../tasks/00012-TASK.md) | [TICKET-00014](00014-TICKET.md) | done | — | — | live |
+| — | [TASK-00013 — Prepare Fight Common 2.0 Migration](../tasks/00013-TASK.md) | [TICKET-00014](00014-TICKET.md) | needs-info | — | — | live |
+| — | [TASK-00014 — Re-certify Rewritten Fight Common Candidate](../tasks/00014-TASK.md) | [TICKET-00014](00014-TICKET.md) | done | — | — | live |
+| — | [TASK-00016 — Establish the Lean Slim Pre-Submit Quality Gate](../tasks/00016-TASK.md) | [TICKET-00014](00014-TICKET.md) | wontfix | — | — | live |
+<!-- planning:children:end -->
+
 ## Historical Requirement Body
 
 ## Problem Statement

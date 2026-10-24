@@ -18,6 +18,14 @@ Everything below is the superseded proposal, including its obsolete identity/com
 operative guidance. Current conventions
 support only EPIC/TICKET/TASK. Status and unchecked historical criteria are unchanged.
 
+## Child TASK status projection
+
+<!-- planning:children:start -->
+| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| — | [TASK-00015 — Establish the Requirement, Task, and Review Planning Surface](../tasks/00015-TASK.md) | [TICKET-00015](00015-TICKET.md) | wontfix | — | — | live |
+<!-- planning:children:end -->
+
 ## Historical Proposal Body (Nonoperative)
 
 ## Supersession

@@ -16,9 +16,12 @@ v1.4.0, AccessControl v0.8.0, their public-contract qualification and the bounde
 The [ownership ADR](planning/adr/0001-application-ownership-and-orchestration.md),
 [engineering standards](docs/engineering/STANDARDS.md) and [shared Pi workflow binding](docs/engineering/WORKFLOWS.md)
 adopt the reusable Agent OS foundation without copying its domain. Container modules now follow its sorted callable
-contract. The later frontend/login adoption remains planned, not implemented. Runtime isolation, generated planning
-views, the expanded quality/coverage gate and opt-in safe HTTP errors retain their existing TASK ownership; their
-acceptance is not implied by installing newer packages.
+contract. The later frontend/login adoption remains planned, not implemented. Planning views now refresh explicitly
+with `./bin/planning-check --write`; default `./bin/planning-check` and the build reject drift without writing.
+The [TASK Board](planning/tickets/BOARD.md) is the sole execution view. New-only archive tooling requires a separately
+requested, reviewed dry run and explicit apply; TASK-00002 performs no archives and does not dynamically verify apply.
+Runtime isolation, the expanded quality/coverage gate and opt-in safe HTTP errors retain their existing TASK ownership;
+their acceptance is not implied by installing newer packages.
 
 ## PHP runtime maintenance
 

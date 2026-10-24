@@ -14,4 +14,6 @@ none is available, offer to chart a new feature.
 Use `_MAP_TEMPLATE.md` and `tickets/_WAYFINDER_TICKET_TEMPLATE.md` for new work. `research/` holds linked
 evidence, never a parallel decision record. Archive only on an explicit request after a map is Closed, its decisions
 are Closed, its frontier is empty, and its implementation handoff is linked. The owning `../../bin/archive-planning`
-command is disabled pending TASK-00002; do not bypass that guard or move records manually.
+command keeps Wayfinder eligibility separate from EPIC/TICKET/TASK. Review its dry run before explicit
+`--apply --confirm DIGEST`; see [archive rules](../CONVENTIONS.md#archive-explicit-requests-only).
+TASK-00002 does not exercise archive apply or change this map's status/frontier. Do not move records manually.

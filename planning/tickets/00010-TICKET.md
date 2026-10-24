@@ -66,6 +66,14 @@ No version update or external availability claim is made by this requirement doc
 TASK-00005. Establish actual release availability/signatures before changing constraints; stop for a scope decision
 if a compatible baseline requires new product behavior. This TASK is not the superseded bootstrap proposal in TASK-00015 (formerly T-00006).
 
+## Child TASK status projection
+
+<!-- planning:children:start -->
+| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| 6 | [TASK-00006 — Qualify Released Dependencies](../tasks/00006-TASK.md) | [TICKET-00010](00010-TICKET.md) | done | [TASK-00005](../tasks/00005-TASK.md) | — | live |
+<!-- planning:children:end -->
+
 ## Progress
 
 Completed with sole child TASK-00006 on 2026-10-24 under automatic parent completion. Manifest/lock/installation

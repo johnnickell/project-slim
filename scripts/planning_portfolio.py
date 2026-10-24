@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read-only validation of Slim's EPIC -> TICKET -> TASK Markdown portfolio."""
+"""Validate Slim's EPIC -> TICKET -> TASK portfolio; explicitly refresh with --write."""
 
 from __future__ import annotations
 
@@ -10,6 +10,9 @@ import re
 import subprocess
 import sys
 from urllib.parse import unquote, urlsplit
+
+# Owning commands must not leave Python scratch in committed source directories.
+sys.dont_write_bytecode = True
 
 ROOT = Path(__file__).resolve().parents[1]
 PLANNING = ROOT / "planning"
@@ -90,11 +93,15 @@ def is_work_record(path: Path, text: str) -> bool:
     )
 
 
-def load_records(errors: list[str]) -> dict[str, Record]:
+def load_records(errors: list[str], documents: dict[Path, str] | None = None) -> dict[str, Record]:
     records: dict[str, Record] = {}
     paths: set[str] = set()
-    for path in sorted(PLANNING.rglob("*.md")):
-        text = path.read_text(encoding="utf-8")
+    sources = documents if documents is not None else {
+        path: path.read_text(encoding="utf-8") for path in PLANNING.rglob("*.md")
+    }
+    for path, text in sorted(sources.items()):
+        if not path.is_relative_to(PLANNING):
+            continue
         if not is_work_record(path, text):
             continue
         label = str(path.relative_to(ROOT))
@@ -195,18 +202,25 @@ def git(*args: str) -> subprocess.CompletedProcess[str]:
     )
 
 
-def validate_links(errors: list[str]) -> None:
-    # Include root/contributor documentation as well as planning; exclude ignored
-    # vendor, scratch, and other worktrees instead of traversing the whole disk.
+def markdown_documents() -> dict[Path, str]:
+    """Read owned Markdown, excluding ignored vendor, scratch and worktrees."""
     result = git("ls-files", "--cached", "--others", "--exclude-standard", "-z", "--", "*.md")
     if result.returncode:
-        errors.append("cannot enumerate repository-owned Markdown through git ls-files")
-        return
-    for name in sorted(set(filter(None, result.stdout.split("\0")))):
-        path = ROOT / name
-        if not path.is_file() or path.name.endswith("_TEMPLATE.md"):
+        raise ValueError("cannot enumerate repository-owned Markdown through git ls-files")
+    return {
+        ROOT / name: (ROOT / name).read_text(encoding="utf-8")
+        for name in sorted(set(filter(None, result.stdout.split("\0"))))
+        if (ROOT / name).is_file()
+    }
+
+
+def validate_links(errors: list[str], documents: dict[Path, str] | None = None) -> None:
+    documents = markdown_documents() if documents is None else documents
+    for path, text in sorted(documents.items()):
+        name = str(path.relative_to(ROOT))
+        if path.name.endswith("_TEMPLATE.md"):
             continue
-        for target in MARKDOWN_LINK.findall(path.read_text(encoding="utf-8")):
+        for target in MARKDOWN_LINK.findall(text):
             try:
                 url = urlsplit(target)
             except ValueError:
@@ -218,22 +232,28 @@ def validate_links(errors: list[str]) -> None:
             if not destination.endswith(".md"):
                 continue
             resolved = ROOT / destination.lstrip("/") if destination.startswith("/") else path.parent / destination
-            if not resolved.is_file():
+            if resolved.resolve() not in documents:
                 errors.append(f"{name}: broken local Markdown link {target}")
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(
         description=__doc__, allow_abbrev=False,
-        epilog="No refresh/write mode is implemented. Generated views and archive tooling belong to TASK-00002.",
     )
-    parser.parse_args()
+    parser.add_argument("--write", action="store_true", help="explicitly complete eligible parents and refresh marked views")
+    args = parser.parse_args()
     errors: list[str] = []
     try:
         records = load_records(errors)
         validate_relationships(records, errors)
         validate_links(errors)
-    except (OSError, UnicodeError) as exception:
+        if not errors:
+            from planning_views import refresh_plan
+            changes = refresh_plan(records)
+            if not args.write:
+                errors.extend(f"{path.relative_to(ROOT)}: stale planning view/parent; run ./bin/planning-check --write"
+                              for path in changes)
+    except (OSError, UnicodeError, ValueError) as exception:
         print(f"Planning validation failed: {exception}", file=sys.stderr)
         return 1
     if git("check-ignore", "-q", ".runs/planning-check").returncode:
@@ -244,6 +264,11 @@ def main() -> int:
             print(f"- {error}")
         return 1
 
+    if args.write:
+        for path, text in changes.items():
+            path.write_text(text, encoding="utf-8")
+        print(f"Planning refresh: {len(changes)} file(s) changed")
+        records = load_records([])
     active = sum(record.data["status"] not in TERMINAL for record in records.values())
     tasks = [record for record in records.values() if record.kind == "TASK"]
     unfinished = {
@@ -251,7 +276,8 @@ def main() -> int:
         for task in tasks
     }
     ready = sorted(
-        (task for task in tasks if task.data["status"] == "ready-for-agent" and not unfinished[task.identifier]),
+        (task for task in tasks if task.path.parent.name != "archive"
+         and task.data["status"] == "ready-for-agent" and not unfinished[task.identifier]),
         key=lambda task: (int(task.data["order"]) if task.data["order"] else float("inf"), task.identifier),
     )
     print(f"Planning validation passed: {len(records)} records, {active} active, {len(tasks)} TASKs")

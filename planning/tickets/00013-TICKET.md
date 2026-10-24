@@ -16,6 +16,14 @@ Parent EPIC-00002 is a migration-only grouping of this already-accepted foundati
 The body below preserves historical requirements and acceptance context, not fresh verification.
 Implementation: [TASK-00011](../tasks/00011-TASK.md), formerly T-00001. No additional execution is authorized.
 
+## Child TASK status projection
+
+<!-- planning:children:start -->
+| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| — | [TASK-00011 — Establish the Governed Slim Starter Foundation](../tasks/00011-TASK.md) | [TICKET-00013](00013-TICKET.md) | done | — | — | live |
+<!-- planning:children:end -->
+
 ## Historical Requirement Body
 
 ## Problem Statement

@@ -22,7 +22,7 @@ Local accepted requirements and gates prevail over provider application examples
 | Foundation | `ARCHITECTURE.md` and `planning/epics/00001-EPIC.md`; no required `planning/FOUNDATION.md` |
 | Technical standards/ownership | `docs/engineering/STANDARDS.md` and `planning/adr/0001-application-ownership-and-orchestration.md` |
 | Record templates and ID allocation | Target `planning/{epics,tickets,tasks}/` templates, live/archive inventory and `planning/MIGRATION.md` |
-| Planning refresh | Until TASK-00002 lands, manually update indexes/Board/Roadmap and run read-only `./bin/planning-check`; never invoke unsupported `--write` |
+| Planning refresh | Explicit `./bin/planning-check --write` completes eligible parents and refreshes marked sections; default `./bin/planning-check` rejects drift without writing. `planning/tickets/BOARD.md` is the sole TASK execution view |
 | Parent completion | Apply local bottom-up automatic parent completion in the same change; preserve terminal/archived parents and historical dependency edges |
 | Branch and checkout | Selected checkout, `feature/<description>` from `develop`; preserve an authorized existing branch |
 | Runtime/gates | Target `./bin/*` wrappers and current `./bin/build`; do not invoke provider services, database resets or frontend builds |
@@ -30,9 +30,10 @@ Local accepted requirements and gates prevail over provider application examples
 | PR body | No repository PR template currently exists; include TASK, scope, checks, review/QA provenance, risks and applicable evidence |
 | Product/runtime examples | No Agent OS domain, PostgreSQL, managed agents or frontend/authentication claims; follow local product tickets |
 
-Generated views and archive implementation are still TASK-00002 work. Shared `grill`, `to-tickets`, `to-tasks`,
-`wayfinder`, `work` and `land` instructions to refresh generated views use the transitional substitution above.
-Do not treat a nonexistent automation feature as a dependency for authoring accepted requirements/tasks.
+TASK-00002 delivers new-only marked projections and archive tooling. Shared `grill`, `to-tickets`, `to-tasks`,
+`wayfinder`, `work` and `land` instructions to refresh views use the explicit command above; builds only validate.
+Archive apply/link repair remains dynamically unexercised by TASK-00002, which performs no actual archives.
+Authoring accepted requirements/tasks does not grant implementation or archive authority.
 
 ## Scratch and canonical evidence
 
