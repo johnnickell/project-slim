@@ -20,6 +20,11 @@ remain TASK-00002 work. [MIGRATION.md](../MIGRATION.md) distinguishes historical
 
 ## Now
 
+[TASK-00017 — Require and Verify the Patched PHP Runtime](../tasks/00017-TASK.md) is independently accepted and
+QA-passed on `feature/php-runtime-security`: executable PHP 8.5.12, stale/unavailable-runtime rejection, unchanged
+lock packages and passing HTTP/tests. [PR #15](https://github.com/johnnickell/project-slim/pull/15) is published;
+human review and merge remain separate. TASK-00002 is again the first ready implementation successor.
+
 Review [PR #12](https://github.com/johnnickell/project-slim/pull/12) for [TASK-00001](../tasks/00001-TASK.md) and its
 hosted checks before a separate human merge decision. Independent acceptance covers `6203941` against `c19e0b9` with
 no findings; subsequent landing edits record acceptance/publication metadata only.
@@ -40,8 +45,9 @@ This planning pause does not change TASK scopes or the implementation frontier.
 
 ## Ready Frontier
 
-Completed TASK-00001 edges remain as history and no longer block these TASKs. TASK-00002 is the first ready successor;
-readiness never grants execution authority automatically.
+Completed TASK-00001 edges remain as history and no longer block these TASKs. TASK-00017's bounded runtime
+repair is locally complete; TASK-00002 is the first ready implementation successor. Readiness never grants
+execution authority automatically.
 
 | Order | TASK | Parent requirement | Unfinished TASK blockers |
 | --- | --- | --- | --- |
@@ -73,11 +79,13 @@ require the explicit scope/coverage decision in TASK-00016 before execution; it 
 
 ## Recently Closed / Done
 
-TASK-00001 has fresh local evidence and independent acceptance of the reconciled snapshot. Other entries retain
-historical evidence; completion and review do not imply publication or merge.
+TASK-00017 has independent technical acceptance and behavioral QA PASS. TASK-00001 has fresh local evidence and
+independent acceptance of the reconciled snapshot. Remaining entries retain historical evidence; completion and
+review do not imply publication or merge.
 
 | TASK | Parent requirement | Outcome |
 | --- | --- | --- |
+| [TASK-00017 — Require and Verify the Patched PHP Runtime](../tasks/00017-TASK.md) | Standalone bug | done: actual PHP 8.5.12, direct rejection regressions, same 93 lock packages, root HTTP and 26 tests / 152 assertions pass; independent Review accepted and QA passed; [PR #15](https://github.com/johnnickell/project-slim/pull/15) published, merge separate. |
 | [TASK-00005 — Retire Framework Certification](../tasks/00005-TASK.md) | [TICKET-00009](00009-TICKET.md) | done: certification files/readers/tests retired; single-lock build passes 26 tests / 152 assertions; review and hosted checks separate. |
 | [TASK-00001 — Migrate Planning to the New Schema](../tasks/00001-TASK.md) | [TICKET-00007](00007-TICKET.md) | done: reconciled schema independently accepted at 6203941; preservation checks and canonical build pass; [PR #12](https://github.com/johnnickell/project-slim/pull/12) open; human merge separate. |
 | [TASK-00015 — Establish the Requirement, Task, and Review Planning Surface](../tasks/00015-TASK.md) | [TICKET-00015](00015-TICKET.md) | wontfix: bootstrap-first sequence superseded without implementation; not PR #11's lean-gate handoff. |

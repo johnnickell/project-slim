@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: etc/docker/cli/Dockerfile
+    # Check the mounted guard even when reusing an image that predates it.
+    entrypoint: ["sh", "/app/scripts/php-runtime-entrypoint.sh"]
     command: php -S 0.0.0.0:8080 -t public
     ports: ["127.0.0.1:18086:8080"]
     volumes: [".:/app"]
