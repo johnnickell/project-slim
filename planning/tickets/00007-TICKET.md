@@ -92,6 +92,11 @@ The approved slices now target only the new schema:
 
 ## Progress
 
+Landing checkpoint (2026-10-24): TASK-00003 has independent acceptance and QA PASS at `d62fb30`; Land's recorded
+reconciliation preserves accepted TASK-00017 runtime controls and passes fresh PHP 8.5.12 verification. Combined
+publication with TASK-00004/00006 is pending. This parent remains in-progress because TASK-00002 is unfinished;
+no separate parent closeout is needed. The implementation and earlier delivery accounts below remain history.
+
 Current 2026-10-24 handoff: TASK-00003 delivers independent review/QA/delivery guidance and the shared-skill binding;
 normal and stale/missing evidence walkthroughs plus canonical build pass (26 / 152). AC-05 is covered; AC-01/06 have
 their guidance portions delivered. TASK-00002 still owns generation/archive and remaining routing evidence, so this

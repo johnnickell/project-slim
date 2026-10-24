@@ -1,13 +1,19 @@
 #!/usr/bin/env sh
 set -eu
 
-image=project-slim-build
+image=${PROJECT_SLIM_BUILD_IMAGE:-project-slim-build}
 git_common_dir=$(git rev-parse --path-format=absolute --git-common-dir)
-docker build --file etc/docker/cli/Dockerfile --tag "$image" .
+iidfile=$(mktemp)
+trap 'rm -f "$iidfile"' EXIT HUP INT TERM
+docker build --pull --file etc/docker/cli/Dockerfile --tag "$image" --iidfile "$iidfile" .
+image_id=$(tr -d '\n' < "$iidfile")
+printf 'Build image: %s (%s)\n' "$image" "$image_id"
 docker run --rm --volume "$(pwd):/app" --volume "$git_common_dir:$git_common_dir:ro" \
-  --workdir /app "$image" sh -ec '
+  --workdir /app "$image_id" sh -ec '
+  php scripts/check-php-runtime.php
   composer validate
   composer install --no-interaction --prefer-dist --no-progress
+  composer check-platform-reqs
 
   ./bin/planning-check
   php vendor/bin/phpunit

@@ -22,21 +22,24 @@ remain TASK-00002 work. [MIGRATION.md](../MIGRATION.md) distinguishes historical
 ## Now
 
 [TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md) and
-[TASK-00006](../tasks/00006-TASK.md) are implemented on `feature/slim-foundation-adoption`, awaiting independent
-review and applicable QA before separately authorized publication. Canonical build passes (26 tests / 152 assertions);
-completion is not independent acceptance or delivery. No review/QA report or PR is claimed for this branch.
+[TASK-00006](../tasks/00006-TASK.md) have independent acceptance and QA PASS at `d62fb30` on
+`feature/slim-foundation-adoption`. Land reconciled accepted TASK-00017 from `develop` without changing the
+accepted package entries, application diff or runtime controls. Fresh PHP 8.5.12 build (26 / 152), focused tests
+(12 / 47) and behavioral compatibility checks pass. One combined PR is authorized; publication and human review/merge
+remain pending at this checkpoint. Original reports and the reconciliation bridge are preserved.
 
 The maintainer selected one-to-one non-domain adoption in [EPIC-00001](../epics/00001-EPIC.md#current-adoption-amendment--2026-10-24).
 TASK-00016 is superseded as wontfix: TASK-00008/00009 own the adopted coverage/gate implementation. No policy decision
-is still required there. PR #12 is already merged into local `develop` at `eec7d06`; its former merge request is stale,
-not a reason to merge again. No fresh hosted-check result is inferred.
+is still required there. PR #12 is already merged into `develop` at `eec7d06`.
+[TASK-00017](../tasks/00017-TASK.md)'s independently accepted and QA-passed PHP 8.5.12 security repair is merged
+through [PR #15](https://github.com/johnnickell/project-slim/pull/15) at `922b55f`; neither is a current merge request.
 
 New-only validation works; generated views/`--write` and archive execution remain undelivered. Common 2.0 remains
 needs-info in TASK-00013.
 
 ## Active Work
 
-None. Implemented work awaiting independent review is named under Now, not a new implementation assignment.
+None. Accepted work awaiting publication is named under Now, not a new implementation assignment.
 
 ## Current Planning Handoff
 
@@ -54,8 +57,9 @@ This planning pause does not change TASK scopes or the implementation frontier.
 
 ## Ready Frontier
 
-Completed TASK-00001 edges remain as history and no longer block these TASKs. TASK-00002 is the first ready successor;
-readiness never grants execution authority automatically.
+Completed TASK-00001 edges remain as history and no longer block these TASKs. TASK-00017's bounded runtime
+repair is locally complete; TASK-00002 is the first ready implementation successor. Readiness never grants
+execution authority automatically.
 
 | Order | TASK | Parent requirement | Unfinished TASK blockers |
 | --- | --- | --- | --- |
@@ -84,14 +88,16 @@ belongs to TASK-00008/00009, not a duplicate gate.
 
 ## Recently Closed / Done
 
-TASK-00003/00004/00006 have fresh local implementation evidence but no independent acceptance yet. TASK-00001 and
-older entries retain their historical verification/delivery evidence; completion alone never implies publication or merge.
+TASK-00003/00004/00006 have independent technical acceptance and behavioral QA PASS for the recorded candidate;
+combined delivery is tracked above. TASK-00017 is merged. Older entries retain historical evidence; completion
+alone never implies publication or merge.
 
 | TASK | Parent requirement | Outcome |
 | --- | --- | --- |
-| [TASK-00003 — Establish Independent Review Handoffs](../tasks/00003-TASK.md) | [TICKET-00007](00007-TICKET.md) | done: shared workflow binding, canonical reports and routing walkthroughs; independent review/QA pending. |
-| [TASK-00004 — Establish Ownership and PHP Conventions](../tasks/00004-TASK.md) | [TICKET-00008](00008-TICKET.md) | done: ADR/standards and sorted callable shared-bus modules; 14 module contracts qualified, retained suite/build pass. |
-| [TASK-00006 — Qualify Released Dependencies](../tasks/00006-TASK.md) | [TICKET-00010](00010-TICKET.md) | done: Common v1.4.0 / AccessControl v0.8.0; bounded security patch; strict validation/audit/build pass. |
+| [TASK-00017 — Require and Verify the Patched PHP Runtime](../tasks/00017-TASK.md) | Standalone bug | done: PHP 8.5.12, runtime rejection and temporary session mitigation; independent acceptance and QA PASS; [PR #15](https://github.com/johnnickell/project-slim/pull/15) merged at 922b55f. |
+| [TASK-00003 — Establish Independent Review Handoffs](../tasks/00003-TASK.md) | [TICKET-00007](00007-TICKET.md) | done: shared workflow binding and routing walkthroughs; independent acceptance and QA PASS. |
+| [TASK-00004 — Establish Ownership and PHP Conventions](../tasks/00004-TASK.md) | [TICKET-00008](00008-TICKET.md) | done: ADR/standards and sorted callable shared-bus modules; independent acceptance and QA PASS. |
+| [TASK-00006 — Qualify Released Dependencies](../tasks/00006-TASK.md) | [TICKET-00010](00010-TICKET.md) | done: Common v1.4.0 / AccessControl v0.8.0 and bounded security patch; independent acceptance and QA PASS. |
 | [TASK-00016 — Establish the Lean Slim Pre-Submit Quality Gate](../tasks/00016-TASK.md) | [TICKET-00014](00014-TICKET.md) | wontfix: duplicate gate scope assigned to alignment slices; Agent OS coverage policy adopted, not yet implemented. |
 | [TASK-00005 — Retire Framework Certification](../tasks/00005-TASK.md) | [TICKET-00009](00009-TICKET.md) | done: certification files/readers/tests retired; single-lock build passes 26 tests / 152 assertions; review and hosted checks separate. |
 | [TASK-00001 — Migrate Planning to the New Schema](../tasks/00001-TASK.md) | [TICKET-00007](00007-TICKET.md) | done: reconciled schema independently accepted at 6203941; preservation checks and canonical build pass; [PR #12](https://github.com/johnnickell/project-slim/pull/12) merged in local develop at eec7d06; no new hosted claim. |

@@ -70,3 +70,8 @@ separate shared command/query/event registrations. Direct module/syntax checks a
 26 tests / 152 assertions, preserving existing behavior. No speculative source or upstream renaming was added.
 Static gate enforcement, HTTP error repair and broader Wayfinder decisions remain with their existing owners.
 Parent status is not independent review, QA, publication, merge or release; those outcomes remain separate.
+
+Landing checkpoint (2026-10-24): TASK-00004 is independently accepted and QA-passed at `d62fb30`. Land preserves
+its effective application diff while reconciling accepted TASK-00017; fresh full/focused and behavioral compatibility
+checks pass on PHP 8.5.12. This terminal parent stays done; EPIC-00001 remains open. Combined publication with
+TASK-00003/00006 is pending, and human review/merge is separate.

@@ -19,7 +19,7 @@ The [TASK Board](BOARD.md) is the execution entrypoint; [TASKs](../tasks/README.
 | 6 | [TICKET-00012](00012-TICKET.md) | Safe and Predictable HTTP Failures | ready-for-agent | TICKET-00008, TICKET-00010, TICKET-00011 |
 
 The alignment TASKs retain their dependency edges as history. TASK-00001's accepted reconciliation is merged in
-local develop through PR #12 at `eec7d06`. TASK-00003/00004/00006 are locally complete, awaiting independent review/QA;
+local develop through PR #12 at `eec7d06`. TASK-00003/00004/00006 have independent acceptance and QA PASS; combined publication is pending;
 TICKET-00008/00010 complete with their sole children. TICKET-00007 stays open for TASK-00002, the first ready successor.
 TASK-00016's scope/coverage conflict is resolved by the explicit adoption amendment, not by schema conversion.
 

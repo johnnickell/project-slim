@@ -76,3 +76,8 @@ maintenance and limits are in [dependency guidance](../../docs/engineering/DEPEN
 Installed invitation handling now declares the directly bound TransactionalUnitOfWork capability, but no invitation,
 production persistence or authentication journey is claimed. WF-001's broader capability inventory stays Open.
 Independent review/QA, hosted delivery and publication remain separate; EPIC-00001 still has unfinished requirements.
+
+Landing checkpoint (2026-10-24): TASK-00006 has independent acceptance and QA PASS at `d62fb30`. Land reconciles
+accepted TASK-00017's PHP controls without changing any of the 93 accepted package entries; fresh PHP 8.5.12 build,
+focused/behavioral compatibility, strict validation, real platform checks and advisory audit pass. This terminal
+parent stays done; EPIC-00001 remains open. Combined publication with TASK-00003/00004 is pending; no merge is claimed.
