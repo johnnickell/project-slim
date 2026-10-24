@@ -14,18 +14,18 @@ Old IDs are not executable aliases; all work records now use EPIC/TICKET/TASK.
 | 1 | [TASK-00017 — Require and Verify the Patched PHP Runtime](00017-TASK.md) | Standalone bug | done; independent acceptance and QA PASS; [PR #15](https://github.com/johnnickell/project-slim/pull/15) merged at 922b55f | — |
 | 1 | [TASK-00001 — Migrate Planning to the New Schema](00001-TASK.md) | [TICKET-00007](../tickets/00007-TICKET.md) | done; independently accepted, [PR #12](https://github.com/johnnickell/project-slim/pull/12) merged locally at eec7d06 | — |
 | 2 | [TASK-00002 — Generate Planning Views Safely](00002-TASK.md) | [TICKET-00007](../tickets/00007-TICKET.md) | ready-for-agent | [TASK-00001](00001-TASK.md) |
-| 3 | [TASK-00003 — Establish Independent Review Handoffs](00003-TASK.md) | [TICKET-00007](../tickets/00007-TICKET.md) | done; independent acceptance and QA PASS; publication pending | [TASK-00001](00001-TASK.md) |
-| 4 | [TASK-00004 — Establish Ownership and PHP Conventions](00004-TASK.md) | [TICKET-00008](../tickets/00008-TICKET.md) | done; independent acceptance and QA PASS; publication pending | [TASK-00001](00001-TASK.md) |
+| 3 | [TASK-00003 — Establish Independent Review Handoffs](00003-TASK.md) | [TICKET-00007](../tickets/00007-TICKET.md) | done; independent acceptance and QA PASS; [PR #16](https://github.com/johnnickell/project-slim/pull/16) published | [TASK-00001](00001-TASK.md) |
+| 4 | [TASK-00004 — Establish Ownership and PHP Conventions](00004-TASK.md) | [TICKET-00008](../tickets/00008-TICKET.md) | done; independent acceptance and QA PASS; [PR #16](https://github.com/johnnickell/project-slim/pull/16) published | [TASK-00001](00001-TASK.md) |
 | 5 | [TASK-00005 — Retire Framework Certification](00005-TASK.md) | [TICKET-00009](../tickets/00009-TICKET.md) | done | [TASK-00001](00001-TASK.md) |
-| 6 | [TASK-00006 — Qualify Released Dependencies](00006-TASK.md) | [TICKET-00010](../tickets/00010-TICKET.md) | done; independent acceptance and QA PASS; publication pending | [TASK-00005](00005-TASK.md) |
+| 6 | [TASK-00006 — Qualify Released Dependencies](00006-TASK.md) | [TICKET-00010](../tickets/00010-TICKET.md) | done; independent acceptance and QA PASS; [PR #16](https://github.com/johnnickell/project-slim/pull/16) published | [TASK-00005](00005-TASK.md) |
 | 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](00007-TASK.md) | [TICKET-00011](../tickets/00011-TICKET.md) | ready-for-agent | [TASK-00001](00001-TASK.md) |
 | 8 | [TASK-00008 — Align Behavior Suites and Coverage](00008-TASK.md) | [TICKET-00011](../tickets/00011-TICKET.md) | ready-for-agent | [TASK-00006](00006-TASK.md), [TASK-00007](00007-TASK.md) |
 | 9 | [TASK-00009 — Deliver the Canonical Quality Gate](00009-TASK.md) | [TICKET-00011](../tickets/00011-TICKET.md) | ready-for-agent | [TASK-00002](00002-TASK.md), [TASK-00003](00003-TASK.md), [TASK-00004](00004-TASK.md), [TASK-00008](00008-TASK.md) |
 | 10 | [TASK-00010 — Sanitize HTTP Failures](00010-TASK.md) | [TICKET-00012](../tickets/00012-TICKET.md) | ready-for-agent | [TASK-00009](00009-TASK.md) |
 
 TASK-00017's independently accepted and QA-passed PHP runtime repair is merged through
-[PR #15](https://github.com/johnnickell/project-slim/pull/15). Land reconciles it with the accepted TASK-00003/00004/00006
-foundation-adoption work for one combined PR. TASK-00002 is the first ready implementation successor;
+[PR #15](https://github.com/johnnickell/project-slim/pull/15). Land reconciled it with accepted TASK-00003/00004/00006
+foundation-adoption work in combined [PR #16](https://github.com/johnnickell/project-slim/pull/16); human merge is separate. TASK-00002 is the first ready implementation successor;
 TASK-00007 retains lifecycle modernization.
 
 ## Migrated Work

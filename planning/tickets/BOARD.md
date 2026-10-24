@@ -25,8 +25,9 @@ remain TASK-00002 work. [MIGRATION.md](../MIGRATION.md) distinguishes historical
 [TASK-00006](../tasks/00006-TASK.md) have independent acceptance and QA PASS at `d62fb30` on
 `feature/slim-foundation-adoption`. Land reconciled accepted TASK-00017 from `develop` without changing the
 accepted package entries, application diff or runtime controls. Fresh PHP 8.5.12 build (26 / 152), focused tests
-(12 / 47) and behavioral compatibility checks pass. One combined PR is authorized; publication and human review/merge
-remain pending at this checkpoint. Original reports and the reconciliation bridge are preserved.
+(12 / 47) and behavioral compatibility checks pass. Review the combined
+[PR #16](https://github.com/johnnickell/project-slim/pull/16) for human review/merge after its final delivery checks.
+Original reports and the reconciliation bridge are preserved; publication is not merge approval.
 
 The maintainer selected one-to-one non-domain adoption in [EPIC-00001](../epics/00001-EPIC.md#current-adoption-amendment--2026-10-24).
 TASK-00016 is superseded as wontfix: TASK-00008/00009 own the adopted coverage/gate implementation. No policy decision
@@ -39,7 +40,7 @@ needs-info in TASK-00013.
 
 ## Active Work
 
-None. Accepted work awaiting publication is named under Now, not a new implementation assignment.
+None. Published work awaiting human review/merge is named under Now, not a new implementation assignment.
 
 ## Current Planning Handoff
 

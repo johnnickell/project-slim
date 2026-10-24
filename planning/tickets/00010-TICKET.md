@@ -80,4 +80,5 @@ Independent review/QA, hosted delivery and publication remain separate; EPIC-000
 Landing checkpoint (2026-10-24): TASK-00006 has independent acceptance and QA PASS at `d62fb30`. Land reconciles
 accepted TASK-00017's PHP controls without changing any of the 93 accepted package entries; fresh PHP 8.5.12 build,
 focused/behavioral compatibility, strict validation, real platform checks and advisory audit pass. This terminal
-parent stays done; EPIC-00001 remains open. Combined publication with TASK-00003/00004 is pending; no merge is claimed.
+parent stays done; EPIC-00001 remains open. Combined [PR #16](https://github.com/johnnickell/project-slim/pull/16)
+publishes it with TASK-00003/00004; no merge is claimed.

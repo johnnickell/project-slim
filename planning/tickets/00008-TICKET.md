@@ -73,5 +73,5 @@ Parent status is not independent review, QA, publication, merge or release; thos
 
 Landing checkpoint (2026-10-24): TASK-00004 is independently accepted and QA-passed at `d62fb30`. Land preserves
 its effective application diff while reconciling accepted TASK-00017; fresh full/focused and behavioral compatibility
-checks pass on PHP 8.5.12. This terminal parent stays done; EPIC-00001 remains open. Combined publication with
-TASK-00003/00006 is pending, and human review/merge is separate.
+checks pass on PHP 8.5.12. This terminal parent stays done; EPIC-00001 remains open. Combined
+[PR #16](https://github.com/johnnickell/project-slim/pull/16) publishes it with TASK-00003/00006; human review/merge is separate.

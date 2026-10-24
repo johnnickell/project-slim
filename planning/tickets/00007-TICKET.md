@@ -94,7 +94,8 @@ The approved slices now target only the new schema:
 
 Landing checkpoint (2026-10-24): TASK-00003 has independent acceptance and QA PASS at `d62fb30`; Land's recorded
 reconciliation preserves accepted TASK-00017 runtime controls and passes fresh PHP 8.5.12 verification. Combined
-publication with TASK-00004/00006 is pending. This parent remains in-progress because TASK-00002 is unfinished;
+[PR #16](https://github.com/johnnickell/project-slim/pull/16) publishes it with TASK-00004/00006; human merge is separate.
+This parent remains in-progress because TASK-00002 is unfinished;
 no separate parent closeout is needed. The implementation and earlier delivery accounts below remain history.
 
 Current 2026-10-24 handoff: TASK-00003 delivers independent review/QA/delivery guidance and the shared-skill binding;
