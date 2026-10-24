@@ -41,7 +41,8 @@ Always run before committing or creating a PR:
 See `planning/CONVENTIONS.md` for the canonical planning structure: ticket lifecycle, BOARD.md execution frontier,
 Wayfinder maps, EPIC/TICKET/TASK conventions, file naming, templates, and explicit-only archive operations. Old IDs
 are provenance only; see `planning/MIGRATION.md`. Never archive as a completion side effect. `./bin/archive-planning`
-is disabled pending TASK-00002; once implemented, require an explicit request and review the dry run before apply.
+supports only new-schema records and separately governed Wayfinder maps. Require an explicit archive request and
+review the dry run before `--apply --confirm DIGEST`; implementation/completion never authorizes an archive.
 
 ### Pre-PR Sync Checklist
 
@@ -53,7 +54,7 @@ Before final commit and PR for any feature or bug fix:
 4. Update parent TICKET and EPIC progress sections
 5. Update `ROADMAP.md` if strategic progress changed
 6. Verify completed dependency edges are no longer treated as unresolved blockers; retain those edges as history
-7. Run read-only `./bin/planning-check`; `--write`/generated drift checks are deferred to TASK-00002. Do not commit or publish with a failing required gate
+7. Explicitly refresh marked views with `./bin/planning-check --write`, then run read-only `./bin/planning-check` to reject drift. Builds must not refresh planning. Do not commit or publish with a failing required gate
 
 When completing a TASK, apply [Automatic parent completion](planning/CONVENTIONS.md#automatic-parent-completion)
 in the same operation; do not leave a separate parent assessment or closeout action for the user.

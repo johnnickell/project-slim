@@ -2,7 +2,7 @@
 id: TICKET-00007
 epic: EPIC-00001
 title: Consistent Planning and Independent Review
-status: in-progress
+status: done
 order: 1
 blocked_by:
 ---
@@ -49,27 +49,28 @@ skill changes, actual archive operations, publication, merge, release, and deplo
 
 No requirement blocker. Requirements and TASKs may be written before automation exists. TASK-00001 migrates the records
 and replaces the validator with new-only support; TASK-00002 implements projections and new-schema archive tooling;
-TASK-00003 supplies detailed review/delivery guidance. New-only validation is implemented; generated views and archive
-execution remain unavailable. TASK-00003's shared review/delivery binding is implemented. A passing planning check
+TASK-00003 supplies detailed review/delivery guidance. New-only validation, explicit generated views/drift checks and new-schema archive tooling are implemented.
+TASK-00002 performs no archives; apply/link-repair behavior remains dynamically unexercised. TASK-00003's shared
+review/delivery binding is integrated through merged PR #16. A passing planning check
 does not waive the full build or independent review.
 
 ## Acceptance Criteria
 
-- [ ] **AC-01:** Conventions, templates, and entrypoints define only the new work hierarchy, parentage, standalone
+- [x] **AC-01:** Conventions, templates, and entrypoints define only the new work hierarchy, parentage, standalone
   exceptions, lifecycle, priority, and completion versus review/publication authority. No operative PRD/T-ticket
   authoring or execution path remains after migration.
 - [x] **AC-02:** The checker validates EPIC/TICKET/TASK records and rejects legacy work-record schemas without fallback.
   Validate parent kinds, links, unique identities/path collisions, statuses, required metadata, same-kind dependency
   edges, and cycles; preserve completed edges and derive unfinished blockers.
-- [ ] **AC-03:** Explicit refresh is deterministic and limited to generated sections; default validation is read-only
+- [x] **AC-03:** Explicit refresh is deterministic and limited to generated sections; default validation is read-only
   and rejects drift. Execution views contain TASKs only, including any appropriately migrated unresolved work.
-- [ ] **AC-04:** An explicit provenance mapping accounts for the old portfolio and its migrated meaning/status/evidence;
+- [x] **AC-04:** An explicit provenance mapping accounts for the old portfolio and its migrated meaning/status/evidence;
   links are repaired without requiring old live paths. New-schema archives enforce terminal-child eligibility and
   link repair without legacy modes or implicit archive operations.
 - [x] **AC-05:** Independent review handoffs identify requirements, base/head, branch, relevant dirty-state evidence,
   reviewer relationship, separate Spec/Standards conclusions, fresh checks, findings, and limitations. Missing,
   stale, or non-independent acceptance cannot authorize publication; review never authorizes merge.
-- [ ] **AC-06:** Entry instructions and Wayfinder handoff references agree on the new-only model without silently
+- [x] **AC-06:** Entry instructions and Wayfinder handoff references agree on the new-only model without silently
   closing product decisions. Normal and stale/missing-review walkthroughs preserve execution and publication authority.
 
 ## Verification
@@ -90,7 +91,28 @@ The approved slices now target only the new schema:
 | [TASK-00002 — Generate Planning Views Safely](../tasks/00002-TASK.md) | AC-03; archive portion of AC-04; planning routing portions of AC-01/AC-06 | TASK-00001 |
 | [TASK-00003 — Establish Independent Review Handoffs](../tasks/00003-TASK.md) | AC-05; delivery/walkthrough portions of AC-01/AC-06 | TASK-00001 |
 
+## Child TASK status projection
+
+<!-- planning:children:start -->
+| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | [TASK-00001 — Migrate Planning to the New Schema](../tasks/00001-TASK.md) | [TICKET-00007](00007-TICKET.md) | done | — | — | live |
+| 2 | [TASK-00002 — Generate Planning Views Safely](../tasks/00002-TASK.md) | [TICKET-00007](00007-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
+| 3 | [TASK-00003 — Establish Independent Review Handoffs](../tasks/00003-TASK.md) | [TICKET-00007](00007-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
+<!-- planning:children:end -->
+
 ## Progress
+
+Current handoff (2026-10-24): TASK-00002 implements deterministic marked projections, read-only drift checks and
+new-only explicit archive tooling. Its direct checks and full local build pass (26 tests / 152 assertions).
+TASK-00001/00003 are integrated, including merged PR #16 at `9778ee53aeda451c7993caee81feae72f604aa0b`.
+All children are terminal, so this parent completes automatically in the same refresh; no separate closeout remains.
+AC-01/03/04/06 now have their remaining tooling/routing evidence. No records were archived or fixtures seeded;
+archive apply/link-repair/rollback and closed-map paths are source-inspected, not dynamically verified.
+TASK-00002 still needs independent Review/QA and separately authorized publication. Parent completion supplies
+none of those verdicts. EPIC-00001 retains its own hosted completion requirement and unfinished children.
+
+### Historical progress before TASK-00002
 
 Landing checkpoint (2026-10-24): TASK-00003 has independent acceptance and QA PASS at `d62fb30`; Land's recorded
 reconciliation preserves accepted TASK-00017 runtime controls and passes fresh PHP 8.5.12 verification. Combined

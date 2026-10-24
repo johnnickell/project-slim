@@ -3,23 +3,26 @@
 ## In progress
 
 TASK-00003/00004/00006 have independent acceptance and QA PASS at `d62fb30`; Land reconciled TASK-00017's accepted
-runtime controls with unchanged package entries and application diff. Fresh PHP 8.5.12 build and compatibility
-checks pass. Combined [PR #16](https://github.com/johnnickell/project-slim/pull/16) is published; final delivery
-checks and human review/merge remain separate.
+runtime controls with unchanged package entries and application diff. Their fresh PHP 8.5.12 build and compatibility
+checks passed. Combined [PR #16](https://github.com/johnnickell/project-slim/pull/16) merged at
+`9778ee53aeda451c7993caee81feae72f604aa0b` on 2026-10-24; no merge request remains.
 [TASK-00017](tasks/00017-TASK.md) is merged through [PR #15](https://github.com/johnnickell/project-slim/pull/15)
-at `922b55f`. TASK-00002 remains the first ready implementation handoff.
+at `922b55f`. TASK-00002 owns this planning-tooling implementation; its completion and independent acceptance
+are separate. The [TASK Board](tickets/BOARD.md) owns the current execution frontier.
 
-| Epic | Target | Status | Current outcome |
+<!-- planning:active-epics:start -->
+| Epic | Target | Status | Location |
 | --- | --- | --- | --- |
-| [EPIC-00001](epics/00001-EPIC.md) | Unversioned engineering alignment | in-progress | TASK-00003/00004/00006 independently accepted and QA-passed; [PR #16](https://github.com/johnnickell/project-slim/pull/16) published, human review/merge separate. TASK-00002 first ready successor. |
-| [EPIC-00003](epics/00003-EPIC.md) | Existing adoption evidence and incoming gate handoff | in-progress | Historical evidence retained. TASK-00013 remains needs-info; TASK-00016 is superseded without a duplicate gate. |
+| [EPIC-00001 — Align Engineering and Delivery](epics/00001-EPIC.md) | unversioned | in-progress | live |
+| [EPIC-00003 — Fight Common Adoption Continuity](epics/00003-EPIC.md) | Existing adoption evidence; Common 2.0 authority unresolved | in-progress | live |
+<!-- planning:active-epics:end -->
 
 ## Route to 1.0
 
-1. Review [PR #16](https://github.com/johnnickell/project-slim/pull/16)'s TASK-00003/00004/00006 workflow,
-   ownership/composition and released-dependency slices with verified TASK-00017 reconciliation for human merge. PR #12 is already merged at
-   `eec7d06`, not a current merge request. All records use EPIC/TICKET/TASK; [MIGRATION.md](MIGRATION.md) preserves
-   provenance. [TASK-00002](tasks/00002-TASK.md) is first ready; generation/archive tooling remains undelivered.
+1. Continue from integrated PR #16's workflow, ownership/composition and released-dependency slices, with verified
+   TASK-00017 reconciliation. PR #12 is also merged at `eec7d06`. All records use EPIC/TICKET/TASK;
+   [MIGRATION.md](MIGRATION.md) preserves provenance. [TASK-00002](tasks/00002-TASK.md) supplies explicit generation,
+   read-only drift checks and new-only archive tooling; it performs no archives. Independent Review/QA remain separate.
 2. Implement remaining runtime/suite/gate slices under the [adoption amendment](epics/00001-EPIC.md#current-adoption-amendment--2026-10-24).
    TASK-00016 is wontfix as a duplicate path; Agent OS's all-suite Domain/Application line coverage with separate
    suite attribution and visible Adapter gaps is the accepted policy. Do not claim it is enforced yet.
@@ -34,6 +37,15 @@ at `922b55f`. TASK-00002 remains the first ready implementation handoff.
 
 ## Completed / Released
 
+Status projections are not release assertions. Refresh explicitly with `./bin/planning-check --write`;
+`./bin/planning-check` and the build check without writing.
+
+<!-- planning:closed-epics:start -->
+| Epic | Target | Status | Location |
+| --- | --- | --- | --- |
+| [EPIC-00002 — Governed Slim Starter Foundation](epics/00002-EPIC.md) | Historical foundation; no release target | done | live |
+<!-- planning:closed-epics:end -->
+
 [TASK-00017](tasks/00017-TASK.md) requires and executes PHP 8.5.12, rejects stale/unavailable runtimes, preserved
 all locked package entries in its repair and passed root HTTP plus 26 tests / 152 assertions. Temporary session-upload
 startup mitigation is documented. Independent Review accepted and QA passed;
@@ -45,6 +57,6 @@ startup mitigation is documented. Independent Review accepted and QA passed;
 [TICKET-00015](tickets/00015-TICKET.md) / [TASK-00015](tasks/00015-TASK.md) are wontfix: the bootstrap-first sequence was
 superseded before implementation, not completed or released. PR #11's different lean-gate handoff remains visible
 in TASK-00016, now separately superseded by the explicit 2026-10-24 scope/coverage decision, not conflated with that
-history. TASK-00003/00004/00006 have independent acceptance and QA PASS; delivery remains separate.
-Generated views/`--write` and archive execution remain unavailable
-pending TASK-00002. No release is claimed.
+history. TASK-00003/00004/00006 have independent acceptance and QA PASS and are integrated through PR #16.
+Archive apply/link repair is implemented but dynamically unexercised in TASK-00002; no archive or release is claimed.
+EPIC-00001's required hosted completion proof remains outstanding.

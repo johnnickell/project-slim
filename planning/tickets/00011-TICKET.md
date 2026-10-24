@@ -79,6 +79,16 @@ The human maintainer approved these slices; each keeps the then-operative gate c
 | [TASK-00008 — Align Behavior Suites and Coverage](../tasks/00008-TASK.md) | AC-04/AC-05 | TASK-00006, TASK-00007 |
 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | AC-02/AC-03/AC-06; final integration of AC-05 | TASK-00002, TASK-00003, TASK-00004, TASK-00008 |
 
+## Child TASK status projection
+
+<!-- planning:children:start -->
+| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](../tasks/00007-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00001](../tasks/00001-TASK.md) | — | live |
+| 8 | [TASK-00008 — Align Behavior Suites and Coverage](../tasks/00008-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00006](../tasks/00006-TASK.md), [TASK-00007](../tasks/00007-TASK.md) | [TASK-00007](../tasks/00007-TASK.md) | live |
+| 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00002](../tasks/00002-TASK.md), [TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md), [TASK-00008](../tasks/00008-TASK.md) | [TASK-00008](../tasks/00008-TASK.md) | live |
+<!-- planning:children:end -->
+
 ## Progress
 
 Requirement and TASK split approved; all three TASKs are authored but not implemented. No runtime, tooling,

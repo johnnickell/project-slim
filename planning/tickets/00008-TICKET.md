@@ -62,6 +62,14 @@ retroactively invent policy. No architecture/configuration tests are added to pr
 [TASK-00004 — Establish Ownership and PHP Conventions](../tasks/00004-TASK.md) covers AC-01 through AC-04 and is
 blocked by TASK-00001. Quality-gate enforcement and HTTP failure repair remain separate requirement outcomes.
 
+## Child TASK status projection
+
+<!-- planning:children:start -->
+| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| 4 | [TASK-00004 — Establish Ownership and PHP Conventions](../tasks/00004-TASK.md) | [TICKET-00008](00008-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
+<!-- planning:children:end -->
+
 ## Progress
 
 Completed with sole child TASK-00004 on 2026-10-24 under automatic parent completion. ADR 0001, local standards and

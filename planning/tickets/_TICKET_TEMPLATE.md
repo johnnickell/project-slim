@@ -39,6 +39,11 @@ gate obligation; do not claim tools or results that do not exist yet.
 
 No TASKs created. Propose independently reviewable slices separately and obtain approval before writing them.
 
+## Child TASK status projection
+
+<!-- planning:children:start -->
+<!-- planning:children:end -->
+
 ## Progress
 
 Record acceptance, implementation evidence, and outstanding work separately.

@@ -8,9 +8,9 @@ Use [lightweight routing](../CONVENTIONS.md#lightweight-work-routing) for valida
 Use the [Roadmap](../ROADMAP.md) and current handoffs for planning phases; do not infer full decomposition from closed maps.
 Read the referenced current section, not the full historical record. Missing handoff/phase needs owner input.
 
-Record metadata owns status, priority, and blockers. This manually maintained view routes to TASKs only.
-Requirements are not executable work; see the [requirement index](README.md). Generated views and drift detection
-remain TASK-00002 work. [MIGRATION.md](../MIGRATION.md) distinguishes historical source identities, not execution aliases.
+Record metadata owns status, priority, and blockers. Marked sections are generated TASK-only views.
+Use `./bin/planning-check --write` to refresh explicitly; `./bin/planning-check` rejects drift without writing.
+Requirements are not executable work; see the [requirement index](README.md). [MIGRATION.md](../MIGRATION.md) distinguishes historical source identities, not execution aliases.
 
 ## "What's Next?" Contract
 
@@ -21,13 +21,14 @@ remain TASK-00002 work. [MIGRATION.md](../MIGRATION.md) distinguishes historical
 
 ## Now
 
-[TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md) and
-[TASK-00006](../tasks/00006-TASK.md) have independent acceptance and QA PASS at `d62fb30` on
-`feature/slim-foundation-adoption`. Land reconciled accepted TASK-00017 from `develop` without changing the
-accepted package entries, application diff or runtime controls. Fresh PHP 8.5.12 build (26 / 152), focused tests
-(12 / 47) and behavioral compatibility checks pass. Review the combined
-[PR #16](https://github.com/johnnickell/project-slim/pull/16) for human review/merge after its final delivery checks.
-Original reports and the reconciliation bridge are preserved; publication is not merge approval.
+[PR #16](https://github.com/johnnickell/project-slim/pull/16) merged into `develop` at
+`9778ee53aeda451c7993caee81feae72f604aa0b` on 2026-10-24, integrating TASK-00003/00004/00006.
+Their independent acceptance and QA PASS at `d62fb30`, fresh PHP 8.5.12 build (26 / 152), focused tests
+(12 / 47), compatibility checks and TASK-00017 reconciliation remain historical evidence, not checks of TASK-00002.
+No PR #16 merge action remains. TASK-00002 is locally implemented with direct checks and the full build passed;
+its next delivery step is independent Review, then applicable QA and separately authorized publication. See its
+[current completion evidence](../tasks/00002-TASK.md#completion-notes). No independent verdict is implied.
+There is no new human policy/merge decision for that TASK yet.
 
 The maintainer selected one-to-one non-domain adoption in [EPIC-00001](../epics/00001-EPIC.md#current-adoption-amendment--2026-10-24).
 TASK-00016 is superseded as wontfix: TASK-00008/00009 own the adopted coverage/gate implementation. No policy decision
@@ -35,12 +36,14 @@ is still required there. PR #12 is already merged into `develop` at `eec7d06`.
 [TASK-00017](../tasks/00017-TASK.md)'s independently accepted and QA-passed PHP 8.5.12 security repair is merged
 through [PR #15](https://github.com/johnnickell/project-slim/pull/15) at `922b55f`; neither is a current merge request.
 
-New-only validation works; generated views/`--write` and archive execution remain undelivered. Common 2.0 remains
-needs-info in TASK-00013.
+Common 2.0 remains needs-info in TASK-00013. New-only refresh and archive tooling are implemented by TASK-00002;
+archive apply/link repair has not been dynamically exercised. No actual archive was requested.
 
 ## Active Work
 
-None. Published work awaiting human review/merge is named under Now, not a new implementation assignment.
+<!-- planning:active:start -->
+None.
+<!-- planning:active:end -->
 
 ## Current Planning Handoff
 
@@ -58,24 +61,25 @@ This planning pause does not change TASK scopes or the implementation frontier.
 
 ## Ready Frontier
 
-Completed TASK-00001 edges remain as history and no longer block these TASKs. TASK-00017's bounded runtime
-repair is locally complete; TASK-00002 is the first ready implementation successor. Readiness never grants
-execution authority automatically.
+Completed edges remain history, not blockers. Readiness never grants execution authority automatically.
 
-| Order | TASK | Parent requirement | Unfinished TASK blockers |
-| --- | --- | --- | --- |
-| 2 | [TASK-00002 — Generate Planning Views Safely](../tasks/00002-TASK.md) | [TICKET-00007](00007-TICKET.md) | — |
-| 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](../tasks/00007-TASK.md) | [TICKET-00011](00011-TICKET.md) | — |
+<!-- planning:ready:start -->
+| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](../tasks/00007-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00001](../tasks/00001-TASK.md) | — | live |
+<!-- planning:ready:end -->
 
 ## Waiting
 
-All statuses below are ready-for-agent; unfinished TASK dependencies derive their waiting state.
+Unfinished TASK dependencies derive waiting state.
 
-| Order | TASK | Parent requirement | Unfinished TASK blockers |
-| --- | --- | --- | --- |
-| 8 | [TASK-00008 — Align Behavior Suites and Coverage](../tasks/00008-TASK.md) | [TICKET-00011](00011-TICKET.md) | TASK-00007 |
-| 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | TASK-00002, TASK-00008 |
-| 10 | [TASK-00010 — Sanitize HTTP Failures](../tasks/00010-TASK.md) | [TICKET-00012](00012-TICKET.md) | TASK-00009 |
+<!-- planning:waiting:start -->
+| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| 8 | [TASK-00008 — Align Behavior Suites and Coverage](../tasks/00008-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00006](../tasks/00006-TASK.md), [TASK-00007](../tasks/00007-TASK.md) | [TASK-00007](../tasks/00007-TASK.md) | live |
+| 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00002](../tasks/00002-TASK.md), [TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md), [TASK-00008](../tasks/00008-TASK.md) | [TASK-00008](../tasks/00008-TASK.md) | live |
+| 10 | [TASK-00010 — Sanitize HTTP Failures](../tasks/00010-TASK.md) | [TICKET-00012](00012-TICKET.md) | ready-for-agent | [TASK-00009](../tasks/00009-TASK.md) | [TASK-00009](../tasks/00009-TASK.md) | live |
+<!-- planning:waiting:end -->
 
 Requirement-level dependencies are not automatically blockers on every child TASK. Completed TASK edges stay in
 metadata as history, not unresolved blockers. TASK-00016's scope/coverage decision is resolved; its implementation
@@ -83,15 +87,38 @@ belongs to TASK-00008/00009, not a duplicate gate.
 
 ## Needs Info
 
-| TASK | Parent requirement | Missing decision or evidence |
-| --- | --- | --- |
-| [TASK-00013 — Prepare Fight Common 2.0 Migration](../tasks/00013-TASK.md) | [TICKET-00014](00014-TICKET.md) | Common 2.0 contract, deprecation-removal inventory, and migration guide. |
+TASK-00013 still needs the Common 2.0 contract, deprecation-removal inventory and migration guide.
+
+<!-- planning:info:start -->
+| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| — | [TASK-00013 — Prepare Fight Common 2.0 Migration](../tasks/00013-TASK.md) | [TICKET-00014](00014-TICKET.md) | needs-info | — | — | live |
+<!-- planning:info:end -->
 
 ## Recently Closed / Done
 
-TASK-00003/00004/00006 have independent technical acceptance and behavioral QA PASS for the recorded candidate;
-combined delivery is tracked above. TASK-00017 is merged. Older entries retain historical evidence; completion
-alone never implies publication or merge.
+Completion alone never implies independent acceptance, publication or merge. Each TASK retains its outcome and
+delivery evidence; `wontfix` is closure without implementation. The pre-generation outcome inventory below is
+preserved as historical narrative, not a second status authority.
+
+<!-- planning:closed:start -->
+| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | [TASK-00001 — Migrate Planning to the New Schema](../tasks/00001-TASK.md) | [TICKET-00007](00007-TICKET.md) | done | — | — | live |
+| 1 | [TASK-00017 — Require and Verify the Patched PHP Runtime](../tasks/00017-TASK.md) | Standalone bug | done | — | — | live |
+| 2 | [TASK-00002 — Generate Planning Views Safely](../tasks/00002-TASK.md) | [TICKET-00007](00007-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
+| 3 | [TASK-00003 — Establish Independent Review Handoffs](../tasks/00003-TASK.md) | [TICKET-00007](00007-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
+| 4 | [TASK-00004 — Establish Ownership and PHP Conventions](../tasks/00004-TASK.md) | [TICKET-00008](00008-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
+| 5 | [TASK-00005 — Retire Framework Certification](../tasks/00005-TASK.md) | [TICKET-00009](00009-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
+| 6 | [TASK-00006 — Qualify Released Dependencies](../tasks/00006-TASK.md) | [TICKET-00010](00010-TICKET.md) | done | [TASK-00005](../tasks/00005-TASK.md) | — | live |
+| — | [TASK-00011 — Establish the Governed Slim Starter Foundation](../tasks/00011-TASK.md) | [TICKET-00013](00013-TICKET.md) | done | — | — | live |
+| — | [TASK-00012 — Adopt Fight Common 1.2](../tasks/00012-TASK.md) | [TICKET-00014](00014-TICKET.md) | done | — | — | live |
+| — | [TASK-00014 — Re-certify Rewritten Fight Common Candidate](../tasks/00014-TASK.md) | [TICKET-00014](00014-TICKET.md) | done | — | — | live |
+| — | [TASK-00015 — Establish the Requirement, Task, and Review Planning Surface](../tasks/00015-TASK.md) | [TICKET-00015](00015-TICKET.md) | wontfix | — | — | live |
+| — | [TASK-00016 — Establish the Lean Slim Pre-Submit Quality Gate](../tasks/00016-TASK.md) | [TICKET-00014](00014-TICKET.md) | wontfix | — | — | live |
+<!-- planning:closed:end -->
+
+### Historical outcome inventory before TASK-00002
 
 | TASK | Parent requirement | Outcome |
 | --- | --- | --- |

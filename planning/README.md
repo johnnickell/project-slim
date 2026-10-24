@@ -7,7 +7,7 @@ is `EPIC -> TICKET -> TASK`; requirements and implementation records have distin
 - `epics/` describes destinations.
 - `tickets/` owns requirements under `TICKET-NNNNN` identities.
 - `tasks/` owns bounded implementation under `TASK-NNNNN` identities and their approved dependency graph.
-- `tickets/BOARD.md` is the current execution entrypoint for TASKs; generation is still pending.
+- `tickets/BOARD.md` is the sole execution entrypoint for TASKs; its marked projections derive from records.
 - `adr/` records architectural decisions.
 - `agents/` contains focused working instructions.
 - `wayfinder/` holds planning-only investigation maps and decision records, not executable work.
@@ -20,8 +20,8 @@ the wontfix bootstrap is TASK-00015; PR #11's distinct lean-gate handoff is TASK
 superseded as wontfix by the explicit 2026-10-24 adoption scope/coverage decision. No old identity or path is retained as an executable compatibility record.
 
 The [shared workflow binding](../docs/engineering/WORKFLOWS.md) supplies Slim paths, tooling substitutions and
-independent delivery/report responsibilities. TASK-00003/00004/00006 have local implementation evidence; generation,
-worktree-safe runtime, suite/coverage, expanded gate and safe HTTP adoption remain separately tracked.
+independent delivery/report responsibilities. TASK-00003/00004/00006 are integrated through merged PR #16. TASK-00002 supplies generation and new-only archive
+tooling; worktree-safe runtime, suite/coverage, expanded gate and safe HTTP adoption remain separately tracked.
 
 Use copy-ready `_…_TEMPLATE.md` files beside records. IDs have five digits and separate sequences for EPICs, TICKETs,
 and TASKs; preserve gaps and avoid live/archive identity and path collisions or reusing historical allocations.
@@ -31,8 +31,11 @@ Requirements are not executable merely because they are ready. Blocking is deriv
 provenance and link repair, not dual mutable records. Archive only on explicit request using the owning new-schema
 command once implemented; schema migration does not authorize moving records into archives.
 
-Run `./bin/planning-check` after planning changes: it validates only EPIC/TICKET/TASK and local Markdown file targets,
-read-only. Heading anchors are not validated. There is no `--write` or drift detection yet; unsupported options fail.
-TASK-00002 owns generated views and new-schema archive tooling. The archive command is disabled (exit 2, no mutation).
-Direct checks are not the full canonical gate; do not commit or publish with a failing required gate. Scratch belongs
-in ignored `.runs/`, never here.
+After authorized planning edits, run `./bin/planning-check --write` to validate first, complete eligible parents
+bottom-up and refresh marked sections. Then run `./bin/planning-check`: it validates EPIC/TICKET/TASK, local Markdown
+file targets and view freshness without writing. Heading anchors are not validated; unsupported options fail.
+Build invokes only the read-only mode. Keep strategy, decisions and delivery evidence outside generated markers.
+The new-only archive command requires a separate explicit request, reviewed dry run and matching confirmation digest;
+see [archive rules](CONVENTIONS.md#archive-explicit-requests-only). TASK-00002 performs no archives, so archive
+apply/link repair remains dynamically unexercised. Direct checks are not the full canonical gate; do not commit or
+publish with a failing required gate. Scratch belongs in ignored `.runs/`, never here.

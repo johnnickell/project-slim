@@ -56,11 +56,13 @@ second mutable hierarchy. Existing references now resolve to new records; no arc
 [TICKET-00015](tickets/00015-TICKET.md) and [TASK-00015](tasks/00015-TASK.md) preserve the superseded bootstrap-first
 proposal as wontfix history, not operative guidance or implemented work.
 
-**Delivered tooling:** `./bin/planning-check` validates only the new hierarchy and local Markdown file targets,
-read-only. It derives unfinished TASK blockers without deleting historical edges. It does not generate views or
-validate heading anchors. Unsupported arguments, including `--write`, fail explicitly. TASK-00002 owns generation,
-read-only drift checks, and new-schema archive tooling; archive execution is disabled until then. Direct checks do
-not replace `./bin/build`, and no failing required gate permits a commit/publication.
+**Delivered tooling:** `./bin/planning-check` validates the new hierarchy, local Markdown file targets and marked
+view freshness without writing. It derives unfinished TASK blockers without deleting historical edges. Explicit
+`./bin/planning-check --write` validates the portfolio and marker structure before completing eligible parents and
+refreshing projections; a second refresh changes nothing. Heading anchors are not validated. Unsupported arguments
+fail explicitly. New-only archive tooling has separate explicit-request/dry-run/apply rules below. TASK-00002
+performs no archives; archive apply/link repair is implemented but dynamically unexercised. Direct checks do not
+replace `./bin/build`, and no failing required gate permits a commit/publication.
 
 ## Automatic parent completion
 
@@ -75,7 +77,9 @@ an unfinished child rather than a separate parent-closeout gate. Parent status d
 release, deployment or publication, and completion never archives records automatically.
 
 The completing agent updates parent metadata and affected indexes, Board and Roadmap in this same action.
-Run the existing read-only `./bin/planning-check` afterward; no `--write` mode is available.
+Run explicit `./bin/planning-check --write` to complete eligible parents and refresh views, then read-only
+`./bin/planning-check` to verify freshness. This does not inspect or supply independent review/QA/hosted proof;
+leave a child unfinished until its required acceptance evidence exists.
 
 
 ## Directory Structure
@@ -155,10 +159,10 @@ release, or deployment; record those states and evidence separately.
 
 ## Board and Views
 
-Record metadata owns status, priority, and dependencies. During the tooling transition,
-`planning/tickets/BOARD.md` remains the manually maintained execution entrypoint for TASKs only. Requirements are not
+Record metadata owns status, priority and dependencies. `planning/tickets/BOARD.md` is the sole TASK execution view;
+its Active Work, Ready Frontier, Waiting, Needs Info and terminal projections are generated. Requirements are not
 executable rows. Migrated information/terminal work uses its new TASK identity; no alternate legacy frontier remains.
-TASK-00002 establishes generated views and updates entrypoint references atomically.
+All active TASKs are returned before selecting the first ready TASK by positive `order`, unranked last, ID tie-break.
 
 The Board shows:
 
@@ -169,13 +173,17 @@ The Board shows:
 - **Needs Info**: unresolved decisions/evidence; and
 - **Recently Closed / Done**: terminal outcomes, distinguishing closure without implementation from completion.
 
-Maintain indexes and Board projections manually until generation is implemented. Afterwards,
-`./bin/planning-check --write` explicitly validates and refreshes marked sections, and the default invocation is
-read-only and rejects stale views. Builds must never refresh planning implicitly. Preserve authored strategy and
-material decisions outside generated sections.
+`./bin/planning-check --write` explicitly validates and refreshes `<!-- planning:NAME:start -->` / `end` sections;
+the default invocation is read-only and rejects stale views or eligible uncompleted parents. Missing, duplicated or
+reversed marker pairs fail before writes; preserve the pairs supplied by EPIC/TICKET templates when authoring records.
+Indexes include live/archived inventory and separate dependency history from unfinished blockers. Parent records
+project children, including archived children. Archived TASKs do not appear in the execution frontier.
+Builds must never refresh planning implicitly. Keep authored strategy, current human decisions, planning handoffs,
+Wayfinder pointers and historical delivery evidence outside generated sections. The checker does not infer their
+truth from metadata; update those authored handoffs in the same authorized planning transition.
 
 `planning/ROADMAP.md` retains **In progress**, **Route to <version>**, and **Completed / Released** sections.
-Its status projections derive from records once generation is implemented; authored strategy remains editable.
+Its marked status projections derive from records; authored strategy remains editable.
 
 ## Wayfinder
 
@@ -203,20 +211,31 @@ Archive only on an explicit request. Use the owning command, inspect its dry run
 proposed moves are correct. Schema migration is not an archive request; do not move records into archives as a
 completion side effect or use a legacy archive mode as a workaround.
 
-The current archive command is deliberately disabled: every invocation exits 2 without mutation, including help,
-Wayfinder selection, and apply requests. The legacy implementation was removed rather than kept as a bypass.
-TASK-00002 implements new-schema archive tooling. The target commands below are requirements, not current support:
+The archive command supports only the selectors below. Default invocation is a read-only dry run: it validates
+records, links, fresh projections and eligibility, then prints moves, rewritten files and a plan digest. Inspect
+that plan before repeating the same selection with `--apply --confirm DIGEST`. Both flags are required together;
+a changed input/plan invalidates the digest. The flags express explicit apply authority, not permission inferred
+from terminal status. Use `--help` for syntax. Unsupported, duplicate, wrong-kind, unknown, archived or nonterminal
+selectors fail closed (exit 2); destination collisions and symlinks also refuse. No PRD/T-ticket aliases exist.
 
 | Request | Target command shape | Destination |
 | --- | --- | --- |
-| archive TASKs | `./bin/archive-planning tasks TASK-NNNNN … [--apply]` | `planning/tasks/archive/` |
-| archive TICKETs | `./bin/archive-planning tickets TICKET-NNNNN … [--apply]` | `planning/tickets/archive/` |
-| archive EPICs | `./bin/archive-planning epics EPIC-NNNNN … [--apply]` | `planning/epics/archive/` |
-| archive a Wayfinder map | `./bin/archive-planning wayfinder map-name [--apply]` | Existing Wayfinder archive locations |
+| archive TASKs | `./bin/archive-planning tasks TASK-NNNNN … [--apply --confirm DIGEST]` | `planning/tasks/archive/` |
+| archive TICKETs | `./bin/archive-planning tickets TICKET-NNNNN … [--apply --confirm DIGEST]` | `planning/tickets/archive/` |
+| archive EPICs | `./bin/archive-planning epics EPIC-NNNNN … [--apply --confirm DIGEST]` | `planning/epics/archive/` |
+| archive a Wayfinder map | `./bin/archive-planning wayfinder name-map [--apply --confirm DIGEST]` | Existing Wayfinder archive locations |
 
 TASKs must be terminal. TICKETs additionally require all child TASKs terminal; EPICs require all child TICKETs terminal.
-A Wayfinder map must be Closed, all linked decisions Closed, frontier empty, and resolution linked to its implementation
-handoff. Preserve records, identities, and evidence; repair links and refresh projections using the owning tool.
+A Wayfinder map is separately governed: select its exact basename without `.md`; it must have `**Status:** Closed`,
+all linked decision tickets Closed with nonempty Resolution sections, an explicit `None`, `None.` or `—` Frontier,
+and a `## Resolution` linking its EPIC/TICKET/TASK implementation handoff. Shared decisions referenced by another live
+map refuse rather than moving shared authority. The map moves to `wayfinder/archive/`, its linked decisions to
+`archive/tickets/`, and directly linked research to `archive/research/`. No Wayfinder state is inferred or closed.
+Preserve records, identities and evidence; the tool repairs repository-owned inline Markdown links (including moved
+sources' relative targets), preserves query/fragment suffixes and refreshes projections. Plain prose/code-span
+historical paths and heading-anchor validity are not rewritten/validated. Prospective validation runs before apply;
+apply rechecks source bytes, validates the result and attempts rollback on I/O/validation failure. It is not a
+crash-atomic transaction or backup: inspect the working tree after any interrupted/failed apply.
 After an authorized archive, run read-only planning validation, inspect repaired links, and commit the move and
 reference repair together. Historical artifacts are not an excuse to retain multiple live planning schemas.
 
@@ -238,7 +257,7 @@ Before final commit or PR:
 
 Independent review challenges requirements (Spec) and local engineering/delivery rules (Standards), discloses reviewer
 involvement, and identifies the exact reviewed snapshot and evidence. The [shared workflow binding](../docs/engineering/WORKFLOWS.md)
-adopts canonical report, QA, reconciliation and delivery protocols with Slim substitutions, including manual view
-maintenance until TASK-00002. A material contributor cannot independently accept their implementation; review does
+adopts canonical report, QA, reconciliation and delivery protocols with Slim substitutions, including explicit marked-view
+refresh and read-only drift validation. A material contributor cannot independently accept their implementation; review does
 not grant publication or merge authority. Keep explicitly required hosted evidence and current acceptance separate
 from implementation completion. Use shared ignored evidence paths without moving historical runs.

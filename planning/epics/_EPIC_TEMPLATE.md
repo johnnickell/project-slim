@@ -19,6 +19,11 @@ Describe the durable outcome and the boundary of this epic.
 
 - TICKET-NNNNN — Title
 
+## Requirement status projection
+
+<!-- planning:children:start -->
+<!-- planning:children:end -->
+
 ## Progress
 
 Record completed milestones and the next unresolved planning consequence.
