@@ -3,7 +3,7 @@
 **Labels:** `wayfinder:prototype`
 **Mode:** HITL
 **Status:** Open
-**Gate:** Symfony realtime contract
+**Gate:** Qualified reusable Agent OS realtime contract
 **Map:** [Slim AccessControl Application](../slim-access-control-application-map.md)
 **Depends on:** WF-002, WF-005, WF-006
 
@@ -36,4 +36,6 @@ schedule, topic, retry, and reconnect specifics remain fog until closure.
 
 ## Resolution
 
-Open.
+Open. The 2026-10-24 non-domain adoption direction supersedes the earlier Symfony reference prerequisite.
+Qualify reusable source delivery/realtime behavior without importing Agent OS domain subscriptions or claiming
+that its current implementation satisfies the full Slim contract. Runtime ownership remains gated by WF-002.

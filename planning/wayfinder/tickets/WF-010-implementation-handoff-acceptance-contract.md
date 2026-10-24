@@ -23,7 +23,7 @@ verifiable vertical implementation TASKs with no unresolved architectural decisi
 - Define dependency ordering, integration seams, migration constraints, and safe parallel-work boundaries.
 - Define acceptance evidence for unit code coverage, real integration boundaries, selected functional journeys,
   OpenAPI and generated-client drift, local Docker behavior, and the canonical `./bin/build` gate.
-- Require one valid checked-in Slim-generated document and rendered local Swagger UI, normalized Symfony parity,
+- Require one valid checked-in Slim-generated document and rendered local Swagger UI, qualified non-domain source parity,
   generated-client compilation, unauthorized operation/private-subscription rejection, refresh rotation/reuse,
   invitation-led bootstrap, durable outbox retry/recovery, scheduler overlap, client-source drift, and failure recovery.
 - Link the resulting EPIC, TICKETs, and TASKs from the closed map and leave release, deployment, and publication work

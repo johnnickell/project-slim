@@ -12,10 +12,10 @@ An implementation-ready plan for a complete Slim starter that composes the relea
 AccessControl packages into a local Docker application, covers every consumer-relevant AccessControl journey,
 generates its own authoritative OpenAPI document from shared package schemas plus Slim-owned operations, delivers
 private realtime updates through Mercure, and owns an
-editable React SPA in `client/` compiled into `public/dist/`.
+editable React SPA in `client/`, with build/output integration qualified from the completed source client.
 
 **Done** = WF-001 through WF-010 are closed; every released package capability has an intentional HTTP, CLI,
-worker, or composition-only delivery boundary; the Symfony client dependency has been verified; remaining fog is
+worker, or composition-only delivery boundary; the completed reusable source client has been verified; remaining fog is
 resolved or explicitly excluded; and WF-010 links the resulting EPIC, requirement TICKETs, and independently verifiable
 implementation TASKs.
 
@@ -35,8 +35,12 @@ implementation TASKs.
   require separate authority.
 - Private reference material may inform generic requirements only. Public planning artifacts must not contain
   private identities, paths, hashes, package internals, or derivation claims.
-- Implementation requires installable Fight Common 1.2.0 and Fight AccessControl 0.2.0. AccessControl owns only
-  scan-only component schemas; Slim owns the complete document and matches Symfony's client-facing wire contract.
+- [WF-001](tickets/WF-001-released-package-contract-audit.md) now uses the TASK-00006 released Common v1.4.0 /
+  AccessControl v0.8.0 baseline; its complete capability inventory remains open. Qualify installed component schemas
+  and the reusable source wire contract rather than infer compatibility from package or route names.
+- The maintainer's 2026-10-24 direction selects Agent OS's reusable non-domain foundation and, once complete, its
+  frontend/login flow and tests. This supersedes the earlier Symfony comparison gates; each decision still owns
+  qualification of its exact source behavior. No source-domain features or unfinished authentication are adopted.
 - Slim generates exactly one OpenAPI 3.1 artifact in one pass from installed package resources and Slim-owned
   Actions, DTOs, routes, security declarations, and project components; it never merges separate specs.
 
@@ -57,26 +61,26 @@ implementation TASKs.
 
 | Ticket | Type | Mode | Status | Depends On | Gate |
 |---|---|---|---|---|---|
-| [WF-001 — Released Package Contract Audit](tickets/WF-001-released-package-contract-audit.md) | Research | AFK | **Open** | — | Installable Fight Common 1.2.0 and Fight AccessControl 0.2.0 |
+| [WF-001 — Released Package Contract Audit](tickets/WF-001-released-package-contract-audit.md) | Research | AFK | **Open** | — | Released baseline installed; full capability inventory pending |
 | [WF-002 — Local Development Runtime Contract](tickets/WF-002-local-development-runtime-contract.md) | Grilling | HITL | **Open** | — | Fight Agent OS shared-resource, test-isolation, and ingress direction |
-| [WF-003 — Slim ADR and OpenAPI Contract](tickets/WF-003-slim-adr-and-openapi-contract.md) | Prototype | HITL | **Open** | WF-001, WF-002 | Symfony canonical wire contract |
+| [WF-003 — Slim ADR and OpenAPI Contract](tickets/WF-003-slim-adr-and-openapi-contract.md) | Prototype | HITL | **Open** | WF-001, WF-002 | Qualified reusable Agent OS wire contract |
 | [WF-004 — Doctrine Persistence and Bootstrap Contract](tickets/WF-004-doctrine-persistence-and-bootstrap-contract.md) | Prototype | HITL | **Open** | WF-001, WF-003 | — |
-| [WF-005 — Authentication and Account Security Contract](tickets/WF-005-authentication-and-account-security-contract.md) | Grilling | HITL | **Open** | WF-003, WF-004 | Symfony authentication contract |
+| [WF-005 — Authentication and Account Security Contract](tickets/WF-005-authentication-and-account-security-contract.md) | Grilling | HITL | **Open** | WF-003, WF-004 | Completed Agent OS authentication contract |
 | [WF-006 — Principal and Authorization Mapping](tickets/WF-006-principal-and-authorization-mapping.md) | Grilling | HITL | **Open** | WF-004, WF-005 | — |
-| [WF-007 — Workers, Scheduling, and Mercure Contract](tickets/WF-007-workers-scheduling-and-mercure-contract.md) | Prototype | HITL | **Open** | WF-002, WF-005, WF-006 | Symfony realtime contract |
-| [WF-008 — Complete Operation Matrix](tickets/WF-008-complete-operation-matrix.md) | Research | AFK | **Open** | WF-001, WF-003 through WF-007 | Symfony operation matrix |
-| [WF-009 — React SPA Adoption and Slim Adaptation](tickets/WF-009-react-spa-adoption-and-slim-adaptation.md) | Prototype | HITL | **Open** | WF-005, WF-008 | Immutable accepted Symfony client reference |
+| [WF-007 — Workers, Scheduling, and Mercure Contract](tickets/WF-007-workers-scheduling-and-mercure-contract.md) | Prototype | HITL | **Open** | WF-002, WF-005, WF-006 | Qualified reusable Agent OS realtime contract |
+| [WF-008 — Complete Operation Matrix](tickets/WF-008-complete-operation-matrix.md) | Research | AFK | **Open** | WF-001, WF-003 through WF-007 | Qualified reusable source operation inventory |
+| [WF-009 — React SPA Adoption and Slim Adaptation](tickets/WF-009-react-spa-adoption-and-slim-adaptation.md) | Prototype | HITL | **Open** | WF-005, WF-008 | Completed and accepted Agent OS frontend/authentication reference |
 | [WF-010 — Implementation Handoff Acceptance Contract](tickets/WF-010-implementation-handoff-acceptance-contract.md) | Grilling | HITL | **Open** | WF-001 through WF-009 | Human approval of the handoff |
 
 ## Blocking relationships
 
 ```text
-Installable Fight Common 1.2.0 + Fight AccessControl 0.2.0 ──→ WF-001 ──┬──→ WF-003 ──→ WF-004 ──→ WF-005 ──→ WF-006 ──→ WF-007 ──┐
+Released Common + AccessControl capability inventory ──→ WF-001 ──┬──→ WF-003 ──→ WF-004 ──→ WF-005 ──→ WF-006 ──→ WF-007 ──┐
                                              │         │           │                    │              │
 WF-002 ──────────────────────────────────────┘         └───────────┴────────────────────┴──→ WF-008 ──┤
 WF-005 ─────────────────────────────────────────────────────────────────────────────────────→ WF-009 ──┤
 WF-008 ─────────────────────────────────────────────────────────────────────────────────────→ WF-009 ──┤
-Symfony wire/realtime/operation/client gates ───────────────────────────────────────────────→ WF-003/WF-007/WF-008/WF-009
+Qualified source wire/realtime/operation/client gates ───────────────────────────────────────────────→ WF-003/WF-007/WF-008/WF-009
 WF-001 through WF-009 ──────────────────────────────────────────────────────────────────────→ WF-010
 ```
 
@@ -106,7 +110,7 @@ worktree test isolation, and ingress integration. No available next decision is 
 - WF-008 owns methods, paths, request and response schemas, permissions, audit effects, idempotency and concurrency,
   pagination, OpenAPI operation IDs, and deliberate non-HTTP classifications for every operation.
 - WF-009 owns the verified source-client inventory, one-time adoption boundary, independently owned component and
-  route inventory, ESBuild and Sass configuration, generated-type workflow, authentication lifecycle, accessibility,
+  route inventory, source build/style configuration, generated-type workflow, authentication lifecycle, accessibility,
   realtime UX, fallback behavior, and human journey evidence.
 - WF-010 owns EPIC and requirement TICKET boundaries, vertical implementation TASK size and ordering, acceptance evidence, and
   the final definition of implementation readiness.

@@ -12,22 +12,24 @@ The [TASK Board](BOARD.md) is the execution entrypoint; [TASKs](../tasks/README.
 | Order | Requirement | Outcome | Status | Requirement blockers |
 | --- | --- | --- | --- | --- |
 | 1 | [TICKET-00007](00007-TICKET.md) | Consistent Planning and Independent Review | in-progress | — |
-| 2 | [TICKET-00008](00008-TICKET.md) | Explicit Application Ownership and PHP Standards | ready-for-agent | — |
+| 2 | [TICKET-00008](00008-TICKET.md) | Explicit Application Ownership and PHP Standards | done | — |
 | 3 | [TICKET-00009](00009-TICKET.md) | Single-Lock Development Without Framework Certification | done | — |
-| 4 | [TICKET-00010](00010-TICKET.md) | Qualified Released Dependency Baseline | ready-for-agent | TICKET-00009 |
+| 4 | [TICKET-00010](00010-TICKET.md) | Qualified Released Dependency Baseline | done | TICKET-00009 |
 | 5 | [TICKET-00011](00011-TICKET.md) | Reproducible Runtime and One Quality Gate | ready-for-agent | TICKET-00007, TICKET-00008, TICKET-00009, TICKET-00010 |
 | 6 | [TICKET-00012](00012-TICKET.md) | Safe and Predictable HTTP Failures | ready-for-agent | TICKET-00008, TICKET-00010, TICKET-00011 |
 
-The ten alignment TASKs retain their graph. TASK-00001's reconciliation is independently accepted at `6203941`;
-[PR #12](https://github.com/johnnickell/project-slim/pull/12) is open, with human approval/merge separate.
-TASK-00002 is the first ready successor. Completed edges remain history.
+The alignment TASKs retain their dependency edges as history. TASK-00001's accepted reconciliation is merged in
+local develop through PR #12 at `eec7d06`. TASK-00003/00004/00006 have independent acceptance and QA PASS;
+combined [PR #16](https://github.com/johnnickell/project-slim/pull/16) is published, with human review/merge separate.
+TICKET-00008/00010 complete with their sole children. TICKET-00007 stays open for TASK-00002, the first ready successor.
+TASK-00016's scope/coverage conflict is resolved by the explicit adoption amendment, not by schema conversion.
 
 ## Migrated Requirements
 
 | Requirement | Parent | Outcome | Status |
 | --- | --- | --- | --- |
 | [TICKET-00013](00013-TICKET.md) | [EPIC-00002](../epics/00002-EPIC.md) | Slim Starter Product and Walking-Slice Acceptance | done (historical) |
-| [TICKET-00014](00014-TICKET.md) | [EPIC-00003](../epics/00003-EPIC.md) | Fight Common Version Adoption and Support Evidence | in-progress; Common 2.0 preparation and incoming TASK-00016 gate scope/coverage need information |
+| [TICKET-00014](00014-TICKET.md) | [EPIC-00003](../epics/00003-EPIC.md) | Fight Common Version Adoption and Support Evidence | in-progress; Common 2.0 preparation needs information; TASK-00016 superseded |
 | [TICKET-00015](00015-TICKET.md) | [EPIC-00001](../epics/00001-EPIC.md) | Planning and Review Transition for Engineering Alignment | wontfix; superseded before implementation |
 
 Old IDs are provenance only. Archive execution is disabled pending TASK-00002, which supplies new-schema tooling;

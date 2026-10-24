@@ -237,5 +237,8 @@ Before final commit or PR:
 8. Run the full canonical `./bin/build`; focused checks do not replace it. Do not commit/publish with a failing gate.
 
 Independent review challenges requirements (Spec) and local engineering/delivery rules (Standards), discloses reviewer
-involvement, and identifies the exact reviewed snapshot and evidence. Detailed guidance is TASK-00003 work. A material
-contributor cannot independently accept their implementation; review does not grant publication or merge authority.
+involvement, and identifies the exact reviewed snapshot and evidence. The [shared workflow binding](../docs/engineering/WORKFLOWS.md)
+adopts canonical report, QA, reconciliation and delivery protocols with Slim substitutions, including manual view
+maintenance until TASK-00002. A material contributor cannot independently accept their implementation; review does
+not grant publication or merge authority. Keep explicitly required hosted evidence and current acceptance separate
+from implementation completion. Use shared ignored evidence paths without moving historical runs.

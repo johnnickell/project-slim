@@ -2,7 +2,7 @@
 id: TICKET-00008
 epic: EPIC-00001
 title: Explicit Application Ownership and PHP Standards
-status: ready-for-agent
+status: done
 order: 2
 blocked_by:
 ---
@@ -42,13 +42,13 @@ WF-003 without deciding its complete API/OpenAPI contract or marking that invest
 
 ## Acceptance Criteria
 
-- [ ] **AC-01:** A Slim-local ADR states package versus consumer ownership, permitted orchestration, inward dependency
+- [x] **AC-01:** A Slim-local ADR states package versus consumer ownership, permitted orchestration, inward dependency
   direction, explicit injection, composition exceptions, and prohibitions on alias-only wrappers/speculative types.
-- [ ] **AC-02:** Local engineering guidance defines HTTP responsibilities, safe presentation and server authority,
+- [x] **AC-02:** Local engineering guidance defines HTTP responsibilities, safe presentation and server authority,
   explicit CQRS/transaction/delivery semantics, PHP naming, readonly/final defaults, and documentation conventions.
-- [ ] **AC-03:** Existing owned source follows applicable conventions without changing public behavior or upstream
+- [x] **AC-03:** Existing owned source follows applicable conventions without changing public behavior or upstream
   contracts. The simple root response remains simple; no synthetic use case or Responder is added to satisfy a diagram.
-- [ ] **AC-04:** Enforcement responsibilities distinguish static tools from independent semantic review. Existing
+- [x] **AC-04:** Enforcement responsibilities distinguish static tools from independent semantic review. Existing
   unresolved HTTP/persistence/package compatibility decisions remain explicit and assigned to their owning work.
 
 ## Verification
@@ -64,5 +64,14 @@ blocked by TASK-00001. Quality-gate enforcement and HTTP failure repair remain s
 
 ## Progress
 
-Requirement and TASK split approved; TASK-00004 is authored but not implemented. No ADR, source alignment, or new
-enforcement is claimed by this record.
+Completed with sole child TASK-00004 on 2026-10-24 under automatic parent completion. ADR 0001, local standards and
+entrypoint guidance are delivered; the approved amendment also converts composition to sorted callable modules and
+separate shared command/query/event registrations. Direct module/syntax checks and the canonical build pass with
+26 tests / 152 assertions, preserving existing behavior. No speculative source or upstream renaming was added.
+Static gate enforcement, HTTP error repair and broader Wayfinder decisions remain with their existing owners.
+Parent status is not independent review, QA, publication, merge or release; those outcomes remain separate.
+
+Landing checkpoint (2026-10-24): TASK-00004 is independently accepted and QA-passed at `d62fb30`. Land preserves
+its effective application diff while reconciling accepted TASK-00017; fresh full/focused and behavioral compatibility
+checks pass on PHP 8.5.12. This terminal parent stays done; EPIC-00001 remains open. Combined
+[PR #16](https://github.com/johnnickell/project-slim/pull/16) publishes it with TASK-00003/00006; human review/merge is separate.

@@ -9,8 +9,8 @@ use Fight\Common\Application\Messaging\Command\CommandBus;
 use Fight\Common\Application\Messaging\Command\SynchronousCommandBus;
 use Fight\Common\Application\Service\Container;
 
-return [
-    'services' => [
+return static function (Container $container): void {
+    $services = [
         'messaging.command.router' => static function (Container $container): ServiceAwareCommandRouter {
             return new ServiceAwareCommandRouter($container);
         },
@@ -26,7 +26,8 @@ return [
         SynchronousCommandBus::class => static function (Container $container): SynchronousCommandBus {
             return $container->get('messaging.command.bus');
         },
-    ],
-    'handlers' => [],
-    'filters' => [],
-];
+    ];
+    foreach ($services as $id => $factory) {
+        $container->set($id, $factory);
+    }
+};

@@ -16,8 +16,12 @@ is `EPIC -> TICKET -> TASK`; requirements and implementation records have distin
 unresolved information gates, and supersession evidence. Old IDs are provenance only, not parser aliases. There is no
 compatibility parser, legacy execution frontier, or legacy archive mode. TASK-00001's implementation/verification
 status remains separate from independent review. The mapping distinguishes the two historical T-00006 sources:
-the wontfix bootstrap is TASK-00015; PR #11's lean-gate handoff is TASK-00016 under TICKET-00014, needs-info for
-scope/coverage reconciliation. No old identity or path is retained as an executable compatibility record.
+the wontfix bootstrap is TASK-00015; PR #11's distinct lean-gate handoff is TASK-00016 under TICKET-00014, now
+superseded as wontfix by the explicit 2026-10-24 adoption scope/coverage decision. No old identity or path is retained as an executable compatibility record.
+
+The [shared workflow binding](../docs/engineering/WORKFLOWS.md) supplies Slim paths, tooling substitutions and
+independent delivery/report responsibilities. TASK-00003/00004/00006 have local implementation evidence; generation,
+worktree-safe runtime, suite/coverage, expanded gate and safe HTTP adoption remain separately tracked.
 
 Use copy-ready `_…_TEMPLATE.md` files beside records. IDs have five digits and separate sequences for EPICs, TICKETs,
 and TASKs; preserve gaps and avoid live/archive identity and path collisions or reusing historical allocations.

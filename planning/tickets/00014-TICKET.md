@@ -13,17 +13,17 @@ blocked_by:
 
 Converted from PRD-00002 under [TASK-00001](../tasks/00001-TASK.md); see the [mapping](../MIGRATION.md).
 EPIC-00003 is a migration-only grouping, not a new program or release commitment. Status remains in-progress because
-Common 2.0 preparation and the incoming lean-gate scope decision remain unresolved, not because ongoing certification
-is newly authorized.
+Common 2.0 preparation remains unresolved, not because ongoing certification is newly authorized.
 
 Children: [TASK-00012](../tasks/00012-TASK.md) (historical adoption), [TASK-00014](../tasks/00014-TASK.md) (historical
 recertification), [TASK-00013](../tasks/00013-TASK.md) (needs-info; no Common 2.0 implementation authority), and
-[TASK-00016](../tasks/00016-TASK.md) (PR #11's lean-gate handoff; needs-info for scope/coverage reconciliation).
+[TASK-00016](../tasks/00016-TASK.md) (PR #11's lean-gate handoff; wontfix after explicit scope/coverage reconciliation).
 The T-00006 in the incoming source body means TASK-00016, not TASK-00015's superseded bootstrap proposal.
 [EPIC-00001](../epics/00001-EPIC.md) supersedes the historical ongoing matrix/receipt obligations below. Retirement is
-TASK-00005 work; reconcile the overlapping TASK-00016 handoff before implementing gate/coverage changes. The source
-body from `c19e0b9` is retained below, including the newer upstream T-00087 handoff. It is not fresh gate evidence.
-The exact-coverage requirement conflicts with the alignment plan's deferred threshold; migration chooses neither.
+TASK-00005 work. The 2026-10-24 adoption decision assigns remaining dependency/coverage/gate scope to TASK-00006/
+00008/00009 and supersedes TASK-00016 without a duplicate implementation. Use the Agent OS coverage model recorded
+in EPIC-00001, not either historical threshold proposal. Parent completion does not apply while TASK-00013 remains
+unfinished. The source body from `c19e0b9` is retained below as history, not fresh gate evidence.
 
 ## Historical Requirement Body
 
