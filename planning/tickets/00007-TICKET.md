@@ -109,8 +109,10 @@ TASK-00001/00003 are integrated, including merged PR #16 at `9778ee53aeda451c799
 All children are terminal, so this parent completes automatically in the same refresh; no separate closeout remains.
 AC-01/03/04/06 now have their remaining tooling/routing evidence. No records were archived or fixtures seeded;
 archive apply/link-repair/rollback and closed-map paths are source-inspected, not dynamically verified.
-TASK-00002 still needs independent Review/QA and separately authorized publication. Parent completion supplies
-none of those verdicts. EPIC-00001 retains its own hosted completion requirement and unfinished children.
+TASK-00002 has independent Review acceptance and QA PASS (5/5 scenarios) for candidate
+`f2312e78ccc7f9e35068e7d45e488f7bf9ce87df`; [PR #17](https://github.com/johnnickell/project-slim/pull/17)
+is open for separately authorized delivery. Parent completion supplied none of those verdicts. EPIC-00001 retains
+its own hosted completion requirement and unfinished children; human PR review and merge remain separate.
 
 ### Historical progress before TASK-00002
 

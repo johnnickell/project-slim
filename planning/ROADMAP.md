@@ -7,8 +7,9 @@ runtime controls with unchanged package entries and application diff. Their fres
 checks passed. Combined [PR #16](https://github.com/johnnickell/project-slim/pull/16) merged at
 `9778ee53aeda451c7993caee81feae72f604aa0b` on 2026-10-24; no merge request remains.
 [TASK-00017](tasks/00017-TASK.md) is merged through [PR #15](https://github.com/johnnickell/project-slim/pull/15)
-at `922b55f`. TASK-00002 owns this planning-tooling implementation; its completion and independent acceptance
-are separate. The [TASK Board](tickets/BOARD.md) owns the current execution frontier.
+at `922b55f`. TASK-00002's independent acceptance and QA PASS apply to
+`f2312e78ccc7f9e35068e7d45e488f7bf9ce87df`; [PR #17](https://github.com/johnnickell/project-slim/pull/17)
+is open for human review and merge. The [TASK Board](tickets/BOARD.md) owns the current execution frontier.
 
 <!-- planning:active-epics:start -->
 | Epic | Target | Status | Location |
@@ -22,7 +23,8 @@ are separate. The [TASK Board](tickets/BOARD.md) owns the current execution fron
 1. Continue from integrated PR #16's workflow, ownership/composition and released-dependency slices, with verified
    TASK-00017 reconciliation. PR #12 is also merged at `eec7d06`. All records use EPIC/TICKET/TASK;
    [MIGRATION.md](MIGRATION.md) preserves provenance. [TASK-00002](tasks/00002-TASK.md) supplies explicit generation,
-   read-only drift checks and new-only archive tooling; it performs no archives. Independent Review/QA remain separate.
+   read-only drift checks and new-only archive tooling; it performs no archives. Independent Review accepted and QA
+   passed for the PR's acceptance candidate; human review/merge remain separate.
 2. Implement remaining runtime/suite/gate slices under the [adoption amendment](epics/00001-EPIC.md#current-adoption-amendment--2026-10-24).
    TASK-00016 is wontfix as a duplicate path; Agent OS's all-suite Domain/Application line coverage with separate
    suite attribution and visible Adapter gaps is the accepted policy. Do not claim it is enforced yet.

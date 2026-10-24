@@ -25,9 +25,10 @@ Requirements are not executable work; see the [requirement index](README.md). [M
 `9778ee53aeda451c7993caee81feae72f604aa0b` on 2026-10-24, integrating TASK-00003/00004/00006.
 Their independent acceptance and QA PASS at `d62fb30`, fresh PHP 8.5.12 build (26 / 152), focused tests
 (12 / 47), compatibility checks and TASK-00017 reconciliation remain historical evidence, not checks of TASK-00002.
-No PR #16 merge action remains. TASK-00002 is locally implemented with direct checks and the full build passed;
-its next delivery step is independent Review, then applicable QA and separately authorized publication. See its
-[current completion evidence](../tasks/00002-TASK.md#completion-notes). No independent verdict is implied.
+No PR #16 merge action remains. TASK-00002 has independent Review acceptance and QA PASS (5/5 scenarios) for
+candidate `f2312e78ccc7f9e35068e7d45e488f7bf9ce87df`; [PR #17](https://github.com/johnnickell/project-slim/pull/17)
+is its separately authorized `develop` delivery PR. See its [current completion evidence](../tasks/00002-TASK.md#completion-notes).
+Human review and merge remain separate; no PR approval, merge, archive, release, or deployment is implied.
 There is no new human policy/merge decision for that TASK yet.
 
 The maintainer selected one-to-one non-domain adoption in [EPIC-00001](../epics/00001-EPIC.md#current-adoption-amendment--2026-10-24).
