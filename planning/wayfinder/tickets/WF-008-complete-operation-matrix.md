@@ -3,7 +3,7 @@
 **Labels:** `wayfinder:research`
 **Mode:** AFK
 **Status:** Open
-**Gate:** Symfony operation matrix
+**Gate:** Qualified reusable Agent OS operation inventory and released package capabilities
 **Map:** [Slim AccessControl Application](../slim-access-control-application-map.md)
 **Depends on:** WF-001, WF-003, WF-004, WF-005, WF-006, WF-007
 
@@ -38,4 +38,7 @@ schemas, permissions, concurrency, pagination, and operation IDs remain fog owne
 
 ## Resolution
 
-Open.
+Open. The 2026-10-24 non-domain adoption direction replaces the earlier Symfony comparison prerequisite.
+Qualify the reusable source operations and tests against installed public package capabilities and Slim requirements;
+exclude Agent OS domain operations. Neither matching names nor the bounded TASK-00006 release qualification proves
+this complete matrix.

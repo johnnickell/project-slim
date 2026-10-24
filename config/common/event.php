@@ -7,8 +7,8 @@ use Fight\Common\Application\Messaging\Event\EventDispatcher;
 use Fight\Common\Application\Messaging\Event\SynchronousEventDispatcher;
 use Fight\Common\Application\Service\Container;
 
-return [
-    'services' => [
+return static function (Container $container): void {
+    $services = [
         'messaging.event.dispatcher' => static function (Container $container): ServiceAwareEventDispatcher {
             return new ServiceAwareEventDispatcher($container);
         },
@@ -18,6 +18,8 @@ return [
         SynchronousEventDispatcher::class => static function (Container $container): SynchronousEventDispatcher {
             return $container->get('messaging.event.dispatcher');
         },
-    ],
-    'subscribers' => [],
-];
+    ];
+    foreach ($services as $id => $factory) {
+        $container->set($id, $factory);
+    }
+};

@@ -3,7 +3,7 @@
 **Labels:** `wayfinder:grilling`
 **Mode:** HITL
 **Status:** Open
-**Gate:** Symfony authentication contract
+**Gate:** Completed Agent OS authentication contract
 **Map:** [Slim AccessControl Application](../slim-access-control-application-map.md)
 **Depends on:** WF-003, WF-004
 
@@ -37,4 +37,7 @@ lifetimes, cookie details, rate limits, and credential parameters remain fog unt
 
 ## Resolution
 
-Open.
+Open. The 2026-10-24 maintainer direction selects the completed Agent OS authentication/frontend flow as the
+reusable source, superseding the earlier Symfony prerequisite. Adopt its proven non-domain behavior and applicable
+tests rather than design a competing flow. Completion, exact source snapshot and Slim integration remain unverified;
+all security/permission requirements above still apply before a product implementation handoff.

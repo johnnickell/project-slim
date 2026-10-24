@@ -50,7 +50,8 @@ skill changes, actual archive operations, publication, merge, release, and deplo
 No requirement blocker. Requirements and TASKs may be written before automation exists. TASK-00001 migrates the records
 and replaces the validator with new-only support; TASK-00002 implements projections and new-schema archive tooling;
 TASK-00003 supplies detailed review/delivery guidance. New-only validation is implemented; generated views and archive
-execution remain unavailable. A passing planning check does not waive the full build or independent review.
+execution remain unavailable. TASK-00003's shared review/delivery binding is implemented. A passing planning check
+does not waive the full build or independent review.
 
 ## Acceptance Criteria
 
@@ -65,7 +66,7 @@ execution remain unavailable. A passing planning check does not waive the full b
 - [ ] **AC-04:** An explicit provenance mapping accounts for the old portfolio and its migrated meaning/status/evidence;
   links are repaired without requiring old live paths. New-schema archives enforce terminal-child eligibility and
   link repair without legacy modes or implicit archive operations.
-- [ ] **AC-05:** Independent review handoffs identify requirements, base/head, branch, relevant dirty-state evidence,
+- [x] **AC-05:** Independent review handoffs identify requirements, base/head, branch, relevant dirty-state evidence,
   reviewer relationship, separate Spec/Standards conclusions, fresh checks, findings, and limitations. Missing,
   stale, or non-independent acceptance cannot authorize publication; review never authorizes merge.
 - [ ] **AC-06:** Entry instructions and Wayfinder handoff references agree on the new-only model without silently
@@ -90,6 +91,12 @@ The approved slices now target only the new schema:
 | [TASK-00003 — Establish Independent Review Handoffs](../tasks/00003-TASK.md) | AC-05; delivery/walkthrough portions of AC-01/AC-06 | TASK-00001 |
 
 ## Progress
+
+Current 2026-10-24 handoff: TASK-00003 delivers independent review/QA/delivery guidance and the shared-skill binding;
+normal and stale/missing evidence walkthroughs plus canonical build pass (26 / 152). AC-05 is covered; AC-01/06 have
+their guidance portions delivered. TASK-00002 still owns generation/archive and remaining routing evidence, so this
+parent remains open. PR #12 is merged in local `develop` at `eec7d06`; TASK-00016's policy conflict is resolved by
+the explicit adoption amendment, not by schema migration. The earlier publication-stage account below is history.
 
 Requirement and TASK split approved, with the subsequent human decision replacing legacy compatibility with a
 one-time migration and new-only tooling. TASK-00001's initial migration and F-01 correction were independently

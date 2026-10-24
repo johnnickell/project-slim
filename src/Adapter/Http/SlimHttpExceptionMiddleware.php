@@ -13,12 +13,23 @@ use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Slim\Exception\HttpException;
 
+/**
+ * Maps Slim HTTP exceptions at the starter boundary
+ *
+ * Safe error adoption is tracked separately in TASK-00010
+ */
 final readonly class SlimHttpExceptionMiddleware implements MiddlewareInterface
 {
+    /**
+     * Constructs SlimHttpExceptionMiddleware
+     */
     public function __construct(private JSendResponseFactory $responseFactory)
     {
     }
 
+    /**
+     * @inheritDoc
+     */
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         try {

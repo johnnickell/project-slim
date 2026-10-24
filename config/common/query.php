@@ -8,8 +8,8 @@ use Fight\Common\Adapter\Messaging\Query\RoutingQueryBus;
 use Fight\Common\Application\Messaging\Query\QueryBus;
 use Fight\Common\Application\Service\Container;
 
-return [
-    'services' => [
+return static function (Container $container): void {
+    $services = [
         'messaging.query.router' => static function (Container $container): ServiceAwareQueryRouter {
             return new ServiceAwareQueryRouter($container);
         },
@@ -22,7 +22,8 @@ return [
         QueryBus::class => static function (Container $container): QueryBus {
             return $container->get('messaging.query.bus');
         },
-    ],
-    'handlers' => [],
-    'filters' => [],
-];
+    ];
+    foreach ($services as $id => $factory) {
+        $container->set($id, $factory);
+    }
+};

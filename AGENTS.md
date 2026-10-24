@@ -14,13 +14,13 @@ This routing path does not require reading README, architecture, full project co
 For execution or substantive planning changes, load the applicable guidance below. The read-only routing
 path above takes precedence over broad orientation reads; it does not waive engineering or delivery rules.
 
-Read `ARCHITECTURE.md`, `planning/README.md`, `planning/CONVENTIONS.md`, and `planning/agents/` before changing behavior. Work in independently verifiable vertical slices. Use the repository-owned `./bin/build`, `./bin/phpunit`, `./bin/up`, `./bin/down`, `./bin/composer`, and `./bin/exec` commands; `./bin/build` is the single noninteractive local and hosted gate.
+Read `ARCHITECTURE.md`, `planning/README.md`, `planning/CONVENTIONS.md`, `planning/agents/`, [engineering standards](docs/engineering/STANDARDS.md), and the [shared workflow binding](docs/engineering/WORKFLOWS.md) before changing behavior. Work in independently verifiable vertical slices. Use the repository-owned `./bin/build`, `./bin/phpunit`, `./bin/up`, `./bin/down`, `./bin/composer`, and `./bin/exec` commands; `./bin/build` is the single noninteractive local and hosted gate.
 
 Slim owns `src/`, its explicit Fight Common container definitions, routes, middleware, handlers, HTTP, presentation, and future adapters. Fight Common and Fight AccessControl are public Composer dependencies only. Do not implement login, persistence, browser journeys, releases, tags, Packagist publication, template enablement, or create-project distribution without a local ticket.
 
 ## Run and Worktree Isolation
 
-Coordinate-build scratch belongs in `.runs/<YYYY-MM-DD>-<slug>/`. It is gitignored and must never be staged.
+Use the shared [scratch and canonical evidence paths](docs/engineering/WORKFLOWS.md#scratch-and-canonical-evidence): Build coordination under `.runs/build/<TASK-ID>/`, work under `.runs/tasks/<TASK-ID>/runs/`, and independent reports under canonical base `.runs/reviews/` and `.runs/qa/`. Existing date-slug evidence stays in place. All `.runs/` content is gitignored and must never be staged.
 
 ## Branch Conventions
 

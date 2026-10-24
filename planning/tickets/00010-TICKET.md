@@ -2,7 +2,7 @@
 id: TICKET-00010
 epic: EPIC-00001
 title: Qualified Released Dependency Baseline
-status: ready-for-agent
+status: done
 order: 4
 blocked_by: TICKET-00009
 ---
@@ -43,15 +43,15 @@ TICKET-00011 and TICKET-00012 use the selected lock for their final evidence.
 
 ## Acceptance Criteria
 
-- [ ] **AC-01:** Selected Fight package versions resolve to actual public releases, with explicit constraints and a
+- [x] **AC-01:** Selected Fight package versions resolve to actual public releases, with explicit constraints and a
   reviewed single application lock. Evidence distinguishes manifest intent, locked identity, and installed identity.
-- [ ] **AC-02:** Relevant public signatures and dependency constraints are checked against current composition/callers;
+- [x] **AC-02:** Relevant public signatures and dependency constraints are checked against current composition/callers;
   changes preserve existing behavior or explicitly document approved compatibility consequences.
-- [ ] **AC-03:** Normal installation and retained application/integration tests pass against the selected release graph;
+- [x] **AC-03:** Normal installation and retained application/integration tests pass against the selected release graph;
   no matrix/no-dev certification or support receipt is reintroduced.
-- [ ] **AC-04:** Maintenance commands and advisory findings are documented separately from build verification; unavailable
+- [x] **AC-04:** Maintenance commands and advisory findings are documented separately from build verification; unavailable
   artifacts, unresolved advisories, and uncertain compatibility are reported rather than silently waived.
-- [ ] **AC-05:** Future handler/persistence incompatibilities and WF-001 follow-up are explicit. Neither this record nor
+- [x] **AC-05:** Future handler/persistence incompatibilities and WF-001 follow-up are explicit. Neither this record nor
   a green current application gate asserts acceptance of unimplemented package use cases.
 
 ## Verification
@@ -68,5 +68,11 @@ if a compatible baseline requires new product behavior. This TASK is not the sup
 
 ## Progress
 
-Requirement and TASK split approved; TASK-00006 is authored but not implemented. Exact versions are not inferred
-from the earlier comparison. No release availability, qualification, or dependency update is claimed.
+Completed with sole child TASK-00006 on 2026-10-24 under automatic parent completion. Manifest/lock/installation
+select latest stable Common v1.4.0 and AccessControl v0.8.0, verified by Composer rather than inferred from another
+checkout. A separately justified HttpFoundation v8.1.9 patch resolves the observed advisory. Final audit and strict
+manifest validation pass; retained tests and the canonical build pass (26 / 152). Exact public refs, signatures,
+maintenance and limits are in [dependency guidance](../../docs/engineering/DEPENDENCIES.md).
+Installed invitation handling now declares the directly bound TransactionalUnitOfWork capability, but no invitation,
+production persistence or authentication journey is claimed. WF-001's broader capability inventory stays Open.
+Independent review/QA, hosted delivery and publication remain separate; EPIC-00001 still has unfinished requirements.

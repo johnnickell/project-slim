@@ -34,7 +34,7 @@ binding, secrets, checkout/resource isolation, and safe diagnostics. Validation 
 ## Exclusions
 
 Future full application topology/services, frontend tooling, deployment, dependency installation/update/audit inside
-the gate, certification matrices/no-dev checks, an arbitrary numeric coverage gate, tests of quality tools, and
+the gate, certification matrices/no-dev checks, thresholds beyond the adopted coverage policy, tests of quality tools, and
 placeholder production code or routes created only to satisfy static analysis or coverage.
 
 ## Dependencies and Sequencing
@@ -57,7 +57,8 @@ or closing its full future runtime investigation.
   tests are removed or replaced by direct checks where needed; certification-only checks stay retired. Test
   dispositions preserve important application protections rather than optimize counts.
 - [ ] **AC-05:** Each configured suite runs exactly once; separate unit coverage states denominator, driver, exclusions,
-  and gaps. Coverage remains a completeness aid, not protocol or security proof; no numeric threshold is implied.
+  and gaps. Enforce the explicitly adopted meaningful Domain/Application line threshold from TASK-00008; Adapter
+  gaps stay visible. Absent business layers are N/A. Coverage is not protocol or security proof.
 - [ ] **AC-06:** Hosted CI explicitly prepares and starts the environment, then invokes the same canonical command with
   fresh passing evidence on the released lock. Local results, warnings, and hosted limitations are distinguished.
 
@@ -83,7 +84,8 @@ The human maintainer approved these slices; each keeps the then-operative gate c
 Requirement and TASK split approved; all three TASKs are authored but not implemented. No runtime, tooling,
 test-suite, coverage, or hosted workflow result is claimed.
 
-PR #11's additional lean-gate handoff is preserved as [TASK-00016](../tasks/00016-TASK.md) under its original migrated
-parent TICKET-00014. Its exact-100%-direct-Unit requirement conflicts with this record's deferred threshold, and its
-scope overlaps the existing slices. Resolve that needs-info decision before gate/coverage implementation; this
-schema migration neither chooses a coverage policy nor approves a duplicate implementation.
+The maintainer's 2026-10-24 [adoption amendment](../epics/00001-EPIC.md#current-adoption-amendment--2026-10-24)
+supersedes both earlier coverage proposals: use Agent OS's single all-suite execution, 100% meaningful Domain/
+Application executable-line coverage, separate suite attribution and visible Adapter gaps (100% practical target).
+[TASK-00016](../tasks/00016-TASK.md) preserves the incoming handoff as wontfix; its overlapping implementation belongs
+to TASK-00005/00006/00008/00009. No second gate, delivered coverage or waived hosted evidence is implied.
