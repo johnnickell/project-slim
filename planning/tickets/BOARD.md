@@ -25,7 +25,7 @@ Requirements are not executable work; see the [requirement index](README.md). [M
 | Route | TASK | Status | Unfinished blockers |
 | --- | --- | --- | --- |
 | Needs Info / Human Action | [TASK-00013 — Prepare Fight Common 2.0 Migration](../tasks/00013-TASK.md) | needs-info | — |
-| Active Work | [TASK-00018 — Keep Delivery Handoffs Fresh After Merge](../tasks/00018-TASK.md) | in-progress | — |
+| Ready Frontier | [TASK-00010 — Sanitize HTTP Failures](../tasks/00010-TASK.md) | ready-for-agent | — |
 <!-- planning:next:end -->
 
 ## Current Delivery Handoffs
@@ -34,7 +34,9 @@ These are recorded publication snapshots, not live merge claims. Run
 `./bin/planning-check --check-delivery` before routing; verified merged/integrated handoffs resolve read-only.
 
 <!-- planning:delivery:start -->
-None.
+| TASK | Current delivery | PR |
+| --- | --- | --- |
+| [TASK-00018 — Keep Delivery Handoffs Fresh After Merge](../tasks/00018-TASK.md) | Published; verify live state | [https://github.com/johnnickell/project-slim/pull/21](https://github.com/johnnickell/project-slim/pull/21) |
 <!-- planning:delivery:end -->
 
 ## Now
@@ -106,9 +108,7 @@ archive apply/link repair has not been dynamically exercised. No actual archive 
 ## Active Work
 
 <!-- planning:active:start -->
-| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
-| --- | --- | --- | --- | --- | --- | --- |
-| — | [TASK-00018 — Keep Delivery Handoffs Fresh After Merge](../tasks/00018-TASK.md) | Standalone bug | in-progress | — | — | live |
+None.
 <!-- planning:active:end -->
 
 ## Current Planning Handoff
@@ -191,6 +191,7 @@ preserved as historical narrative, not a second status authority.
 | — | [TASK-00014 — Re-certify Rewritten Fight Common Candidate](../tasks/00014-TASK.md) | [TICKET-00014](00014-TICKET.md) | done | — | — | live |
 | — | [TASK-00015 — Establish the Requirement, Task, and Review Planning Surface](../tasks/00015-TASK.md) | [TICKET-00015](00015-TICKET.md) | wontfix | — | — | live |
 | — | [TASK-00016 — Establish the Lean Slim Pre-Submit Quality Gate](../tasks/00016-TASK.md) | [TICKET-00014](00014-TICKET.md) | wontfix | — | — | live |
+| — | [TASK-00018 — Keep Delivery Handoffs Fresh After Merge](../tasks/00018-TASK.md) | Standalone bug | done | — | — | live |
 <!-- planning:closed:end -->
 
 ### Historical outcome inventory before TASK-00002

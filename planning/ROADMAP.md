@@ -10,7 +10,7 @@ The [current planning handoff](tickets/BOARD.md#current-planning-handoff) owns d
 | Route | TASK | Status | Unfinished blockers |
 | --- | --- | --- | --- |
 | Needs Info / Human Action | [TASK-00013 — Prepare Fight Common 2.0 Migration](tasks/00013-TASK.md) | needs-info | — |
-| Active Work | [TASK-00018 — Keep Delivery Handoffs Fresh After Merge](tasks/00018-TASK.md) | in-progress | — |
+| Ready Frontier | [TASK-00010 — Sanitize HTTP Failures](tasks/00010-TASK.md) | ready-for-agent | — |
 <!-- planning:execution:end -->
 
 [TASK-00009's canonical gate](tasks/00009-TASK.md#post-merge-reconciliation--pr-20) is integrated through PR #20.
