@@ -78,6 +78,5 @@ final class SystemAndObservabilityJourneyTest extends TestCase
 
         $container->get(MetricsCollector::class)->increment('capability.journey', ['state' => 'ready']);
         $container->get(AuditLog::class)->record(AuditEntry::record('capability-journey', 'verified', ['safe' => true]));
-        self::addToAssertionCount(1);
     }
 }

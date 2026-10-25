@@ -53,7 +53,7 @@ or closing its full future runtime investigation.
   is introduced. Existing planning validation may remain Python.
 - [ ] **AC-03:** PHPCS, PHPStan, Deptrac, and Rector are configured for actual owned code and accepted rules without
   speculative source, unexplained suppression, or claims that static tools prove semantic ownership.
-- [ ] **AC-04:** Product suites prove meaningful success/rejection/failure and integration effects. Tooling/configuration
+- [x] **AC-04:** Product suites prove meaningful success/rejection/failure and integration effects. Tooling/configuration
   tests are removed or replaced by direct checks where needed; certification-only checks stay retired. Test
   dispositions preserve important application protections rather than optimize counts.
 - [ ] **AC-05:** Each configured suite runs exactly once; separate unit coverage states denominator, driver, exclusions,
@@ -85,11 +85,39 @@ The human maintainer approved these slices; each keeps the then-operative gate c
 | Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
 | --- | --- | --- | --- | --- | --- | --- |
 | 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](../tasks/00007-TASK.md) | [TICKET-00011](00011-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
-| 8 | [TASK-00008 — Align Behavior Suites and Coverage](../tasks/00008-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00006](../tasks/00006-TASK.md), [TASK-00007](../tasks/00007-TASK.md) | — | live |
-| 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00002](../tasks/00002-TASK.md), [TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md), [TASK-00008](../tasks/00008-TASK.md) | [TASK-00008](../tasks/00008-TASK.md) | live |
+| 8 | [TASK-00008 — Align Behavior Suites and Coverage](../tasks/00008-TASK.md) | [TICKET-00011](00011-TICKET.md) | done | [TASK-00006](../tasks/00006-TASK.md), [TASK-00007](../tasks/00007-TASK.md) | — | live |
+| 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00002](../tasks/00002-TASK.md), [TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md), [TASK-00008](../tasks/00008-TASK.md) | — | live |
 <!-- planning:children:end -->
 
 ## Progress
+
+Current handoff (OWNER-01, 2026-10-25): [TASK-00008's narrow host-boundary revision](../tasks/00008-TASK.md#current-owner-01-host-boundary-revision--2026-10-25)
+is independently accepted and behaviorally QA-passed for C `54e8a995df8c3a4494d70b658c8848d464c87e57`. This D
+administrative closeout synchronizes current handoffs; Land records PR #19 publication/final live verification in
+its ignored receipt and PR body. TASK-00009 remains first ready but separately invoked; final gate/hosted integration
+keep this requirement open.
+
+### Historical original TASK-00008 acceptance and publication
+
+Current handoff (TASK-00008, 2026-10-25): [suite/coverage implementation](../tasks/00008-TASK.md#completion-notes)
+is independently accepted and behavioral-QA passed for candidate `556adc5`; [PR #19](https://github.com/johnnickell/project-slim/pull/19)
+publishes it for human review and merge. It records 30 tests / 98 assertions in one PHPUnit run, separate
+Unit/Integration/Functional attribution, Domain/Application N/A and visible Adapter Unit gaps. Behavioral dispositions
+and direct non-product checks are recorded; the released lock and production behavior are unchanged. AC-04 is
+implemented; final gate integration of AC-05 remains TASK-00009, now first ready. TASK-00009 and required hosted
+verification keep this requirement open; no eligible parent completion is deferred.
+
+### Historical TASK-00007 merge reconciliation
+
+Current handoff (2026-10-25): [TASK-00007's merge reconciliation](../tasks/00007-TASK.md#current-merge-reconciliation--2026-10-25)
+confirms [PR #18](https://github.com/johnnickell/project-slim/pull/18) merged into `develop` at
+`690225d5a6bdb27bb6533fe8c328a3f05f98e031`. The merge tree equals verified administrative closeout `f8f82c5`;
+Review acceptance and QA PASS remain anchored to `8b7a409`, with no implementation change across that bridge.
+No runtime delivery/merge action remains. TASK-00008 is first ready, TASK-00009 still waits for it, and these
+unfinished children keep this requirement open. Final gate/coverage and hosted integration acceptance remain
+outstanding; no future topology or WF-002 closure is implied.
+
+### Historical TASK-00007 delivery checkpoint
 
 [TASK-00007](../tasks/00007-TASK.md#independent-acceptance-and-delivery-checkpoint) is independently
 accepted and QA-passed for candidate `8b7a4092de397d461fa07f910d1ff9d4aab0f3ee`: it delivers the stateless

@@ -10,7 +10,7 @@ use Fight\Common\Application\Auth\Security\TokenEncoder;
 use PHPUnit\Framework\TestCase;
 use Tests\Fixture\Security\Environment;
 
-final class SecurityConfigurationTest extends TestCase
+final class SecurityPrerequisiteTest extends TestCase
 {
     protected function tearDown(): void
     {

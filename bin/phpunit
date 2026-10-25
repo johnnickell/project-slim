@@ -4,4 +4,4 @@ set -eu
 runtime_require_service
 runtime_require_dependencies
 [ -f vendor/bin/phpunit ] || runtime_error 'PHPUnit is not installed. Run: ./bin/composer install --no-interaction --prefer-dist --no-progress (with development dependencies).'
-runtime_compose exec -T web php vendor/bin/phpunit "$@"
+runtime_compose exec -T web php scripts/test.php "$@"
