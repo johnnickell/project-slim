@@ -91,6 +91,14 @@ The human maintainer approved these slices; each keeps the then-operative gate c
 
 ## Progress
 
+Current handoff: [TASK-00009's post-merge reconciliation](../tasks/00009-TASK.md#post-merge-reconciliation--pr-20)
+confirms PR #20 merged into `develop` at `f4a6dc9a0096891637c719210747c51cc0d6209d`, after final delivery CI for B
+passed. The canonical gate's accepted A and independent Review/QA remain the acceptance provenance. This TICKET
+remains done with all children terminal; no delivery or parent-closeout action remains here. Use the generated
+[Board routing](BOARD.md#current-task-routing) for other work; this does not start a successor.
+
+### Historical TASK-00009 administrative closeout
+
 Current handoff (TASK-00009 administrative closeout, 2026-10-25): accepted implementation A
 `a96c9795e511ad166764dba647c56035d8b06007` completes the canonical gate with independent Review acceptance,
 independent QA PASS (5/5), and hosted AC-06 proof in [Build run 40165446430](https://github.com/johnnickell/project-slim/actions/runs/40165446430).

@@ -6,7 +6,8 @@ For “What's next?”, `next`, or an unqualified `/ask-matt`, go straight to th
 before general project orientation. Read its current human decision and active work; otherwise select the first
 executable ready TASK in Board order. Use the [Wayfinder index](planning/wayfinder/README.md) for map status and current frontier pointers.
 Follow [lightweight work routing](planning/CONVENTIONS.md#lightweight-work-routing) for validation,
-bounded evidence reads and planning handoffs. Recommend and stop; load execution guidance when work is invoked.
+bounded evidence reads and planning handoffs. Run `./bin/planning-check --check-delivery`: verified merged/integrated
+handoffs resolve read-only without another cleanup request. Recommend and stop; load execution guidance when work is invoked.
 This routing path does not require reading README, architecture, full project context, task history or receiving skills.
 
 ## Project guidance
@@ -17,6 +18,12 @@ path above takes precedence over broad orientation reads; it does not waive engi
 Read `ARCHITECTURE.md`, `planning/README.md`, `planning/CONVENTIONS.md`, `planning/agents/`, [engineering standards](docs/engineering/STANDARDS.md), and the [shared workflow binding](docs/engineering/WORKFLOWS.md) before changing behavior. Work in independently verifiable vertical slices. Use the repository-owned `./bin/build`, `./bin/phpunit`, `./bin/up`, `./bin/down`, `./bin/composer`, and `./bin/exec` commands; `./bin/build` is the single noninteractive local and hosted gate.
 
 Slim owns `src/`, its explicit Fight Common container definitions, routes, middleware, handlers, HTTP, presentation, and future adapters. Fight Common and Fight AccessControl are public Composer dependencies only. Do not implement login, persistence, browser journeys, releases, tags, Packagist publication, template enablement, or create-project distribution without a local ticket.
+
+At authorized Work, Land or substantive planning intake on the selected feature branch, run
+`./bin/planning-check --reconcile-delivery` before record edits under
+[the delivery contract](planning/CONVENTIONS.md#current-delivery-handoffs). It retires only verified
+merged/integrated done handoffs with durable evidence; that routine retirement is already in scope.
+Routing, Review and QA remain read-only. Real uncertainty stops the affected route.
 
 ## Run and Worktree Isolation
 

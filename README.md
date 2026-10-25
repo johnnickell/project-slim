@@ -17,13 +17,17 @@ The [ownership ADR](planning/adr/0001-application-ownership-and-orchestration.md
 [engineering standards](docs/engineering/STANDARDS.md) and [shared Pi workflow binding](docs/engineering/WORKFLOWS.md)
 adopt the reusable Agent OS foundation without copying its domain. Container modules now follow its sorted callable
 contract. The later frontend/login adoption remains planned, not implemented. Planning views now refresh explicitly
-with `./bin/planning-check --write`; default `./bin/planning-check` and the build reject drift without writing.
+with `./bin/planning-check --write`; default `./bin/planning-check` and the build reject drift without writing or
+hosted access. Routing uses `./bin/planning-check --check-delivery` for bounded live checks of explicit publication
+snapshots. Authorized Work/planning/Land intake uses `--reconcile-delivery` to retire verified merged/integrated
+handoffs without another routine cleanup approval; see the [delivery contract](planning/CONVENTIONS.md#current-delivery-handoffs).
 The [TASK Board](planning/tickets/BOARD.md) is the sole execution view. New-only archive tooling requires a separately
 requested, reviewed dry run and explicit apply; TASK-00002 performs no archives and does not dynamically verify apply.
 TASK-00007 supplies isolation for the existing development service only. TASK-00008 supplies behavior-focused suites
 and single-run, separately attributed line coverage; see [testing](docs/engineering/TESTING.md). TASK-00009 adds the
 [running-service quality gate](docs/engineering/QUALITY-GATE.md); implementation A is independently accepted and
-QA-passed with hosted evidence, while required final delivery CI for its metadata-only closeout remains pending.
+QA-passed with hosted evidence. Its metadata-only closeout B passed final delivery CI and PR #20 is merged;
+[TASK-00009](planning/tasks/00009-TASK.md#post-merge-reconciliation--pr-20) retains the distinct acceptance and delivery provenance.
 Opt-in safe HTTP errors remain TASK-00010; their acceptance is not implied by newer packages.
 
 ## Development runtime

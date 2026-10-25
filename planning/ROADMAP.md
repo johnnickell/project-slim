@@ -2,14 +2,21 @@
 
 ## In progress
 
-[TASK-00009's accepted canonical gate](tasks/00009-TASK.md#current-acceptance-and-delivery-checkpoint--2026-10-25)
-uses read-only host planning before running-service PHP quality phases and one attributed PHPUnit execution.
-Implementation A `a96c9795e511ad166764dba647c56035d8b06007` has independent Review acceptance, independent QA PASS (5/5),
-and required hosted evidence in [Build run 40165446430](https://github.com/johnnickell/project-slim/actions/runs/40165446430).
-Owner-approved metadata-only B closes TASK-00009/TICKET-00011; fresh hosted delivery CI for B remains required before
-PR #20 is ready. EPIC-00001 remains open; TASK-00010 is now ready by record status but is not started under this
-Land-only scope. The [Board](tickets/BOARD.md) owns routing; WF-002 stays paused. TASK-00008 PR #19 is integrated at the implementation
-base, not awaiting delivery.
+The [Board](tickets/BOARD.md) owns execution routing; this generated summary shares its record-owned selection.
+Delivery snapshots require the bounded live check under [the delivery contract](CONVENTIONS.md#current-delivery-handoffs).
+The [current planning handoff](tickets/BOARD.md#current-planning-handoff) owns decomposition, not this execution view.
+
+<!-- planning:execution:start -->
+| Route | TASK | Status | Unfinished blockers |
+| --- | --- | --- | --- |
+| Needs Info / Human Action | [TASK-00013 — Prepare Fight Common 2.0 Migration](tasks/00013-TASK.md) | needs-info | — |
+| Active Work | [TASK-00018 — Keep Delivery Handoffs Fresh After Merge](tasks/00018-TASK.md) | in-progress | — |
+<!-- planning:execution:end -->
+
+[TASK-00009's canonical gate](tasks/00009-TASK.md#post-merge-reconciliation--pr-20) is integrated through PR #20.
+Accepted A retains its independent Review/QA and hosted proof; metadata-only B passed final delivery CI before
+human merge. The gate's read-only host planning, running-service PHP phases and single attributed PHPUnit run
+are delivered. Future product scope remains separate; WF-002's external prerequisite is unchanged.
 
 ### Historical TASK-00008 host-boundary closeout
 
@@ -71,17 +78,15 @@ is open for human review and merge. The [TASK Board](tickets/BOARD.md) owns the 
 
 ## Route to 1.0
 
-1. Continue from integrated PR #16's workflow, ownership/composition and released-dependency slices, with verified
-   TASK-00017 reconciliation. PR #12 is also merged at `eec7d06`. All records use EPIC/TICKET/TASK;
-   [MIGRATION.md](MIGRATION.md) preserves provenance. [TASK-00002](tasks/00002-TASK.md) supplies explicit generation,
-   read-only drift checks and new-only archive tooling; it performs no archives. Independent Review accepted and QA
-   passed for the PR's acceptance candidate; human review/merge remain separate.
+1. Build on the integrated workflow, ownership/composition, dependency and planning slices. All records use
+   EPIC/TICKET/TASK; [MIGRATION.md](MIGRATION.md) preserves provenance. [TASK-00002](tasks/00002-TASK.md) supplies
+   explicit generation, read-only drift checks and new-only archive tooling; it performs no archives.
 2. Continue the suite/gate slices after TASK-00007's bounded runtime implementation under the
    [adoption amendment](epics/00001-EPIC.md#current-adoption-amendment--2026-10-24).
    TASK-00016 is wontfix as a duplicate path; Agent OS's all-suite Domain/Application line coverage with separate
    suite attribution and visible Adapter gaps is implemented by TASK-00008's shared single-run test command;
-   absent business layers are N/A. TASK-00009 implements the expanded gate locally; required hosted integration
-   remains unverified and prevents its completion.
+   absent business layers are N/A. [TASK-00009](tasks/00009-TASK.md#post-merge-reconciliation--pr-20) records the
+   expanded gate's verified local/hosted acceptance, final delivery and integration.
 3. Transition to the accepted architecture, HTTP, testing, gate, planning, and review model.
    [TASK-00005](tasks/00005-TASK.md) has retired framework certification, its readers and tests; the single-lock
    build passes. Continue the remaining alignment without restoring that machinery.
@@ -115,4 +120,4 @@ superseded before implementation, not completed or released. PR #11's different 
 in TASK-00016, now separately superseded by the explicit 2026-10-24 scope/coverage decision, not conflated with that
 history. TASK-00003/00004/00006 have independent acceptance and QA PASS and are integrated through PR #16.
 Archive apply/link repair is implemented but dynamically unexercised in TASK-00002; no archive or release is claimed.
-EPIC-00001's required hosted completion proof remains outstanding.
+TASK-00009's required hosted gate proof is recorded in its owning TASK. Remaining epic work is not implied complete.

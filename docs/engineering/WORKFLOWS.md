@@ -22,7 +22,7 @@ Local accepted requirements and gates prevail over provider application examples
 | Foundation | `ARCHITECTURE.md` and `planning/epics/00001-EPIC.md`; no required `planning/FOUNDATION.md` |
 | Technical standards/ownership | `docs/engineering/STANDARDS.md` and `planning/adr/0001-application-ownership-and-orchestration.md` |
 | Record templates and ID allocation | Target `planning/{epics,tickets,tasks}/` templates, live/archive inventory and `planning/MIGRATION.md` |
-| Planning refresh | Explicit `./bin/planning-check --write` completes eligible parents and refreshes marked sections; default `./bin/planning-check` rejects drift without writing. `planning/tickets/BOARD.md` is the sole TASK execution view |
+| Planning refresh and delivery | Offline `./bin/planning-check --write` completes eligible parents and refreshes views; default check rejects drift. Routing uses read-only `--check-delivery`; authorized Work/planning/Land intake uses `--reconcile-delivery` under [the local contract](../../planning/CONVENTIONS.md#current-delivery-handoffs). The Board remains `planning/tickets/BOARD.md` |
 | Parent completion | Apply local bottom-up automatic parent completion in the same change; preserve terminal/archived parents and historical dependency edges |
 | Branch and checkout | Selected checkout, `feature/<description>` from `develop`; preserve an authorized existing branch |
 | Runtime/gates | Target `./bin/*` wrappers and current `./bin/build`; do not invoke provider services, database resets or frontend builds |
@@ -82,6 +82,34 @@ An explicit `/skill:build TASK-NNNNN` delegates its documented work/review/QA/la
 `next`, a planning interview or an implementation-only request does not. Neither Build nor land grants merge,
 force-push, releases, infrastructure enrollment, unrelated cleanup or another TASK. Preserve model pins, original
 repair allowance and outstanding effects on resume. Cleanup touches only ownership-proven disposable resources.
+
+## Delivery pre-submit and final handoff
+
+These Slim substitutions apply to shared Work/planning/Land, including accepted-candidate closeout resumed after
+acceptance. They preserve independent review/QA, the A→B contract, required hosted proof and publication authority.
+
+1. At authorized Work, Land or substantive planning intake on the selected feature branch, run
+   `./bin/planning-check --reconcile-delivery` before record edits and inspect its administrative diff. This
+   retirement of verified merged/integrated done handoffs is included in those scopes, not another cleanup
+   request. Routing, Review and QA use only read-only checks.
+2. Land runs `./bin/planning-check --check-delivery` at intake, immediately before push/PR publication, and after
+   final metadata changes/publication. An earlier offline gate or live snapshot cannot substitute. Exact merged,
+   done, locally integrated handoffs resolve and permit continuation; closed-unmerged, uncertain identity,
+   non-terminal scope, missing integration or inaccessible evidence holds the affected action. No fetch, merge,
+   historic-PR scan or checking-side repair is authorized.
+3. Verify the owned OPEN PR's repository/TASK/title/develop base/feature branch/head before recording its actual
+   `pr` URL and `delivery: awaiting-merge` publication snapshot. Refresh views, inspect the administrative diff,
+   run applicable local gates and recheck live delivery after final publication. Draft remains Land/evidence work;
+   only a verified ready OPEN PR can be handed to human review/merge, and all required final-head CI still applies.
+   Preserve final result/time/identity in the ignored receipt and PR body; do not make another tracked commit
+   merely to record final delivery success.
+4. A concurrent merge resolves only with exact published-head→merge→local-HEAD proof and already-done status.
+   Later read-only routing continues without another cleanup approval; the next authorized intake retires the
+   snapshot with durable evidence. Actual uncertainty requires its decision/evidence/integration owner. No agent
+   is required to predict a future human merge or run after stopping.
+
+The live check observes PR metadata, not hosted test success. Planning inside the build remains offline and
+read-only. Only explicit reconciliation writes delivery retirement; no operation infers independent acceptance.
 
 ## Routing and Pi compatibility
 

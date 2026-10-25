@@ -91,7 +91,9 @@ Use repository wrappers and `./bin/build`, with explicit dependency maintenance 
 [canonical gate](QUALITY-GATE.md) preserves read-only host planning before Docker, then runs PHP-orchestrated,
 fail-fast syntax, shipped Fight PHPCS, PHPStan, Deptrac, Rector dry-run and one all-suite coverage execution in the
 running service. Its documented scan scopes are not semantic ownership proof. Add frontend checks with the adopted
-frontend, not placeholders. TASK-00009's required hosted acceptance remains pending until actual evidence exists.
+frontend, not placeholders. [TASK-00009](../../planning/tasks/00009-TASK.md#post-merge-reconciliation--pr-20)
+records actual required hosted acceptance and final delivery proof; future changes must preserve their own explicit
+hosted requirements. Live delivery metadata is checked separately under the local workflow binding.
 
 Keep tests/tool output, warnings, skips and unavailable evidence visible. Semantic ownership and policy require
 independent review beyond tools. Preserve explicitly required hosted verification; a local pass never supplies it.

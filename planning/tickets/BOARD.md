@@ -19,17 +19,30 @@ Requirements are not executable work; see the [requirement index](README.md). [M
    **Ready Frontier**. Report none when both sections are empty.
 3. If unqualified, return both targets. Never choose by number alone or treat completed dependency edges as unresolved.
 
+## Current TASK Routing
+
+<!-- planning:next:start -->
+| Route | TASK | Status | Unfinished blockers |
+| --- | --- | --- | --- |
+| Needs Info / Human Action | [TASK-00013 — Prepare Fight Common 2.0 Migration](../tasks/00013-TASK.md) | needs-info | — |
+| Active Work | [TASK-00018 — Keep Delivery Handoffs Fresh After Merge](../tasks/00018-TASK.md) | in-progress | — |
+<!-- planning:next:end -->
+
+## Current Delivery Handoffs
+
+These are recorded publication snapshots, not live merge claims. Run
+`./bin/planning-check --check-delivery` before routing; verified merged/integrated handoffs resolve read-only.
+
+<!-- planning:delivery:start -->
+None.
+<!-- planning:delivery:end -->
+
 ## Now
 
-[TASK-00009](../tasks/00009-TASK.md#current-acceptance-and-delivery-checkpoint--2026-10-25) is accepted for A
-`a96c9795e511ad166764dba647c56035d8b06007`: independent Review accepted, independent QA passed 5/5, and
-[Build run 40165446430](https://github.com/johnnickell/project-slim/actions/runs/40165446430) supplies required
-hosted proof for A. The requirement owner approved metadata-only closeout B; final hosted delivery CI must cover B
-before draft [PR #20](https://github.com/johnnickell/project-slim/pull/20) is ready. Land records that live result
-in the PR body and ignored receipt. No new human scope decision is needed. TASK-00010 is now in the Ready Frontier
-by record status but is not started under this Land-only scope; EPIC-00001 remains open and WF-002 stays paused.
-TASK-00008 PR #19 is integrated at base
-`d0977d7`; its previous delivery-pending checkpoint is historical.
+No new human scope decision is recorded. Use the generated TASK routing and delivery sections above, not older
+checkpoints below, for current actions. [TASK-00009's post-merge reconciliation](../tasks/00009-TASK.md#post-merge-reconciliation--pr-20)
+records its completed delivery and integration. The [delivery contract](../CONVENTIONS.md#current-delivery-handoffs)
+prevents ended publication snapshots from requesting another routine cleanup approval.
 
 ### Historical TASK-00008 host-boundary closeout
 
@@ -93,7 +106,9 @@ archive apply/link repair has not been dynamically exercised. No actual archive 
 ## Active Work
 
 <!-- planning:active:start -->
-None.
+| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| — | [TASK-00018 — Keep Delivery Handoffs Fresh After Merge](../tasks/00018-TASK.md) | Standalone bug | in-progress | — | — | live |
 <!-- planning:active:end -->
 
 ## Current Planning Handoff
@@ -101,10 +116,9 @@ None.
 The approved alignment decomposition is complete; use its existing TASKs. The full AccessControl map remains at
 paused WF-002. Revisit frontend/authentication adoption through WF-005/WF-009 once the source flow is complete;
 no new EPIC/TICKET/TASK decomposition is currently approved or inferred from this bounded adoption.
-TASK-00009's accepted A is recorded in owner-approved metadata-only B, with final hosted delivery CI pending for
-that B before PR #20 can be ready. Completed dependency edges remain history, including integrated TASK-00008 PR #19.
-TICKET-00011 closes automatically with TASK-00009; EPIC-00001 remains open for TASK-00010. See [the current
-acceptance/delivery checkpoint](../tasks/00009-TASK.md#current-acceptance-and-delivery-checkpoint--2026-10-25).
+TASK selection and blockers belong to the generated sections, not this decomposition handoff. Completed dependency
+edges remain history. [TASK-00009](../tasks/00009-TASK.md#post-merge-reconciliation--pr-20) records verified delivery
+and integration; its pre-publication checkpoints below are history, not current Land or human-merge requests.
 
 ### Historical original TASK-00008 planning handoff
 
