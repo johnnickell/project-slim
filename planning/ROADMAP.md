@@ -2,6 +2,25 @@
 
 ## In progress
 
+[TASK-00008's behavior-suite and coverage implementation](tasks/00008-TASK.md#completion-notes) is locally verified:
+30 tests / 98 assertions in one execution, separate Unit/Integration/Functional attribution, Domain/Application N/A,
+and visible Adapter Unit gaps. Independent Review/QA and publication remain pending. TASK-00009 is first ready for
+the expanded gate and required hosted integration, followed by TASK-00010. TICKET-00011/EPIC-00001 remain open for
+unfinished children; no eligible parent closeout is deferred. WF-002 remains paused. The [TASK Board](tickets/BOARD.md)
+owns execution routing; no new scope or TASK-00009 execution is authorized by this completion.
+
+### Historical TASK-00007 merge reconciliation
+
+[TASK-00007's merge reconciliation](tasks/00007-TASK.md#current-merge-reconciliation--2026-10-25) confirms
+[PR #18](https://github.com/johnnickell/project-slim/pull/18) merged into `develop` at
+`690225d5a6bdb27bb6533fe8c328a3f05f98e031` on 2026-10-25. Its tree matches verified administrative closeout
+`f8f82c5`, preserving independent Review/QA acceptance of candidate `8b7a409` without implementation changes.
+No runtime delivery/merge action remains; TASK-00008 is first ready, followed by TASK-00009/00010. Coverage,
+the expanded gate and required final hosted integration remain outstanding, so TICKET-00011/EPIC-00001 stay open.
+WF-002 remains paused. The [TASK Board](tickets/BOARD.md) owns execution routing; the checkpoints below are historical.
+
+### Historical TASK-00007 delivery checkpoint
+
 [TASK-00007](tasks/00007-TASK.md#independent-acceptance-and-delivery-checkpoint) has independent Review
 acceptance and QA PASS for candidate `8b7a4092de397d461fa07f910d1ff9d4aab0f3ee`; Review R-01's ambient orphan
 deletion is resolved and its historical revise report is preserved. [PR #18](https://github.com/johnnickell/project-slim/pull/18)
@@ -38,7 +57,8 @@ is open for human review and merge. The [TASK Board](tickets/BOARD.md) owns the 
 2. Continue the suite/gate slices after TASK-00007's bounded runtime implementation under the
    [adoption amendment](epics/00001-EPIC.md#current-adoption-amendment--2026-10-24).
    TASK-00016 is wontfix as a duplicate path; Agent OS's all-suite Domain/Application line coverage with separate
-   suite attribution and visible Adapter gaps is the accepted policy. Do not claim it is enforced yet.
+   suite attribution and visible Adapter gaps is implemented by TASK-00008's shared single-run test command;
+   absent business layers are N/A. TASK-00009 still owns expanded gate/hosted integration.
 3. Transition to the accepted architecture, HTTP, testing, gate, planning, and review model.
    [TASK-00005](tasks/00005-TASK.md) has retired framework certification, its readers and tests; the single-lock
    build passes. Continue the remaining alignment without restoring that machinery.

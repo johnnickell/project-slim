@@ -21,6 +21,25 @@ Requirements are not executable work; see the [requirement index](README.md). [M
 
 ## Now
 
+[TASK-00008](../tasks/00008-TASK.md#completion-notes) is implemented and locally verified (30 tests / 98 assertions;
+one execution with separate suite attribution). Independent Review, applicable QA and publication remain pending;
+implementation completion is not independent acceptance or merge. No new human scope decision is required.
+TASK-00009 is now the first ready implementation successor and needs its own execution invocation; do not start it
+as part of TASK-00008 delivery. TICKET-00011/EPIC-00001 remain open for unfinished gate/HTTP work and required hosted
+verification. WF-002 remains paused.
+
+### Historical TASK-00007 merge reconciliation
+
+[TASK-00007's merge reconciliation](../tasks/00007-TASK.md#current-merge-reconciliation--2026-10-25) confirms
+[PR #18](https://github.com/johnnickell/project-slim/pull/18) merged into `develop` at
+`690225d5a6bdb27bb6533fe8c328a3f05f98e031` on 2026-10-25. Its tree matches verified administrative closeout
+`f8f82c5`; independent Review/QA remain anchored to accepted candidate `8b7a409`. No TASK-00007 delivery,
+merge or new human scope decision remains. TASK-00008 — Align Behavior Suites and Coverage is the first ready
+implementation successor; starting it requires its own execution invocation. TICKET-00011/EPIC-00001 remain open,
+and WF-002 remains paused. The delivery-pending checkpoints below are history, not current actions.
+
+### Historical TASK-00007 delivery checkpoint
+
 [TASK-00007](../tasks/00007-TASK.md#independent-acceptance-and-delivery-checkpoint) is independently accepted
 and QA-passed for candidate `8b7a4092de397d461fa07f910d1ff9d4aab0f3ee`; R-01 is resolved and its historical
 revise report is retained. [PR #18](https://github.com/johnnickell/project-slim/pull/18) is the draft delivery PR;
@@ -61,7 +80,8 @@ None.
 The approved alignment decomposition is complete; use its existing TASKs. The full AccessControl map remains at
 paused WF-002. Revisit frontend/authentication adoption through WF-005/WF-009 once the source flow is complete;
 no new EPIC/TICKET/TASK decomposition is currently approved or inferred from this bounded adoption.
-TASK-00007's runtime outcome unblocks TASK-00008 while retaining the completed dependency edge as history.
+TASK-00008's locally verified suite/coverage outcome unblocks TASK-00009; completed dependency edges remain history.
+Its independent Review/QA and publication are the current delivery handoff, not another implementation scope.
 TICKET-00011 and EPIC-00001 stay open for their unfinished children; final hosted gate evidence remains future work.
 
 ## Wayfinder Review
@@ -79,7 +99,7 @@ Completed edges remain history, not blockers. Readiness never grants execution a
 <!-- planning:ready:start -->
 | Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
 | --- | --- | --- | --- | --- | --- | --- |
-| 8 | [TASK-00008 — Align Behavior Suites and Coverage](../tasks/00008-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00006](../tasks/00006-TASK.md), [TASK-00007](../tasks/00007-TASK.md) | — | live |
+| 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00002](../tasks/00002-TASK.md), [TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md), [TASK-00008](../tasks/00008-TASK.md) | — | live |
 <!-- planning:ready:end -->
 
 ## Waiting
@@ -89,7 +109,6 @@ Unfinished TASK dependencies derive waiting state.
 <!-- planning:waiting:start -->
 | Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
 | --- | --- | --- | --- | --- | --- | --- |
-| 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00002](../tasks/00002-TASK.md), [TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md), [TASK-00008](../tasks/00008-TASK.md) | [TASK-00008](../tasks/00008-TASK.md) | live |
 | 10 | [TASK-00010 — Sanitize HTTP Failures](../tasks/00010-TASK.md) | [TICKET-00012](00012-TICKET.md) | ready-for-agent | [TASK-00009](../tasks/00009-TASK.md) | [TASK-00009](../tasks/00009-TASK.md) | live |
 <!-- planning:waiting:end -->
 
@@ -124,6 +143,7 @@ preserved as historical narrative, not a second status authority.
 | 5 | [TASK-00005 — Retire Framework Certification](../tasks/00005-TASK.md) | [TICKET-00009](00009-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
 | 6 | [TASK-00006 — Qualify Released Dependencies](../tasks/00006-TASK.md) | [TICKET-00010](00010-TICKET.md) | done | [TASK-00005](../tasks/00005-TASK.md) | — | live |
 | 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](../tasks/00007-TASK.md) | [TICKET-00011](00011-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
+| 8 | [TASK-00008 — Align Behavior Suites and Coverage](../tasks/00008-TASK.md) | [TICKET-00011](00011-TICKET.md) | done | [TASK-00006](../tasks/00006-TASK.md), [TASK-00007](../tasks/00007-TASK.md) | — | live |
 | — | [TASK-00011 — Establish the Governed Slim Starter Foundation](../tasks/00011-TASK.md) | [TICKET-00013](00013-TICKET.md) | done | — | — | live |
 | — | [TASK-00012 — Adopt Fight Common 1.2](../tasks/00012-TASK.md) | [TICKET-00014](00014-TICKET.md) | done | — | — | live |
 | — | [TASK-00014 — Re-certify Rewritten Fight Common Candidate](../tasks/00014-TASK.md) | [TICKET-00014](00014-TICKET.md) | done | — | — | live |

@@ -16,6 +16,6 @@ docker run --rm --volume "$(pwd):/app" --volume "$git_common_dir:$git_common_dir
   composer check-platform-reqs
 
   ./bin/planning-check
-  php vendor/bin/phpunit
+  php scripts/test.php
 
 '

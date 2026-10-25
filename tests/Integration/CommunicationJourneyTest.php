@@ -4,17 +4,16 @@ declare(strict_types=1);
 
 namespace Tests\Integration;
 
-use Fight\Common\Adapter\Mail\Symfony\SymfonyMailTransport;
-use Fight\Common\Adapter\Mail\Null\NullMailTransport;
 use Fight\Common\Application\Mail\MailService;
-use Fight\Common\Application\Mail\Transport\MailTransport;
 use Fight\Common\Application\Sms\SmsService;
 use Fight\Common\Application\Socket\PrivatePublisher;
 use Fight\Common\Application\Socket\Publisher;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Mercure\Hub;
+use Symfony\Component\Mailer\Envelope;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\RawMessage;
 use Symfony\Component\Mercure\HubInterface;
-use Symfony\Component\Mercure\MockHub;
+use Symfony\Component\Mercure\Update;
 use Tests\Fixture\Security\Environment;
 use Tests\Fixture\Socket\RecordingHub;
 
@@ -30,39 +29,43 @@ final class CommunicationJourneyTest extends TestCase
     public function test_default_mail_and_sms_fallbacks_accept_messages_without_external_delivery(): void
     {
         Environment::clear('MAILER_DSN');
+        Environment::clear('MERCURE_URL');
+        Environment::clear('MERCURE_JWT');
         $container = (require sprintf('%s/bootstrap/app.php', dirname(__DIR__, 2)))->getContainer();
 
-        self::assertInstanceOf(NullMailTransport::class, $container->get(MailTransport::class));
-        self::assertInstanceOf(MockHub::class, $container->get(HubInterface::class));
+        self::assertSame('local', $container->get(HubInterface::class)->publish(new Update('local-topic', 'safe local update')));
         $container->get(MailService::class)->send($container->get(MailService::class)->createMessage());
         $container->get(SmsService::class)->send($container->get(SmsService::class)->createMessage('+15555550100', '+15555550101', 'safe local sms'));
-        self::addToAssertionCount(1);
     }
 
-    public function test_configured_mailer_branch_uses_a_null_dsn_without_contacting_a_provider(): void
+    public function test_configured_mail_transport_delivers_content_to_the_mailer_boundary(): void
     {
         putenv('MAILER_DSN=null://null');
         $container = (require sprintf('%s/bootstrap/app.php', dirname(__DIR__, 2)))->getContainer();
+        $mailer = new class implements MailerInterface {
+            public array $messages = [];
 
-        self::assertInstanceOf(SymfonyMailTransport::class, $container->get(MailTransport::class));
+            public function send(RawMessage $message, ?Envelope $envelope = null): void
+            {
+                $this->messages[] = $message->toString();
+            }
+        };
+        $container->set(MailerInterface::class, static fn (): MailerInterface => $mailer);
         $message = $container->get(MailService::class)->createMessage()
             ->addFrom('from@example.test')
             ->addTo('to@example.test')
             ->setSubject('Capability journey')
             ->addContent('safe local mailer', 'text/plain');
         $container->get(MailService::class)->send($message);
-        self::addToAssertionCount(1);
+
+        self::assertCount(1, $mailer->messages);
+        self::assertStringContainsString('Subject: Capability journey', $mailer->messages[0]);
+        self::assertStringContainsString('safe local mailer', $mailer->messages[0]);
     }
 
-    public function test_configured_mercure_branch_constructs_without_publishing_and_recording_hub_observes_routes(): void
+    public function test_publishers_preserve_public_and_private_update_payloads(): void
     {
-        putenv('MERCURE_URL=https://mercure.example.test/.well-known/mercure');
-        putenv('MERCURE_JWT=test-mercure-token');
         $container = (require sprintf('%s/bootstrap/app.php', dirname(__DIR__, 2)))->getContainer();
-
-        $configuredHub = $container->get(HubInterface::class);
-        self::assertInstanceOf(Hub::class, $configuredHub);
-        self::assertSame('https://mercure.example.test/.well-known/mercure', $configuredHub->getUrl());
 
         $recordingHub = new RecordingHub();
         $container->set(HubInterface::class, static fn (): RecordingHub => $recordingHub);
@@ -72,7 +75,10 @@ final class CommunicationJourneyTest extends TestCase
         self::assertCount(2, $recordingHub->updates);
         self::assertFalse($recordingHub->updates[0]->isPrivate());
         self::assertTrue($recordingHub->updates[1]->isPrivate());
-
+        self::assertSame(['public-topic'], $recordingHub->updates[0]->getTopics());
+        self::assertSame('public-message', $recordingHub->updates[0]->getData());
+        self::assertSame(['private-topic'], $recordingHub->updates[1]->getTopics());
+        self::assertSame('private-message', $recordingHub->updates[1]->getData());
     }
 
     public function test_configured_mercure_hub_requires_an_explicit_jwt(): void

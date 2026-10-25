@@ -20,8 +20,9 @@ contract. The later frontend/login adoption remains planned, not implemented. Pl
 with `./bin/planning-check --write`; default `./bin/planning-check` and the build reject drift without writing.
 The [TASK Board](planning/tickets/BOARD.md) is the sole execution view. New-only archive tooling requires a separately
 requested, reviewed dry run and explicit apply; TASK-00002 performs no archives and does not dynamically verify apply.
-TASK-00007 supplies isolation for the existing development service only. The expanded quality/coverage gate and
-opt-in safe HTTP errors retain their existing TASK ownership; their acceptance is not implied by newer packages.
+TASK-00007 supplies isolation for the existing development service only. TASK-00008 supplies behavior-focused suites
+and single-run, separately attributed line coverage; see [testing](docs/engineering/TESTING.md). The expanded quality
+gate and opt-in safe HTTP errors retain their existing TASK ownership; their acceptance is not implied by newer packages.
 
 ## Development runtime
 
@@ -36,7 +37,7 @@ Start with a clean checkout (each worktree needs its own dependencies):
 ./bin/up
 # Open the Development URL printed by up; the root text is unchanged.
 ./bin/exec php scripts/check-php-runtime.php
-./bin/phpunit --filter BootstrapTest
+./bin/phpunit --filter HttpPipelineTest
 ./bin/exec php -r 'echo "ready\n";'
 ./bin/down
 ```
@@ -46,14 +47,15 @@ Start with a clean checkout (each worktree needs its own dependencies):
 | `./bin/composer COMMAND [ARG ...]` | Explicit maintenance: builds the checkout image and runs a disposable CLI container, even before web/dependencies exist. No published ports or other services. Only an explicit Composer command installs/updates dependencies. |
 | `./bin/up` | Requires `vendor/autoload.php`; builds and starts only `web`, waits for its running state, and prints its URL. This is not an HTTP health/readiness probe. A rebuild may recreate the container; use the newly printed URL after every up. |
 | `./bin/exec COMMAND [ARG ...]` | Executes the exact argument vector in this project's running `web` service at `/app`, without a TTY; stdin works for pipelines. No implicit startup or dependency installation. Use `sh -c '...'` explicitly for shell expressions. |
-| `./bin/phpunit [ARG ...]` | Requires running `web`, installed dependencies and development PHPUnit; forwards arguments to that service's PHP/PHPUnit. No automatic install/start. |
+| `./bin/phpunit [ARG ...]` | Requires running `web`, development PHPUnit and PCOV; runs PHPUnit once, then reports separate suite coverage from that run. Arguments select focused iteration; no arguments run all suites and the adopted coverage policy. No automatic install/start. |
 | `./bin/down` | Stops/removes only this project's containers and default network after ownership checks; already absent is safe. Never deletes volumes, images or orphan services. No options accepted by up/down. |
 
 Exec, tests and Composer return the invoked command's exit status; Docker/build/setup failures are nonzero.
 Missing Docker/daemon, dependencies or running service fail with setup guidance. Invalid inputs fail without
 provisioning. `./bin/build` is the **existing transitional gate**, not this running-service contract: it still builds
 a disposable image and installs the lock explicitly inside its current gate. TASK-00009 owns replacing that model;
-TASK-00008 owns the suite/coverage changes. Neither behavior is silently changed here.
+TASK-00008's shared test runner now supplies one all-suite coverage execution to both entrypoints; it does not
+replace the surrounding gate phases. See [reports, denominator and test dispositions](docs/engineering/TESTING.md).
 
 ### Checkout identity, ports and cleanup
 
