@@ -21,9 +21,10 @@ Requirements are not executable work; see the [requirement index](README.md). [M
 
 ## Now
 
-[TASK-00007](../tasks/00007-TASK.md#completion-notes) is implemented with direct runtime evidence and a green
-canonical gate. Independent Review, then applicable QA, are next for this committed subject; neither is claimed by
-the implementation author. TASK-00008 becomes the first ready implementation successor, not permission to start it.
+[TASK-00007](../tasks/00007-TASK.md#repair-cycle-1--r-01) has repaired independent Review blocker R-01:
+ambient orphan cleanup is constrained, with before/after runtime evidence and a green canonical gate. The canonical
+Review still says revise for the prior head; fresh independent re-review, then applicable QA, are next, not claimed
+by the Engineer. TASK-00008 remains the first ready implementation successor, not permission to start it.
 No new human scope decision is needed. PR #17 is already integrated at base
 `b904efd084ed0c7222927f7717b4fb4a9632494a`; its merge-pending statements below are retained history, not current actions.
 

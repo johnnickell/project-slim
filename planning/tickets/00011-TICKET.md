@@ -94,8 +94,11 @@ The human maintainer approved these slices; each keeps the then-operative gate c
 [TASK-00007](../tasks/00007-TASK.md#completion-notes) implements and directly verifies the existing stateless
 runtime boundary: explicit clean-worktree setup, concurrent loopback services, checkout/project ownership,
 running-service exec/tests, exit/prerequisite failures and owned cleanup. Its unchanged canonical build passes
-26 tests / 152 assertions. Independent Review/QA and publication remain separate. TASK-00008 is now the first ready
-implementation successor; TASK-00009 still waits for it. These unfinished children keep this requirement open.
+26 tests / 152 assertions. [Repair cycle 1](../tasks/00007-TASK.md#repair-cycle-1--r-01) reproduces and repairs
+Review R-01's ambient orphan deletion; direct before/after checks now preserve owned orphans and refuse foreign/
+unlabelled resources. The canonical prior-head revise remains untouched; fresh independent re-review, applicable
+QA and publication remain separate. TASK-00008 remains first ready; TASK-00009 still waits for it. These unfinished
+children keep this requirement open.
 No new suite/coverage enforcement, replacement gate, future topology or hosted integration result is claimed.
 
 The maintainer's 2026-10-24 [adoption amendment](../epics/00001-EPIC.md#current-adoption-amendment--2026-10-24)

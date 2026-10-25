@@ -51,8 +51,8 @@ PROJECT_SLIM_RUNTIME_IMAGE=project-slim-dev:$runtime_hash
 export COMPOSE_PROJECT_NAME PROJECT_SLIM_HTTP_PORT PROJECT_SLIM_CHECKOUT PROJECT_SLIM_RUNTIME_IMAGE
 
 runtime_compose() {
-    # Ignore ambient file/profile selection and implicit .env/override loading.
-    COMPOSE_PROFILES= docker compose --project-name "$COMPOSE_PROJECT_NAME" \
+    # Ignore ambient file/profile selection, implicit .env/override loading and orphan cleanup.
+    COMPOSE_PROFILES= COMPOSE_REMOVE_ORPHANS=false docker compose --project-name "$COMPOSE_PROJECT_NAME" \
         --project-directory "$runtime_root" --env-file /dev/null --file "$runtime_root/compose.yaml" "$@"
 }
 

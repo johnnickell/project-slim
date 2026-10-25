@@ -4,8 +4,10 @@
 
 [TASK-00007](tasks/00007-TASK.md#completion-notes) delivers the existing-service runtime isolation slice with
 explicit clean-worktree setup, concurrent local-only services, ownership checks and safe cleanup. The unchanged
-canonical build passes 26 tests / 152 assertions. Independent Review/QA and publication are pending. TASK-00008
-is now first ready, followed by TASK-00009/00010; the full gate/coverage and required hosted integration are not
+canonical build passes 26 tests / 152 assertions. [Repair cycle 1](tasks/00007-TASK.md#repair-cycle-1--r-01)
+reproduces and repairs Review R-01's ambient orphan deletion; the canonical prior-head revise is preserved. Fresh
+independent re-review, applicable QA and publication are pending. TASK-00008 remains first ready, followed by
+TASK-00009/00010; the full gate/coverage and required hosted integration are not
 claimed complete. TICKET-00011/EPIC-00001 remain open. PR #17 is integrated at base
 `b904efd084ed0c7222927f7717b4fb4a9632494a`; its older delivery checkpoint below is historical.
 
