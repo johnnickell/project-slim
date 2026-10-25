@@ -29,6 +29,7 @@ default validation rejects drift without writing. See [CONVENTIONS.md](../CONVEN
 | — | [TASK-00014 — Re-certify Rewritten Fight Common Candidate](00014-TASK.md) | [TICKET-00014](../tickets/00014-TICKET.md) | done | — | — | live |
 | — | [TASK-00015 — Establish the Requirement, Task, and Review Planning Surface](00015-TASK.md) | [TICKET-00015](../tickets/00015-TICKET.md) | wontfix | — | — | live |
 | — | [TASK-00016 — Establish the Lean Slim Pre-Submit Quality Gate](00016-TASK.md) | [TICKET-00014](../tickets/00014-TICKET.md) | wontfix | — | — | live |
+| — | [TASK-00018 — Keep Delivery Handoffs Fresh After Merge](00018-TASK.md) | Standalone bug | done | — | — | live |
 <!-- planning:index:end -->
 
 ## Delivery and migrated history

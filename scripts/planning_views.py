@@ -41,6 +41,26 @@ def table(headers: list[str], rows: list[list[str]]) -> str:
     ])
 
 
+def routing_summary(groups, records, source: Path) -> str:
+    """Share authoritative Board selection with summaries; never infer delivery or execution authority."""
+    selected = [("Needs Info / Human Action", task) for task in groups["info"]]
+    if groups["active"]:
+        selected.extend(("Active Work", task) for task in groups["active"])
+    elif groups["ready"]:
+        selected.append(("Ready Frontier", groups["ready"][0]))
+    elif groups["waiting"]:
+        selected.append(("Waiting", groups["waiting"][0]))
+    body = table(["Route", "TASK", "Status", "Unfinished blockers"], [
+        [name, link(task, source, True), task.data["status"],
+         ", ".join(link(records[key], source) for key in task.blockers
+                   if records[key].data["status"] not in TERMINAL) or "—"]
+        for name, task in selected
+    ])
+    if not groups["active"] and not groups["ready"]:
+        body += "\n\nNo TASK is currently executable; unresolved work may remain."
+    return body
+
+
 def marked(text: str, name: str, body: str, path: Path) -> str:
     # All pairs must be flat and ordered; nested/crossed blocks could erase authored text.
     opened = None
@@ -144,8 +164,15 @@ def refresh_plan(records: dict[str, Record], documents: dict[Path, str] | None =
     }
     for name, items in groups.items():
         project(path, name, table(headers, rows(items, path)))
+    project(path, "next", routing_summary(groups, records, path))
+    from planning_delivery import current_delivery
+    project(path, "delivery", table(["TASK", "Current delivery", "PR"], [
+        [link(task, path, True), "Published; verify live state", f'[{cell(task.data["pr"])}]({task.data["pr"]})']
+        for task in current_delivery(records)
+    ]))
 
     path = PLANNING / "ROADMAP.md"
+    project(path, "execution", routing_summary(groups, records, path))
     project(path, "active-epics", table(epic_headers, epic_rows([r for r in epics if r.data["status"] not in TERMINAL], path)))
     project(path, "closed-epics", table(epic_headers, epic_rows([r for r in epics if r.data["status"] in TERMINAL], path)))
     return {path: text for path, text in pending.items()
