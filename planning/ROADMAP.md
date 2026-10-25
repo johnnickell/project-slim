@@ -2,12 +2,14 @@
 
 ## In progress
 
-[TASK-00008's behavior-suite and coverage implementation](tasks/00008-TASK.md#completion-notes) is locally verified:
-30 tests / 98 assertions in one execution, separate Unit/Integration/Functional attribution, Domain/Application N/A,
-and visible Adapter Unit gaps. Independent Review/QA and publication remain pending. TASK-00009 is first ready for
-the expanded gate and required hosted integration, followed by TASK-00010. TICKET-00011/EPIC-00001 remain open for
-unfinished children; no eligible parent closeout is deferred. WF-002 remains paused. The [TASK Board](tickets/BOARD.md)
-owns execution routing; no new scope or TASK-00009 execution is authorized by this completion.
+[TASK-00008's behavior-suite and coverage implementation](tasks/00008-TASK.md#completion-notes) is independently
+accepted and behavioral-QA passed for candidate `556adc5`; [PR #19](https://github.com/johnnickell/project-slim/pull/19)
+is ready for human review and merge. It records 30 tests / 98 assertions in one execution, separate
+Unit/Integration/Functional attribution, Domain/Application N/A, and visible Adapter Unit gaps. TASK-00009 is first
+ready for the expanded gate and required hosted integration, followed by TASK-00010. TICKET-00011/EPIC-00001 remain
+open for unfinished children; no eligible parent closeout is deferred. WF-002 remains paused. The
+[TASK Board](tickets/BOARD.md) owns execution routing; no new scope or TASK-00009 execution is authorized by this
+completion.
 
 ### Historical TASK-00007 merge reconciliation
 

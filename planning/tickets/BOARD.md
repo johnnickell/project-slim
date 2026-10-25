@@ -21,12 +21,12 @@ Requirements are not executable work; see the [requirement index](README.md). [M
 
 ## Now
 
-[TASK-00008](../tasks/00008-TASK.md#completion-notes) is implemented and locally verified (30 tests / 98 assertions;
-one execution with separate suite attribution). Independent Review, applicable QA and publication remain pending;
-implementation completion is not independent acceptance or merge. No new human scope decision is required.
-TASK-00009 is now the first ready implementation successor and needs its own execution invocation; do not start it
-as part of TASK-00008 delivery. TICKET-00011/EPIC-00001 remain open for unfinished gate/HTTP work and required hosted
-verification. WF-002 remains paused.
+[TASK-00008](../tasks/00008-TASK.md#completion-notes) is independently accepted and behavioral-QA passed for
+candidate `556adc5`; [PR #19](https://github.com/johnnickell/project-slim/pull/19) is ready for human review and
+merge. It retains 30 tests / 98 assertions in one execution with separate suite attribution. No new human scope
+decision is required. TASK-00009 is now the first ready implementation successor and needs its own execution
+invocation; do not start it as part of TASK-00008 delivery. TICKET-00011/EPIC-00001 remain open for unfinished
+gate/HTTP work and required hosted verification. WF-002 remains paused.
 
 ### Historical TASK-00007 merge reconciliation
 
@@ -80,9 +80,10 @@ None.
 The approved alignment decomposition is complete; use its existing TASKs. The full AccessControl map remains at
 paused WF-002. Revisit frontend/authentication adoption through WF-005/WF-009 once the source flow is complete;
 no new EPIC/TICKET/TASK decomposition is currently approved or inferred from this bounded adoption.
-TASK-00008's locally verified suite/coverage outcome unblocks TASK-00009; completed dependency edges remain history.
-Its independent Review/QA and publication are the current delivery handoff, not another implementation scope.
-TICKET-00011 and EPIC-00001 stay open for their unfinished children; final hosted gate evidence remains future work.
+TASK-00008's accepted, QA-passed suite/coverage outcome is published in
+[PR #19](https://github.com/johnnickell/project-slim/pull/19) for human review and merge; it unblocks TASK-00009,
+and completed dependency edges remain history. TICKET-00011 and EPIC-00001 stay open for their unfinished children;
+final hosted gate evidence remains future work.
 
 ## Wayfinder Review
 

@@ -92,11 +92,12 @@ The human maintainer approved these slices; each keeps the then-operative gate c
 ## Progress
 
 Current handoff (TASK-00008, 2026-10-25): [suite/coverage implementation](../tasks/00008-TASK.md#completion-notes)
-is locally verified: 30 tests / 98 assertions in one PHPUnit run, separate Unit/Integration/Functional attribution,
-Domain/Application N/A and visible Adapter Unit gaps. Behavioral dispositions and direct non-product checks are
-recorded; the released lock and production behavior are unchanged. Independent Review/QA and publication remain
-pending. AC-04 is implemented; final gate integration of AC-05 remains TASK-00009, now first ready.
-TASK-00009 and required hosted verification keep this requirement open; no eligible parent completion is deferred.
+is independently accepted and behavioral-QA passed for candidate `556adc5`; [PR #19](https://github.com/johnnickell/project-slim/pull/19)
+publishes it for human review and merge. It records 30 tests / 98 assertions in one PHPUnit run, separate
+Unit/Integration/Functional attribution, Domain/Application N/A and visible Adapter Unit gaps. Behavioral dispositions
+and direct non-product checks are recorded; the released lock and production behavior are unchanged. AC-04 is
+implemented; final gate integration of AC-05 remains TASK-00009, now first ready. TASK-00009 and required hosted
+verification keep this requirement open; no eligible parent completion is deferred.
 
 ### Historical TASK-00007 merge reconciliation
 
