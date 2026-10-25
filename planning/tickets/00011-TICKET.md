@@ -2,7 +2,7 @@
 id: TICKET-00011
 epic: EPIC-00001
 title: Reproducible Runtime and One Quality Gate
-status: ready-for-agent
+status: in-progress
 order: 5
 blocked_by: TICKET-00007, TICKET-00008, TICKET-00009, TICKET-00010
 ---
@@ -46,7 +46,7 @@ or closing its full future runtime investigation.
 
 ## Acceptance Criteria
 
-- [ ] **AC-01:** Runtime setup, lifecycle, test, and exec commands are documented and verified on a clean checkout and
+- [x] **AC-01:** Runtime setup, lifecycle, test, and exec commands are documented and verified on a clean checkout and
   concurrently isolated worktrees, with no fixed-port/resource collisions or cleanup of unrelated resources.
 - [ ] **AC-02:** `./bin/build` uses the running service and a PHP orchestrator with the named fail-fast phases. Missing
   prerequisites fail clearly; no per-build image rebuild, dependency maintenance, or new Python gate orchestration
@@ -84,15 +84,19 @@ The human maintainer approved these slices; each keeps the then-operative gate c
 <!-- planning:children:start -->
 | Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
 | --- | --- | --- | --- | --- | --- | --- |
-| 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](../tasks/00007-TASK.md) | [TICKET-00011](00011-TICKET.md) | in-progress | [TASK-00001](../tasks/00001-TASK.md) | — | live |
-| 8 | [TASK-00008 — Align Behavior Suites and Coverage](../tasks/00008-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00006](../tasks/00006-TASK.md), [TASK-00007](../tasks/00007-TASK.md) | [TASK-00007](../tasks/00007-TASK.md) | live |
+| 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](../tasks/00007-TASK.md) | [TICKET-00011](00011-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
+| 8 | [TASK-00008 — Align Behavior Suites and Coverage](../tasks/00008-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00006](../tasks/00006-TASK.md), [TASK-00007](../tasks/00007-TASK.md) | — | live |
 | 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00002](../tasks/00002-TASK.md), [TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md), [TASK-00008](../tasks/00008-TASK.md) | [TASK-00008](../tasks/00008-TASK.md) | live |
 <!-- planning:children:end -->
 
 ## Progress
 
-Requirement and TASK split approved; all three TASKs are authored but not implemented. No runtime, tooling,
-test-suite, coverage, or hosted workflow result is claimed.
+[TASK-00007](../tasks/00007-TASK.md#completion-notes) implements and directly verifies the existing stateless
+runtime boundary: explicit clean-worktree setup, concurrent loopback services, checkout/project ownership,
+running-service exec/tests, exit/prerequisite failures and owned cleanup. Its unchanged canonical build passes
+26 tests / 152 assertions. Independent Review/QA and publication remain separate. TASK-00008 is now the first ready
+implementation successor; TASK-00009 still waits for it. These unfinished children keep this requirement open.
+No new suite/coverage enforcement, replacement gate, future topology or hosted integration result is claimed.
 
 The maintainer's 2026-10-24 [adoption amendment](../epics/00001-EPIC.md#current-adoption-amendment--2026-10-24)
 supersedes both earlier coverage proposals: use Agent OS's single all-suite execution, 100% meaningful Domain/

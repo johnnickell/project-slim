@@ -37,14 +37,14 @@ Start with a clean checkout (each worktree needs its own dependencies):
 # Open the Development URL printed by up; the root text is unchanged.
 ./bin/exec php scripts/check-php-runtime.php
 ./bin/phpunit --filter BootstrapTest
-./bin/exec php -r 'echo "ready\\n";'
+./bin/exec php -r 'echo "ready\n";'
 ./bin/down
 ```
 
 | Wrapper | Contract |
 | --- | --- |
 | `./bin/composer COMMAND [ARG ...]` | Explicit maintenance: builds the checkout image and runs a disposable CLI container, even before web/dependencies exist. No published ports or other services. Only an explicit Composer command installs/updates dependencies. |
-| `./bin/up` | Requires `vendor/autoload.php`; builds and starts only `web`, waits for its running state, and prints its URL. This is not an HTTP health/readiness probe. Repeating it reuses unchanged containers. |
+| `./bin/up` | Requires `vendor/autoload.php`; builds and starts only `web`, waits for its running state, and prints its URL. This is not an HTTP health/readiness probe. A rebuild may recreate the container; use the newly printed URL after every up. |
 | `./bin/exec COMMAND [ARG ...]` | Executes the exact argument vector in this project's running `web` service at `/app`, without a TTY; stdin works for pipelines. No implicit startup or dependency installation. Use `sh -c '...'` explicitly for shell expressions. |
 | `./bin/phpunit [ARG ...]` | Requires running `web`, installed dependencies and development PHPUnit; forwards arguments to that service's PHP/PHPUnit. No automatic install/start. |
 | `./bin/down` | Stops/removes only this project's containers and default network after ownership checks; already absent is safe. Never deletes volumes, images or orphan services. No options accepted by up/down. |
@@ -97,7 +97,7 @@ actually run, and `composer check-platform-reqs` checks the real runtime rather 
 
 After changing the baseline or security INI, repeat explicit dependency setup, `./bin/up` and `./bin/build`.
 `./bin/up` rebuilds the local development image and recreates changed services; an image rebuild alone does not
-replace a running process. See the runtime contract below for checkout/project ownership and overrides.
+replace a running process. See the [runtime contract above](#development-runtime) for checkout/project ownership and overrides.
 
 ### Session-upload follow-up
 

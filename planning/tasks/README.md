@@ -19,8 +19,8 @@ default validation rejects drift without writing. See [CONVENTIONS.md](../CONVEN
 | 4 | [TASK-00004 — Establish Ownership and PHP Conventions](00004-TASK.md) | [TICKET-00008](../tickets/00008-TICKET.md) | done | [TASK-00001](00001-TASK.md) | — | live |
 | 5 | [TASK-00005 — Retire Framework Certification](00005-TASK.md) | [TICKET-00009](../tickets/00009-TICKET.md) | done | [TASK-00001](00001-TASK.md) | — | live |
 | 6 | [TASK-00006 — Qualify Released Dependencies](00006-TASK.md) | [TICKET-00010](../tickets/00010-TICKET.md) | done | [TASK-00005](00005-TASK.md) | — | live |
-| 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](00007-TASK.md) | [TICKET-00011](../tickets/00011-TICKET.md) | in-progress | [TASK-00001](00001-TASK.md) | — | live |
-| 8 | [TASK-00008 — Align Behavior Suites and Coverage](00008-TASK.md) | [TICKET-00011](../tickets/00011-TICKET.md) | ready-for-agent | [TASK-00006](00006-TASK.md), [TASK-00007](00007-TASK.md) | [TASK-00007](00007-TASK.md) | live |
+| 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](00007-TASK.md) | [TICKET-00011](../tickets/00011-TICKET.md) | done | [TASK-00001](00001-TASK.md) | — | live |
+| 8 | [TASK-00008 — Align Behavior Suites and Coverage](00008-TASK.md) | [TICKET-00011](../tickets/00011-TICKET.md) | ready-for-agent | [TASK-00006](00006-TASK.md), [TASK-00007](00007-TASK.md) | — | live |
 | 9 | [TASK-00009 — Deliver the Canonical Quality Gate](00009-TASK.md) | [TICKET-00011](../tickets/00011-TICKET.md) | ready-for-agent | [TASK-00002](00002-TASK.md), [TASK-00003](00003-TASK.md), [TASK-00004](00004-TASK.md), [TASK-00008](00008-TASK.md) | [TASK-00008](00008-TASK.md) | live |
 | 10 | [TASK-00010 — Sanitize HTTP Failures](00010-TASK.md) | [TICKET-00012](../tickets/00012-TICKET.md) | ready-for-agent | [TASK-00009](00009-TASK.md) | [TASK-00009](00009-TASK.md) | live |
 | — | [TASK-00011 — Establish the Governed Slim Starter Foundation](00011-TASK.md) | [TICKET-00013](../tickets/00013-TICKET.md) | done | — | — | live |

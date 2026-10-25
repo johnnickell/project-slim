@@ -2,6 +2,15 @@
 
 ## In progress
 
+[TASK-00007](tasks/00007-TASK.md#completion-notes) delivers the existing-service runtime isolation slice with
+explicit clean-worktree setup, concurrent local-only services, ownership checks and safe cleanup. The unchanged
+canonical build passes 26 tests / 152 assertions. Independent Review/QA and publication are pending. TASK-00008
+is now first ready, followed by TASK-00009/00010; the full gate/coverage and required hosted integration are not
+claimed complete. TICKET-00011/EPIC-00001 remain open. PR #17 is integrated at base
+`b904efd084ed0c7222927f7717b4fb4a9632494a`; its older delivery checkpoint below is historical.
+
+### Historical delivery checkpoint before TASK-00007
+
 TASK-00003/00004/00006 have independent acceptance and QA PASS at `d62fb30`; Land reconciled TASK-00017's accepted
 runtime controls with unchanged package entries and application diff. Their fresh PHP 8.5.12 build and compatibility
 checks passed. Combined [PR #16](https://github.com/johnnickell/project-slim/pull/16) merged at
@@ -25,7 +34,8 @@ is open for human review and merge. The [TASK Board](tickets/BOARD.md) owns the 
    [MIGRATION.md](MIGRATION.md) preserves provenance. [TASK-00002](tasks/00002-TASK.md) supplies explicit generation,
    read-only drift checks and new-only archive tooling; it performs no archives. Independent Review accepted and QA
    passed for the PR's acceptance candidate; human review/merge remain separate.
-2. Implement remaining runtime/suite/gate slices under the [adoption amendment](epics/00001-EPIC.md#current-adoption-amendment--2026-10-24).
+2. Continue the suite/gate slices after TASK-00007's bounded runtime implementation under the
+   [adoption amendment](epics/00001-EPIC.md#current-adoption-amendment--2026-10-24).
    TASK-00016 is wontfix as a duplicate path; Agent OS's all-suite Domain/Application line coverage with separate
    suite attribution and visible Adapter gaps is the accepted policy. Do not claim it is enforced yet.
 3. Transition to the accepted architecture, HTTP, testing, gate, planning, and review model.
