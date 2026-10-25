@@ -91,14 +91,14 @@ The human maintainer approved these slices; each keeps the then-operative gate c
 
 ## Progress
 
-[TASK-00007](../tasks/00007-TASK.md#completion-notes) implements and directly verifies the existing stateless
-runtime boundary: explicit clean-worktree setup, concurrent loopback services, checkout/project ownership,
-running-service exec/tests, exit/prerequisite failures and owned cleanup. Its unchanged canonical build passes
-26 tests / 152 assertions. [Repair cycle 1](../tasks/00007-TASK.md#repair-cycle-1--r-01) reproduces and repairs
-Review R-01's ambient orphan deletion; direct before/after checks now preserve owned orphans and refuse foreign/
-unlabelled resources. The canonical prior-head revise remains untouched; fresh independent re-review, applicable
-QA and publication remain separate. TASK-00008 remains first ready; TASK-00009 still waits for it. These unfinished
-children keep this requirement open.
+[TASK-00007](../tasks/00007-TASK.md#independent-acceptance-and-delivery-checkpoint) is independently
+accepted and QA-passed for candidate `8b7a4092de397d461fa07f910d1ff9d4aab0f3ee`: it delivers the stateless
+runtime boundary with explicit clean-worktree setup, concurrent loopback services, checkout/project ownership,
+running-service exec/tests, prerequisite/exit failures and owned cleanup. Review R-01's ambient orphan deletion
+is resolved without changing its historical revise report. [PR #18](https://github.com/johnnickell/project-slim/pull/18)
+is the draft delivery PR; administrative closeout/final-head verification is pending at this checkpoint, not a
+merge claim. TASK-00008 remains first ready; TASK-00009 still waits for it. These unfinished children keep this
+requirement open.
 No new suite/coverage enforcement, replacement gate, future topology or hosted integration result is claimed.
 
 The maintainer's 2026-10-24 [adoption amendment](../epics/00001-EPIC.md#current-adoption-amendment--2026-10-24)

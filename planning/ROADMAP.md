@@ -2,13 +2,12 @@
 
 ## In progress
 
-[TASK-00007](tasks/00007-TASK.md#completion-notes) delivers the existing-service runtime isolation slice with
-explicit clean-worktree setup, concurrent local-only services, ownership checks and safe cleanup. The unchanged
-canonical build passes 26 tests / 152 assertions. [Repair cycle 1](tasks/00007-TASK.md#repair-cycle-1--r-01)
-reproduces and repairs Review R-01's ambient orphan deletion; the canonical prior-head revise is preserved. Fresh
-independent re-review, applicable QA and publication are pending. TASK-00008 remains first ready, followed by
-TASK-00009/00010; the full gate/coverage and required hosted integration are not
-claimed complete. TICKET-00011/EPIC-00001 remain open. PR #17 is integrated at base
+[TASK-00007](tasks/00007-TASK.md#independent-acceptance-and-delivery-checkpoint) has independent Review
+acceptance and QA PASS for candidate `8b7a4092de397d461fa07f910d1ff9d4aab0f3ee`; Review R-01's ambient orphan
+deletion is resolved and its historical revise report is preserved. [PR #18](https://github.com/johnnickell/project-slim/pull/18)
+is the draft delivery PR; administrative closeout/final-head verification is pending at this checkpoint, not a merge
+claim. TASK-00008 remains first ready, followed by TASK-00009/00010; the full gate/coverage and required hosted
+integration are not claimed complete. TICKET-00011/EPIC-00001 remain open. PR #17 is integrated at base
 `b904efd084ed0c7222927f7717b4fb4a9632494a`; its older delivery checkpoint below is historical.
 
 ### Historical delivery checkpoint before TASK-00007

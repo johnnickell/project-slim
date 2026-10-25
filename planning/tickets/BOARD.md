@@ -21,12 +21,13 @@ Requirements are not executable work; see the [requirement index](README.md). [M
 
 ## Now
 
-[TASK-00007](../tasks/00007-TASK.md#repair-cycle-1--r-01) has repaired independent Review blocker R-01:
-ambient orphan cleanup is constrained, with before/after runtime evidence and a green canonical gate. The canonical
-Review still says revise for the prior head; fresh independent re-review, then applicable QA, are next, not claimed
-by the Engineer. TASK-00008 remains the first ready implementation successor, not permission to start it.
-No new human scope decision is needed. PR #17 is already integrated at base
-`b904efd084ed0c7222927f7717b4fb4a9632494a`; its merge-pending statements below are retained history, not current actions.
+[TASK-00007](../tasks/00007-TASK.md#independent-acceptance-and-delivery-checkpoint) is independently accepted
+and QA-passed for candidate `8b7a4092de397d461fa07f910d1ff9d4aab0f3ee`; R-01 is resolved and its historical
+revise report is retained. [PR #18](https://github.com/johnnickell/project-slim/pull/18) is the draft delivery PR;
+administrative closeout/final-head verification is pending at this checkpoint, so no merge action is yet requested.
+TASK-00008 remains the first ready implementation successor, not permission to start it. No new human scope
+decision is needed. PR #17 is already integrated at base `b904efd084ed0c7222927f7717b4fb4a9632494a`; its
+merge-pending statements below are retained history, not current actions.
 
 ### Historical delivery checkpoint before TASK-00007
 
