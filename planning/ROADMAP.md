@@ -2,11 +2,14 @@
 
 ## In progress
 
-[TASK-00009's canonical gate](tasks/00009-TASK.md#current-implementation-handoff--2026-10-25) is locally implemented:
-read-only host planning precedes running-service PHP quality phases and one attributed PHPUnit execution. Required
-hosted acceptance is still missing; independent Review/QA and authorized draft-evidence publication remain later
-stages. TASK-00009/TICKET-00011/EPIC-00001 stay open, and TASK-00010 remains blocked. The [Board](tickets/BOARD.md)
-owns routing; WF-002 stays paused. TASK-00008 PR #19 is integrated at the implementation base, not awaiting delivery.
+[TASK-00009's accepted canonical gate](tasks/00009-TASK.md#current-acceptance-and-delivery-checkpoint--2026-10-25)
+uses read-only host planning before running-service PHP quality phases and one attributed PHPUnit execution.
+Implementation A `a96c9795e511ad166764dba647c56035d8b06007` has independent Review acceptance, independent QA PASS (5/5),
+and required hosted evidence in [Build run 40165446430](https://github.com/johnnickell/project-slim/actions/runs/40165446430).
+Owner-approved metadata-only B closes TASK-00009/TICKET-00011; fresh hosted delivery CI for B remains required before
+PR #20 is ready. EPIC-00001 remains open; TASK-00010 is now ready by record status but is not started under this
+Land-only scope. The [Board](tickets/BOARD.md) owns routing; WF-002 stays paused. TASK-00008 PR #19 is integrated at the implementation
+base, not awaiting delivery.
 
 ### Historical TASK-00008 host-boundary closeout
 

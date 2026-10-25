@@ -22,7 +22,8 @@ The [TASK Board](planning/tickets/BOARD.md) is the sole execution view. New-only
 requested, reviewed dry run and explicit apply; TASK-00002 performs no archives and does not dynamically verify apply.
 TASK-00007 supplies isolation for the existing development service only. TASK-00008 supplies behavior-focused suites
 and single-run, separately attributed line coverage; see [testing](docs/engineering/TESTING.md). TASK-00009 adds the
-[running-service quality gate](docs/engineering/QUALITY-GATE.md); required hosted acceptance remains pending.
+[running-service quality gate](docs/engineering/QUALITY-GATE.md); implementation A is independently accepted and
+QA-passed with hosted evidence, while required final delivery CI for its metadata-only closeout remains pending.
 Opt-in safe HTTP errors remain TASK-00010; their acceptance is not implied by newer packages.
 
 ## Development runtime

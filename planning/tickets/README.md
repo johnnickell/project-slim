@@ -15,8 +15,8 @@ Dependency history is distinct from unfinished blockers; requirement blockers ar
 | 2 | [TICKET-00008 — Explicit Application Ownership and PHP Standards](00008-TICKET.md) | [EPIC-00001](../epics/00001-EPIC.md) | done | — | — | live |
 | 3 | [TICKET-00009 — Single-Lock Development Without Framework Certification](00009-TICKET.md) | [EPIC-00001](../epics/00001-EPIC.md) | done | — | — | live |
 | 4 | [TICKET-00010 — Qualified Released Dependency Baseline](00010-TICKET.md) | [EPIC-00001](../epics/00001-EPIC.md) | done | [TICKET-00009](00009-TICKET.md) | — | live |
-| 5 | [TICKET-00011 — Reproducible Runtime and One Quality Gate](00011-TICKET.md) | [EPIC-00001](../epics/00001-EPIC.md) | in-progress | [TICKET-00007](00007-TICKET.md), [TICKET-00008](00008-TICKET.md), [TICKET-00009](00009-TICKET.md), [TICKET-00010](00010-TICKET.md) | — | live |
-| 6 | [TICKET-00012 — Safe and Predictable HTTP Failures](00012-TICKET.md) | [EPIC-00001](../epics/00001-EPIC.md) | ready-for-agent | [TICKET-00008](00008-TICKET.md), [TICKET-00010](00010-TICKET.md), [TICKET-00011](00011-TICKET.md) | [TICKET-00011](00011-TICKET.md) | live |
+| 5 | [TICKET-00011 — Reproducible Runtime and One Quality Gate](00011-TICKET.md) | [EPIC-00001](../epics/00001-EPIC.md) | done | [TICKET-00007](00007-TICKET.md), [TICKET-00008](00008-TICKET.md), [TICKET-00009](00009-TICKET.md), [TICKET-00010](00010-TICKET.md) | — | live |
+| 6 | [TICKET-00012 — Safe and Predictable HTTP Failures](00012-TICKET.md) | [EPIC-00001](../epics/00001-EPIC.md) | ready-for-agent | [TICKET-00008](00008-TICKET.md), [TICKET-00010](00010-TICKET.md), [TICKET-00011](00011-TICKET.md) | — | live |
 | — | [TICKET-00013 — Slim Starter Product and Walking-Slice Acceptance](00013-TICKET.md) | [EPIC-00002](../epics/00002-EPIC.md) | done | — | — | live |
 | — | [TICKET-00014 — Fight Common Version Adoption and Support Evidence](00014-TICKET.md) | [EPIC-00003](../epics/00003-EPIC.md) | in-progress | — | — | live |
 | — | [TICKET-00015 — Planning and Review Transition for Engineering Alignment](00015-TICKET.md) | [EPIC-00001](../epics/00001-EPIC.md) | wontfix | — | — | live |

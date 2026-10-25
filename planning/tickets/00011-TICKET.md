@@ -2,7 +2,7 @@
 id: TICKET-00011
 epic: EPIC-00001
 title: Reproducible Runtime and One Quality Gate
-status: in-progress
+status: done
 order: 5
 blocked_by: TICKET-00007, TICKET-00008, TICKET-00009, TICKET-00010
 ---
@@ -59,7 +59,7 @@ or closing its full future runtime investigation.
 - [x] **AC-05:** Each configured suite runs exactly once; separate unit coverage states denominator, driver, exclusions,
   and gaps. Enforce the explicitly adopted meaningful Domain/Application line threshold from TASK-00008; Adapter
   gaps stay visible. Absent business layers are N/A. Coverage is not protocol or security proof.
-- [ ] **AC-06:** Hosted CI explicitly prepares and starts the environment, then invokes the same canonical command with
+- [x] **AC-06:** Hosted CI explicitly prepares and starts the environment, then invokes the same canonical command with
   fresh passing evidence on the released lock. Local results, warnings, and hosted limitations are distinguished.
 
 ## Verification
@@ -86,17 +86,19 @@ The human maintainer approved these slices; each keeps the then-operative gate c
 | --- | --- | --- | --- | --- | --- | --- |
 | 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](../tasks/00007-TASK.md) | [TICKET-00011](00011-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
 | 8 | [TASK-00008 — Align Behavior Suites and Coverage](../tasks/00008-TASK.md) | [TICKET-00011](00011-TICKET.md) | done | [TASK-00006](../tasks/00006-TASK.md), [TASK-00007](../tasks/00007-TASK.md) | — | live |
-| 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | in-progress | [TASK-00002](../tasks/00002-TASK.md), [TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md), [TASK-00008](../tasks/00008-TASK.md) | — | live |
+| 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | done | [TASK-00002](../tasks/00002-TASK.md), [TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md), [TASK-00008](../tasks/00008-TASK.md) | — | live |
 <!-- planning:children:end -->
 
 ## Progress
 
-Current handoff (TASK-00009, 2026-10-25): the [canonical gate implementation](../tasks/00009-TASK.md#current-implementation-handoff--2026-10-25)
-preserves host planning before Docker and delegates running-service PHP quality phases, including one attributed
-coverage execution. Local implementation checks pass; actual hosted AC-06 proof is still missing, so TASK-00009 and
-this requirement remain open. Next is independent Review, applicable QA and the authorized Land draft-evidence
-route if hosted proof is the only remaining acceptance gap. No work-stage publication or independent acceptance
-is claimed. TASK-00008 PR #19 is integrated at the implementation base; its older delivery checkpoint follows.
+Current handoff (TASK-00009 administrative closeout, 2026-10-25): accepted implementation A
+`a96c9795e511ad166764dba647c56035d8b06007` completes the canonical gate with independent Review acceptance,
+independent QA PASS (5/5), and hosted AC-06 proof in [Build run 40165446430](https://github.com/johnnickell/project-slim/actions/runs/40165446430).
+The requirement owner approved recording A through metadata-only B; [TASK-00009](../tasks/00009-TASK.md#current-acceptance-and-delivery-checkpoint--2026-10-25)
+is done and this TICKET closes automatically because all of its children are terminal. Final hosted delivery proof
+must still cover B before PR #20 is ready; Land records that live result only in the PR body and ignored receipt.
+This is not merge approval or authority to start TASK-00010. TASK-00008 PR #19 is integrated at the implementation
+base; its older delivery checkpoint follows.
 
 ### Historical TASK-00008 host-boundary closeout
 
