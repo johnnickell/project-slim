@@ -92,11 +92,10 @@ The human maintainer approved these slices; each keeps the then-operative gate c
 ## Progress
 
 Current handoff (OWNER-01, 2026-10-25): [TASK-00008's narrow host-boundary revision](../tasks/00008-TASK.md#current-owner-01-host-boundary-revision--2026-10-25)
-moves planning validation before Docker while retaining one container test execution. It needs fresh independent
-Review and affected QA before Land updates existing [PR #19](https://github.com/johnnickell/project-slim/pull/19).
-Original acceptance/QA cover `556adc5` and administrative closeout `c3db219`, not this behavior revision; the PR
-still publishes the old subject at this Work handoff. No merge-readiness claim is made for the revised candidate.
-TASK-00009 remains first ready but separately invoked; final gate/hosted integration keep this requirement open.
+is independently accepted and behaviorally QA-passed for C `54e8a995df8c3a4494d70b658c8848d464c87e57`. This D
+administrative closeout synchronizes current handoffs; Land records PR #19 publication/final live verification in
+its ignored receipt and PR body. TASK-00009 remains first ready but separately invoked; final gate/hosted integration
+keep this requirement open.
 
 ### Historical original TASK-00008 acceptance and publication
 

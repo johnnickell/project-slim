@@ -22,13 +22,11 @@ Requirements are not executable work; see the [requirement index](README.md). [M
 ## Now
 
 [TASK-00008's OWNER-01 revision](../tasks/00008-TASK.md#current-owner-01-host-boundary-revision--2026-10-25)
-corrects host planning/Docker dispatch on the existing branch. Next is fresh independent Review, then affected
-behavioral QA; Land may update the same [PR #19](https://github.com/johnnickell/project-slim/pull/19) only afterward.
-The PR still publishes original head `c3db219` at this Work handoff. Original Review/QA for `556adc5` and the
-administrative bridge are provenance, not approval of this executable revision or current merge readiness.
-No new human scope decision is needed. TASK-00009 stays first ready but requires its own invocation; do not start
-it as part of this revision. TICKET-00011/EPIC-00001 remain open; hosted final integration is outstanding and
-WF-002 remains paused.
+is independently accepted and behaviorally QA-passed for C `54e8a995df8c3a4494d70b658c8848d464c87e57`.
+This D administrative closeout synchronizes current handoffs; publication and final live verification of existing
+[PR #19](https://github.com/johnnickell/project-slim/pull/19) are Land delivery actions recorded in its ignored
+receipt and PR body. No new human scope decision is needed. TASK-00009 stays first ready and separately invoked.
+TICKET-00011/EPIC-00001 remain open; hosted final integration is outstanding and WF-002 remains paused.
 
 ### Historical original TASK-00008 acceptance and publication
 
@@ -91,9 +89,10 @@ None.
 The approved alignment decomposition is complete; use its existing TASKs. The full AccessControl map remains at
 paused WF-002. Revisit frontend/authentication adoption through WF-005/WF-009 once the source flow is complete;
 no new EPIC/TICKET/TASK decomposition is currently approved or inferred from this bounded adoption.
-TASK-00008's OWNER-01 revision needs fresh independent Review and affected QA before Land updates PR #19;
-original acceptance/QA do not cover the new behavior. TASK-00009 remains ready but separately invoked, and completed
-dependency edges remain history. TICKET-00011/EPIC-00001 stay open; hosted final gate evidence remains future work.
+TASK-00008's OWNER-01 revision C has current independent Review acceptance and behavioral QA PASS. This D
+administrative closeout keeps delivery evidence in the Land receipt/PR body; TASK-00009 remains ready but separately
+invoked, and completed dependency edges remain history. TICKET-00011/EPIC-00001 stay open; hosted final gate evidence
+remains future work.
 
 ### Historical original TASK-00008 planning handoff
 
