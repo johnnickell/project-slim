@@ -83,14 +83,15 @@ Overlapping attribution is not additive; combined coverage is not Unit coverage.
 exclusions and gaps. An absent business layer is explicitly N/A, not fabricated code or a claimed 100% result.
 Exclude composition/generated code, not uncovered behavior. This policy supersedes both the earlier deferred-threshold
 proposal and TASK-00016's direct-Unit-only exact statement requirement; historical text remains provenance.
-Coverage implementation remains TASK-00008, not a claim that current PHPUnit configuration enforces this policy.
+The [single-run reporter](TESTING.md) implements this policy; the canonical gate consumes the same execution.
 
 ## Verification and delivery
 
-Use repository wrappers and the then-operative `./bin/build`, with explicit dependency maintenance. The destination
-is a running-service, PHP-orchestrated, fail-fast gate: planning, PHP syntax, shipped Fight PHPCS, PHPStan, Deptrac,
-Rector dry-run and one all-suite coverage execution. Add frontend checks with the adopted frontend, not placeholders.
-TASK-00009 owns that replacement; do not describe unimplemented phases as current enforcement.
+Use repository wrappers and `./bin/build`, with explicit dependency maintenance outside the gate. The
+[canonical gate](QUALITY-GATE.md) preserves read-only host planning before Docker, then runs PHP-orchestrated,
+fail-fast syntax, shipped Fight PHPCS, PHPStan, Deptrac, Rector dry-run and one all-suite coverage execution in the
+running service. Its documented scan scopes are not semantic ownership proof. Add frontend checks with the adopted
+frontend, not placeholders. TASK-00009's required hosted acceptance remains pending until actual evidence exists.
 
 Keep tests/tool output, warnings, skips and unavailable evidence visible. Semantic ownership and policy require
 independent review beyond tools. Preserve explicitly required hosted verification; a local pass never supplies it.

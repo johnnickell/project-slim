@@ -2,6 +2,14 @@
 
 ## In progress
 
+[TASK-00009's canonical gate](tasks/00009-TASK.md#current-implementation-handoff--2026-10-25) is locally implemented:
+read-only host planning precedes running-service PHP quality phases and one attributed PHPUnit execution. Required
+hosted acceptance is still missing; independent Review/QA and authorized draft-evidence publication remain later
+stages. TASK-00009/TICKET-00011/EPIC-00001 stay open, and TASK-00010 remains blocked. The [Board](tickets/BOARD.md)
+owns routing; WF-002 stays paused. TASK-00008 PR #19 is integrated at the implementation base, not awaiting delivery.
+
+### Historical TASK-00008 host-boundary closeout
+
 [TASK-00008's OWNER-01 host-boundary revision](tasks/00008-TASK.md#current-owner-01-host-boundary-revision--2026-10-25)
 is independently accepted and behaviorally QA-passed for C `54e8a995df8c3a4494d70b658c8848d464c87e57`, without
 replacing the gate or duplicating tests. This D administrative closeout synchronizes current handoffs; Land records
@@ -69,7 +77,8 @@ is open for human review and merge. The [TASK Board](tickets/BOARD.md) owns the 
    [adoption amendment](epics/00001-EPIC.md#current-adoption-amendment--2026-10-24).
    TASK-00016 is wontfix as a duplicate path; Agent OS's all-suite Domain/Application line coverage with separate
    suite attribution and visible Adapter gaps is implemented by TASK-00008's shared single-run test command;
-   absent business layers are N/A. TASK-00009 still owns expanded gate/hosted integration.
+   absent business layers are N/A. TASK-00009 implements the expanded gate locally; required hosted integration
+   remains unverified and prevents its completion.
 3. Transition to the accepted architecture, HTTP, testing, gate, planning, and review model.
    [TASK-00005](tasks/00005-TASK.md) has retired framework certification, its readers and tests; the single-lock
    build passes. Continue the remaining alignment without restoring that machinery.

@@ -21,8 +21,9 @@ with `./bin/planning-check --write`; default `./bin/planning-check` and the buil
 The [TASK Board](planning/tickets/BOARD.md) is the sole execution view. New-only archive tooling requires a separately
 requested, reviewed dry run and explicit apply; TASK-00002 performs no archives and does not dynamically verify apply.
 TASK-00007 supplies isolation for the existing development service only. TASK-00008 supplies behavior-focused suites
-and single-run, separately attributed line coverage; see [testing](docs/engineering/TESTING.md). The expanded quality
-gate and opt-in safe HTTP errors retain their existing TASK ownership; their acceptance is not implied by newer packages.
+and single-run, separately attributed line coverage; see [testing](docs/engineering/TESTING.md). TASK-00009 adds the
+[running-service quality gate](docs/engineering/QUALITY-GATE.md); required hosted acceptance remains pending.
+Opt-in safe HTTP errors remain TASK-00010; their acceptance is not implied by newer packages.
 
 ## Development runtime
 
@@ -38,6 +39,7 @@ Start with a clean checkout (each worktree needs its own dependencies):
 # Open the Development URL printed by up; the root text is unchanged.
 ./bin/exec php scripts/check-php-runtime.php
 ./bin/phpunit --filter HttpPipelineTest
+./bin/build
 ./bin/exec php -r 'echo "ready\n";'
 ./bin/down
 ```
@@ -48,20 +50,20 @@ Start with a clean checkout (each worktree needs its own dependencies):
 | `./bin/up` | Requires `vendor/autoload.php`; builds and starts only `web`, waits for its running state, and prints its URL. This is not an HTTP health/readiness probe. A rebuild may recreate the container; use the newly printed URL after every up. |
 | `./bin/exec COMMAND [ARG ...]` | Executes the exact argument vector in this project's running `web` service at `/app`, without a TTY; stdin works for pipelines. No implicit startup or dependency installation. Use `sh -c '...'` explicitly for shell expressions. |
 | `./bin/phpunit [ARG ...]` | Requires running `web`, development PHPUnit and PCOV; runs PHPUnit once, then reports separate suite coverage from that run. Arguments select focused iteration; no arguments run all suites and the adopted coverage policy. No automatic install/start. |
+| `./bin/build` | Read-only host planning first, then named fail-fast PHP syntax/style/static-analysis/architecture/Rector and one PHPUnit/coverage run in running `web`. No install, image build, service startup, planning refresh or source fixes. No arguments accepted. |
 | `./bin/down` | Stops/removes only this project's containers and default network after ownership checks; already absent is safe. Never deletes volumes, images or orphan services. No options accepted by up/down. |
 
 Exec, tests and Composer return the invoked command's exit status; Docker/build/setup failures are nonzero.
 Missing Docker/daemon, dependencies or running service fail with setup guidance. Invalid inputs fail without
-provisioning. `./bin/build` is the **existing transitional gate**, not this running-service contract: it still builds
-a disposable image and installs the lock explicitly inside its current gate. TASK-00009 owns replacing that model;
-TASK-00008's shared test runner now supplies one all-suite coverage execution to both entrypoints; it does not
-replace the surrounding gate phases. See [reports, denominator and test dispositions](docs/engineering/TESTING.md).
+provisioning. `./bin/build` additionally requires host Python 3 for planning before Docker access. The
+[quality-gate contract](docs/engineering/QUALITY-GATE.md) documents phase ownership, qualified tool versions, scan
+scope and required hosted evidence. See [reports, denominator and test dispositions](docs/engineering/TESTING.md).
 
 ### Checkout identity, ports and cleanup
 
 - The default Compose project is `slim-<hash>`: the first 16 lowercase hex characters of SHA-256 of the physical
   absolute checkout path (no trailing newline). Branch changes do not change it; moving a checkout does. Stop the
-  old runtime **before** moving it. Each checkout image is `project-slim-dev:<hash>`, independent of the build tag.
+  old runtime **before** moving it. Each checkout image is `project-slim-dev:<hash>`, shared by setup and the running gate.
   Containers and the default network use Compose project-scoped names; no fixed container names or persistent
   volumes exist. Dependencies are a checkout-local bind mount, not shared between worktrees.
 - Port `0` (default) asks Docker to allocate an available host port on **127.0.0.1 only**. `./bin/up` prints the
@@ -92,10 +94,11 @@ enrollment, shared-resource provisioning, TLS/trust change or production-readine
 
 ## PHP runtime maintenance
 
-The build and development images select `php:8.5.12-cli-bookworm`. Composer requires stable PHP 8.5 at least
+The development image, also used by the running-service gate, selects `php:8.5.12-cli-bookworm`. Composer requires stable PHP 8.5 at least
 8.5.12 and emulates 8.5.12 for dependency resolution; emulation does not patch the executable. The startup guard
-and build check execute PHP and reject an older, missing or unsupported runtime. Build logs identify the image
-actually run, and `composer check-platform-reqs` checks the real runtime rather than emulation.
+and gate check execute PHP and reject an older, missing or unsupported runtime. Explicit setup logs identify the
+built image; the gate reports the running PHP version. `composer check-platform-reqs` checks the real runtime
+rather than emulation during explicit setup and hosted preparation.
 
 After changing the baseline or security INI, repeat explicit dependency setup, `./bin/up` and `./bin/build`.
 `./bin/up` rebuilds the local development image and recreates changed services; an image rebuild alone does not

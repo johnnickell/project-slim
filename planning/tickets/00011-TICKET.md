@@ -48,15 +48,15 @@ or closing its full future runtime investigation.
 
 - [x] **AC-01:** Runtime setup, lifecycle, test, and exec commands are documented and verified on a clean checkout and
   concurrently isolated worktrees, with no fixed-port/resource collisions or cleanup of unrelated resources.
-- [ ] **AC-02:** `./bin/build` uses the running service and a PHP orchestrator with the named fail-fast phases. Missing
+- [x] **AC-02:** `./bin/build` uses the running service and a PHP orchestrator with the named fail-fast phases. Missing
   prerequisites fail clearly; no per-build image rebuild, dependency maintenance, or new Python gate orchestration
   is introduced. Existing planning validation may remain Python.
-- [ ] **AC-03:** PHPCS, PHPStan, Deptrac, and Rector are configured for actual owned code and accepted rules without
+- [x] **AC-03:** PHPCS, PHPStan, Deptrac, and Rector are configured for actual owned code and accepted rules without
   speculative source, unexplained suppression, or claims that static tools prove semantic ownership.
 - [x] **AC-04:** Product suites prove meaningful success/rejection/failure and integration effects. Tooling/configuration
   tests are removed or replaced by direct checks where needed; certification-only checks stay retired. Test
   dispositions preserve important application protections rather than optimize counts.
-- [ ] **AC-05:** Each configured suite runs exactly once; separate unit coverage states denominator, driver, exclusions,
+- [x] **AC-05:** Each configured suite runs exactly once; separate unit coverage states denominator, driver, exclusions,
   and gaps. Enforce the explicitly adopted meaningful Domain/Application line threshold from TASK-00008; Adapter
   gaps stay visible. Absent business layers are N/A. Coverage is not protocol or security proof.
 - [ ] **AC-06:** Hosted CI explicitly prepares and starts the environment, then invokes the same canonical command with
@@ -86,10 +86,19 @@ The human maintainer approved these slices; each keeps the then-operative gate c
 | --- | --- | --- | --- | --- | --- | --- |
 | 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](../tasks/00007-TASK.md) | [TICKET-00011](00011-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
 | 8 | [TASK-00008 — Align Behavior Suites and Coverage](../tasks/00008-TASK.md) | [TICKET-00011](00011-TICKET.md) | done | [TASK-00006](../tasks/00006-TASK.md), [TASK-00007](../tasks/00007-TASK.md) | — | live |
-| 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00002](../tasks/00002-TASK.md), [TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md), [TASK-00008](../tasks/00008-TASK.md) | — | live |
+| 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | in-progress | [TASK-00002](../tasks/00002-TASK.md), [TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md), [TASK-00008](../tasks/00008-TASK.md) | — | live |
 <!-- planning:children:end -->
 
 ## Progress
+
+Current handoff (TASK-00009, 2026-10-25): the [canonical gate implementation](../tasks/00009-TASK.md#current-implementation-handoff--2026-10-25)
+preserves host planning before Docker and delegates running-service PHP quality phases, including one attributed
+coverage execution. Local implementation checks pass; actual hosted AC-06 proof is still missing, so TASK-00009 and
+this requirement remain open. Next is independent Review, applicable QA and the authorized Land draft-evidence
+route if hosted proof is the only remaining acceptance gap. No work-stage publication or independent acceptance
+is claimed. TASK-00008 PR #19 is integrated at the implementation base; its older delivery checkpoint follows.
+
+### Historical TASK-00008 host-boundary closeout
 
 Current handoff (OWNER-01, 2026-10-25): [TASK-00008's narrow host-boundary revision](../tasks/00008-TASK.md#current-owner-01-host-boundary-revision--2026-10-25)
 is independently accepted and behaviorally QA-passed for C `54e8a995df8c3a4494d70b658c8848d464c87e57`. This D

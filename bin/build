@@ -1,22 +1,15 @@
 #!/usr/bin/env sh
 set -eu
+[ "$#" -eq 0 ] || { echo 'Usage: ./bin/build (no arguments)' >&2; exit 2; }
+build_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
 
-./bin/planning-check
+# Preserve TASK-00008's host planning-before-Docker boundary.
+printf '\n==> Planning (read-only, host)\n'
+command -v python3 >/dev/null 2>&1 || { echo 'Python 3 is required on the host for ./bin/planning-check.' >&2; exit 1; }
+"$build_root/bin/planning-check"
+printf 'PASS: Planning\n'
 
-image=${PROJECT_SLIM_BUILD_IMAGE:-project-slim-build}
-git_common_dir=$(git rev-parse --path-format=absolute --git-common-dir)
-iidfile=$(mktemp)
-trap 'rm -f "$iidfile"' EXIT HUP INT TERM
-docker build --pull --file etc/docker/cli/Dockerfile --tag "$image" --iidfile "$iidfile" .
-image_id=$(tr -d '\n' < "$iidfile")
-printf 'Build image: %s (%s)\n' "$image" "$image_id"
-docker run --rm --volume "$(pwd):/app" --volume "$git_common_dir:$git_common_dir:ro" \
-  --workdir /app "$image_id" sh -ec '
-  php scripts/check-php-runtime.php
-  composer validate
-  composer install --no-interaction --prefer-dist --no-progress
-  composer check-platform-reqs
-
-  php scripts/test.php
-
-'
+. "$build_root/scripts/development-runtime.sh"
+runtime_require_service
+runtime_require_dependencies
+runtime_compose exec -T web php scripts/build.php

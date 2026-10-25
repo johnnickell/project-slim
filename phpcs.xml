@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="Slim">
+    <description>Apply the released Fight Common standard to application source and the new gate tooling</description>
+    <file>src</file>
+    <file>scripts/build.php</file>
+    <file>deptrac.php</file>
+    <file>rector.php</file>
+    <arg name="extensions" value="php"/>
+    <arg name="ignore-annotations"/>
+    <rule ref="./vendor/johnnickell/fight-common/src/Standards/Phpcs/ruleset.xml"/>
+</ruleset>

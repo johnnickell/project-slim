@@ -14,8 +14,9 @@ use Psr\Http\Server\RequestHandlerInterface;
 use Slim\Exception\HttpException;
 
 /**
- * Maps Slim HTTP exceptions at the starter boundary
+ * Class SlimHttpExceptionMiddleware
  *
+ * Maps Slim HTTP exceptions at the starter boundary
  * Safe error adoption is tracked separately in TASK-00010
  */
 final readonly class SlimHttpExceptionMiddleware implements MiddlewareInterface
