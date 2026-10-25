@@ -3,8 +3,16 @@ services:
     build:
       context: .
       dockerfile: etc/docker/cli/Dockerfile
+    image: ${PROJECT_SLIM_RUNTIME_IMAGE:?Use the repository bin wrappers}
+    labels:
+      dev.fight.slim.checkout: ${PROJECT_SLIM_CHECKOUT:?Use the repository bin wrappers}
     # Check the mounted guard even when reusing an image that predates it.
     entrypoint: ["sh", "/app/scripts/php-runtime-entrypoint.sh"]
     command: php -S 0.0.0.0:8080 -t public
-    ports: ["127.0.0.1:18086:8080"]
+    ports: ["127.0.0.1:${PROJECT_SLIM_HTTP_PORT:-0}:8080"]
     volumes: [".:/app"]
+
+networks:
+  default:
+    labels:
+      dev.fight.slim.checkout: ${PROJECT_SLIM_CHECKOUT:?Use the repository bin wrappers}

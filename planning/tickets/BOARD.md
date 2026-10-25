@@ -43,7 +43,9 @@ archive apply/link repair has not been dynamically exercised. No actual archive 
 ## Active Work
 
 <!-- planning:active:start -->
-None.
+| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](../tasks/00007-TASK.md) | [TICKET-00011](00011-TICKET.md) | in-progress | [TASK-00001](../tasks/00001-TASK.md) | — | live |
 <!-- planning:active:end -->
 
 ## Current Planning Handoff
@@ -65,9 +67,7 @@ This planning pause does not change TASK scopes or the implementation frontier.
 Completed edges remain history, not blockers. Readiness never grants execution authority automatically.
 
 <!-- planning:ready:start -->
-| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
-| --- | --- | --- | --- | --- | --- | --- |
-| 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](../tasks/00007-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00001](../tasks/00001-TASK.md) | — | live |
+None.
 <!-- planning:ready:end -->
 
 ## Waiting

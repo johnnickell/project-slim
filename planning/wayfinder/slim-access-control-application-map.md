@@ -94,9 +94,10 @@ worktree test isolation, and ingress integration. No available next decision is 
 
 - WF-001 owns the exact released capability inventory and whether each capability is HTTP, CLI, worker, or
   composition-only.
-- WF-002 owns image and service versions, ports, health probes, mounts, worker and scheduler process topology,
-  wrapper semantics, and every `.env.example` key and default. Shared-resource ownership and worktree test isolation
-  await Fight Agent OS direction; full per-worktree infrastructure duplication is not assumed.
+- WF-002 owns the remaining full-topology image/service versions, ports, health probes, mounts, worker/scheduler
+  topology, wrapper semantics and environment contract. Its linked TASK-00007 boundary covers only today's stateless
+  development service and checkout isolation. Shared-resource ownership and database/test-data isolation still await
+  Fight Agent OS direction; full per-worktree infrastructure duplication is not assumed.
 - WF-003 owns Action and Responder namespaces and signatures, CQRS dispatch seams, validation mechanics, JSend and
   error schemas, the exact `/api/v1/access` route shape, operation naming, and one-pass OpenAPI generation/drift.
 - WF-004 owns Doctrine mappings, repository mechanics, migration topology, transaction and audit atomicity,
