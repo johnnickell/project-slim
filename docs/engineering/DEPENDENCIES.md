@@ -56,5 +56,6 @@ Use the repository wrapper; maintenance is distinct from acceptance evidence:
 Inspect candidate release signatures, the resulting lock diff, installed identities and actual retained behavior.
 A new release is not automatically compatible. Add a specific additional package to the update only for an evidenced
 reason; document it and re-run verification. Do not reintroduce lowest/latest lanes, no-dev checks, receipt readers or
-framework certification. The current build still installs the lock in its disposable image; TASK-00009 owns removing
-that maintenance phase in favor of explicit setup and the running-service gate.
+framework certification. The [quality gate](QUALITY-GATE.md) uses the running service and never installs or audits
+dependencies. TASK-00009's explicit tool maintenance adds development packages without changing any existing lock
+entry; its qualified tool versions and hosted-proof limitation are recorded in that contract.

@@ -21,6 +21,18 @@ Requirements are not executable work; see the [requirement index](README.md). [M
 
 ## Now
 
+[TASK-00009](../tasks/00009-TASK.md#current-acceptance-and-delivery-checkpoint--2026-10-25) is accepted for A
+`a96c9795e511ad166764dba647c56035d8b06007`: independent Review accepted, independent QA passed 5/5, and
+[Build run 40165446430](https://github.com/johnnickell/project-slim/actions/runs/40165446430) supplies required
+hosted proof for A. The requirement owner approved metadata-only closeout B; final hosted delivery CI must cover B
+before draft [PR #20](https://github.com/johnnickell/project-slim/pull/20) is ready. Land records that live result
+in the PR body and ignored receipt. No new human scope decision is needed. TASK-00010 is now in the Ready Frontier
+by record status but is not started under this Land-only scope; EPIC-00001 remains open and WF-002 stays paused.
+TASK-00008 PR #19 is integrated at base
+`d0977d7`; its previous delivery-pending checkpoint is historical.
+
+### Historical TASK-00008 host-boundary closeout
+
 [TASK-00008's OWNER-01 revision](../tasks/00008-TASK.md#current-owner-01-host-boundary-revision--2026-10-25)
 is independently accepted and behaviorally QA-passed for C `54e8a995df8c3a4494d70b658c8848d464c87e57`.
 This D administrative closeout synchronizes current handoffs; publication and final live verification of existing
@@ -89,10 +101,10 @@ None.
 The approved alignment decomposition is complete; use its existing TASKs. The full AccessControl map remains at
 paused WF-002. Revisit frontend/authentication adoption through WF-005/WF-009 once the source flow is complete;
 no new EPIC/TICKET/TASK decomposition is currently approved or inferred from this bounded adoption.
-TASK-00008's OWNER-01 revision C has current independent Review acceptance and behavioral QA PASS. This D
-administrative closeout keeps delivery evidence in the Land receipt/PR body; TASK-00009 remains ready but separately
-invoked, and completed dependency edges remain history. TICKET-00011/EPIC-00001 stay open; hosted final gate evidence
-remains future work.
+TASK-00009's accepted A is recorded in owner-approved metadata-only B, with final hosted delivery CI pending for
+that B before PR #20 can be ready. Completed dependency edges remain history, including integrated TASK-00008 PR #19.
+TICKET-00011 closes automatically with TASK-00009; EPIC-00001 remains open for TASK-00010. See [the current
+acceptance/delivery checkpoint](../tasks/00009-TASK.md#current-acceptance-and-delivery-checkpoint--2026-10-25).
 
 ### Historical original TASK-00008 planning handoff
 
@@ -116,7 +128,7 @@ Completed edges remain history, not blockers. Readiness never grants execution a
 <!-- planning:ready:start -->
 | Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
 | --- | --- | --- | --- | --- | --- | --- |
-| 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | ready-for-agent | [TASK-00002](../tasks/00002-TASK.md), [TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md), [TASK-00008](../tasks/00008-TASK.md) | — | live |
+| 10 | [TASK-00010 — Sanitize HTTP Failures](../tasks/00010-TASK.md) | [TICKET-00012](00012-TICKET.md) | ready-for-agent | [TASK-00009](../tasks/00009-TASK.md) | — | live |
 <!-- planning:ready:end -->
 
 ## Waiting
@@ -124,9 +136,7 @@ Completed edges remain history, not blockers. Readiness never grants execution a
 Unfinished TASK dependencies derive waiting state.
 
 <!-- planning:waiting:start -->
-| Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
-| --- | --- | --- | --- | --- | --- | --- |
-| 10 | [TASK-00010 — Sanitize HTTP Failures](../tasks/00010-TASK.md) | [TICKET-00012](00012-TICKET.md) | ready-for-agent | [TASK-00009](../tasks/00009-TASK.md) | [TASK-00009](../tasks/00009-TASK.md) | live |
+None.
 <!-- planning:waiting:end -->
 
 Requirement-level dependencies are not automatically blockers on every child TASK. Completed TASK edges stay in
@@ -161,6 +171,7 @@ preserved as historical narrative, not a second status authority.
 | 6 | [TASK-00006 — Qualify Released Dependencies](../tasks/00006-TASK.md) | [TICKET-00010](00010-TICKET.md) | done | [TASK-00005](../tasks/00005-TASK.md) | — | live |
 | 7 | [TASK-00007 — Make Development Runtime Worktree-Safe](../tasks/00007-TASK.md) | [TICKET-00011](00011-TICKET.md) | done | [TASK-00001](../tasks/00001-TASK.md) | — | live |
 | 8 | [TASK-00008 — Align Behavior Suites and Coverage](../tasks/00008-TASK.md) | [TICKET-00011](00011-TICKET.md) | done | [TASK-00006](../tasks/00006-TASK.md), [TASK-00007](../tasks/00007-TASK.md) | — | live |
+| 9 | [TASK-00009 — Deliver the Canonical Quality Gate](../tasks/00009-TASK.md) | [TICKET-00011](00011-TICKET.md) | done | [TASK-00002](../tasks/00002-TASK.md), [TASK-00003](../tasks/00003-TASK.md), [TASK-00004](../tasks/00004-TASK.md), [TASK-00008](../tasks/00008-TASK.md) | — | live |
 | — | [TASK-00011 — Establish the Governed Slim Starter Foundation](../tasks/00011-TASK.md) | [TICKET-00013](00013-TICKET.md) | done | — | — | live |
 | — | [TASK-00012 — Adopt Fight Common 1.2](../tasks/00012-TASK.md) | [TICKET-00014](00014-TICKET.md) | done | — | — | live |
 | — | [TASK-00014 — Re-certify Rewritten Fight Common Candidate](../tasks/00014-TASK.md) | [TICKET-00014](00014-TICKET.md) | done | — | — | live |

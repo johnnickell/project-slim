@@ -73,7 +73,7 @@ before repair, with root/routing compatibility evidence.
 <!-- planning:children:start -->
 | Order | Record | Parent | Status | Dependency history | Unfinished blockers | Location |
 | --- | --- | --- | --- | --- | --- | --- |
-| 10 | [TASK-00010 — Sanitize HTTP Failures](../tasks/00010-TASK.md) | [TICKET-00012](00012-TICKET.md) | ready-for-agent | [TASK-00009](../tasks/00009-TASK.md) | [TASK-00009](../tasks/00009-TASK.md) | live |
+| 10 | [TASK-00010 — Sanitize HTTP Failures](../tasks/00010-TASK.md) | [TICKET-00012](00012-TICKET.md) | ready-for-agent | [TASK-00009](../tasks/00009-TASK.md) | — | live |
 <!-- planning:children:end -->
 
 ## Progress

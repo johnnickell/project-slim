@@ -2,6 +2,17 @@
 
 ## In progress
 
+[TASK-00009's accepted canonical gate](tasks/00009-TASK.md#current-acceptance-and-delivery-checkpoint--2026-10-25)
+uses read-only host planning before running-service PHP quality phases and one attributed PHPUnit execution.
+Implementation A `a96c9795e511ad166764dba647c56035d8b06007` has independent Review acceptance, independent QA PASS (5/5),
+and required hosted evidence in [Build run 40165446430](https://github.com/johnnickell/project-slim/actions/runs/40165446430).
+Owner-approved metadata-only B closes TASK-00009/TICKET-00011; fresh hosted delivery CI for B remains required before
+PR #20 is ready. EPIC-00001 remains open; TASK-00010 is now ready by record status but is not started under this
+Land-only scope. The [Board](tickets/BOARD.md) owns routing; WF-002 stays paused. TASK-00008 PR #19 is integrated at the implementation
+base, not awaiting delivery.
+
+### Historical TASK-00008 host-boundary closeout
+
 [TASK-00008's OWNER-01 host-boundary revision](tasks/00008-TASK.md#current-owner-01-host-boundary-revision--2026-10-25)
 is independently accepted and behaviorally QA-passed for C `54e8a995df8c3a4494d70b658c8848d464c87e57`, without
 replacing the gate or duplicating tests. This D administrative closeout synchronizes current handoffs; Land records
@@ -69,7 +80,8 @@ is open for human review and merge. The [TASK Board](tickets/BOARD.md) owns the 
    [adoption amendment](epics/00001-EPIC.md#current-adoption-amendment--2026-10-24).
    TASK-00016 is wontfix as a duplicate path; Agent OS's all-suite Domain/Application line coverage with separate
    suite attribution and visible Adapter gaps is implemented by TASK-00008's shared single-run test command;
-   absent business layers are N/A. TASK-00009 still owns expanded gate/hosted integration.
+   absent business layers are N/A. TASK-00009 implements the expanded gate locally; required hosted integration
+   remains unverified and prevents its completion.
 3. Transition to the accepted architecture, HTTP, testing, gate, planning, and review model.
    [TASK-00005](tasks/00005-TASK.md) has retired framework certification, its readers and tests; the single-lock
    build passes. Continue the remaining alignment without restoring that machinery.

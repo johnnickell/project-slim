@@ -6,9 +6,36 @@ on:
   pull_request:
     branches: [develop, main, 'release/**']
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: ./bin/build
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install the committed development lock explicitly
+        run: |
+          ./bin/composer install --no-interaction --prefer-dist --no-progress
+          ./bin/composer validate --strict
+          ./bin/composer check-platform-reqs
+      - name: Start the checkout-owned development service
+        run: ./bin/up
+      - name: Run the canonical quality gate
+        run: ./bin/build
+      - name: Preserve available test and coverage reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-reports
+          path: |
+            var/coverage/full/junit.xml
+            var/coverage/full/clover.xml
+            var/coverage/full/summary.json
+          if-no-files-found: warn
+      - name: Stop only this checkout's runtime
+        if: always()
+        run: ./bin/down

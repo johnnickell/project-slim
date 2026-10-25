@@ -10,10 +10,10 @@ Use the released `composer.lock` and the [development runtime](../../README.md#d
 ./bin/phpunit --testsuite Unit   # focused iteration, not a full policy result
 ./bin/phpunit --filter HttpPipelineTest
 ./bin/phpunit --list-suites      # discovery only, no coverage claim
-./bin/build                     # mandatory then-operative canonical gate
+./bin/build                     # canonical gate; requires host Python 3 and running web
 ```
 
-`bin/phpunit` and the transitional build call `php scripts/test.php`. It starts PHPUnit **once**, using
+`bin/phpunit` and the [canonical gate](QUALITY-GATE.md) call `php scripts/test.php`. It starts PHPUnit **once**, using
 `phpunit.xml`, PCOV enabled for `src/`, and fresh PHP coverage, Clover and JUnit outputs. After PHPUnit succeeds,
 it reads those artifacts without executing tests again. JUnit ancestry supplies actual Unit/Integration/Functional
 class membership; coverage records supply line hits. Duplicate executed tests, ambiguous class membership,
@@ -33,11 +33,12 @@ Copy evidence to TASK-owned `.runs/` scratch before another invocation if it mus
 not overwrite full results and never establish full-suite policy compliance. Informational PHPUnit options print
 normal discovery/help output without generating a new report. Options are forwarded; do not disable coverage or
 replace configuration/report paths when collecting canonical evidence. No-argument execution is the canonical test
-entrypoint for TASK-00009 to consume, not a second coverage phase. There is no hidden adapter threshold.
+entrypoint consumed by the gate, not a second coverage phase. There is no hidden adapter threshold.
 
-The build still rebuilds a disposable image and performs Composer maintenance as before; TASK-00009 owns its
-running-service PHP orchestration, expanded quality tools and required hosted integration. This slice changes only
-its test command. The focused wrapper still requires an already-running owned service and development dependencies.
+The gate requires the already-running owned service and development dependencies, performs host planning first,
+then delegates its PHP phases to `scripts/build.php`. It performs no Composer maintenance, rebuild or startup.
+The focused wrapper uses the same test runner without the surrounding quality phases. Required hosted proof for
+TASK-00009 remains separate from local success.
 Missing PCOV is a hard failure with rebuild guidance, not a non-coverage fallback. PCOV reports executable **lines**,
 not branch/path coverage. Its PECL version is pinned in the shared development/build Dockerfile; Composer packages
 and the released lock are unchanged.
@@ -63,7 +64,8 @@ TASK-00008's initial verified source denominator is 10 executable Adapter lines:
 | `src/Adapter/Http/SlimHttpExceptionMiddleware.php` | 8/8 | 8/8 | 1/8 | 8/8 |
 | Total | 10/10 | 8/10 | 1/10 | 10/10 |
 
-Unit gaps are IndexAction lines 20 and 22, intentionally protected through the real root HTTP interaction.
+Unit gaps are IndexAction's response-write and return lines (currently 22 and 24), intentionally protected through
+the real root HTTP interaction.
 Integration's single line is middleware construction during application boot, not proof of its HTTP behavior.
 Functional hits do not prove every branch: the unit status-boundary cases additionally protect the middleware's
 range guard. No absent business layer, upstream package implementation or composition line is counted as owned
@@ -142,8 +144,8 @@ range, not generated snapshots or upstream private implementation.
 Validate tools with their owning commands, outside PHPUnit. For this slice, use `./bin/composer validate`,
 `./bin/composer check-platform-reqs`, `./bin/exec php scripts/check-php-runtime.php`, direct PHP syntax checks,
 `./bin/planning-check --write` followed by read-only `./bin/planning-check`, and `git diff --check`.
-The canonical build also validates the then-operative setup. Configuration smoke may boot the container directly
+The canonical build validates the already-prepared runtime and quality phases without maintaining dependencies. Configuration smoke may boot the container directly
 and inspect selected registrations without creating permanent product tests; record its scope and limitations.
-Future static/architecture/style tooling is TASK-00009, not a currently enforced replacement for every removed
-wiring assertion. Do not restore certification, wrapper/configuration tests, fictional business layers or tests of
+The [quality-gate scope](QUALITY-GATE.md#scan-scope-and-limits) distinguishes application-source style/static checks
+and product/composition dependency analysis from semantic verification; tools do not replace every removed wiring assertion. Do not restore certification, wrapper/configuration tests, fictional business layers or tests of
 this coverage reporter to product suites.

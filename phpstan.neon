@@ -1,0 +1,7 @@
+parameters:
+    level: max
+    phpVersion: 80512
+    paths:
+        - src
+    tmpDir: var/cache/phpstan
+    reportUnmatchedIgnoredErrors: true

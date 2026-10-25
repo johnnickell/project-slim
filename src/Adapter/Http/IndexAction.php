@@ -8,6 +8,8 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
+ * Class IndexAction
+ *
  * Presents the public starter readiness response
  */
 final class IndexAction
