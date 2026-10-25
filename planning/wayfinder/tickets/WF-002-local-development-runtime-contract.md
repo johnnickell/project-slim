@@ -30,12 +30,28 @@ production deployment readiness?
 
 This ticket may settle the local runtime topology, wrapper behavior, isolation contract, and environment surface. It
 does not implement containers, select production infrastructure, expose product operations, or certify production
-readiness. Exact versions, ports, probes, volumes, and variables remain fog until this ticket closes.
+readiness. The bounded existing-service contract below is owned by TASK-00007; remaining topology versions, ports,
+probes, volumes and variables remain fog until this ticket closes.
 
 ## Resolution
 
 Open; interview paused pending Fight Agent OS direction. The following choices are accepted planning intent,
 not an implemented runtime or a complete contract.
+
+### Bounded existing starter runtime — TASK-00007
+
+[TASK-00007](../../tasks/00007-TASK.md) implements only the existing PHP development `web` service under the
+[README runtime contract](../../../README.md#development-runtime). Its default Compose project and image derive
+from the physical checkout path; Docker assigns an available loopback-only host port unless explicitly selected.
+Project overrides require distinct ownership. Exec/tests require the running service; dependency installation
+remains explicit through Composer. Lifecycle checks refuse foreign project resources and never delete volumes.
+There are currently no persistent volumes or shared-resource attachments. The transitional build remains unchanged
+until TASK-00009; the future running-service gate is not claimed here.
+
+These choices do not settle shared MySQL/Redis ownership, database/test-data isolation, HTTPS/ingress, health probes,
+workers, scheduling, realtime, secrets or the full application's environment contract. In particular, checkout-level
+isolation of today's stateless service does not decide full per-worktree infrastructure duplication. This ticket
+remains **Open and paused** at the same external gate.
 
 ### Settled direction
 

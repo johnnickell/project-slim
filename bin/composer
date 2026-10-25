@@ -1,3 +1,6 @@
 #!/usr/bin/env sh
 set -eu
-docker compose run --rm web composer "$@"
+[ "$#" -gt 0 ] || { echo 'Usage: ./bin/composer COMMAND [ARG ...]' >&2; exit 2; }
+. "$(dirname -- "$0")/../scripts/development-runtime.sh"
+# Explicit maintenance works before web/dependencies exist; it publishes no ports.
+runtime_compose run --rm --no-deps --build -T web composer "$@"

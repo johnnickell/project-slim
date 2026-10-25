@@ -1,3 +1,7 @@
 #!/usr/bin/env sh
 set -eu
-docker compose run --rm web php vendor/bin/phpunit "$@"
+. "$(dirname -- "$0")/../scripts/development-runtime.sh"
+runtime_require_service
+runtime_require_dependencies
+[ -f vendor/bin/phpunit ] || runtime_error 'PHPUnit is not installed. Run: ./bin/composer install --no-interaction --prefer-dist --no-progress (with development dependencies).'
+runtime_compose exec -T web php vendor/bin/phpunit "$@"
