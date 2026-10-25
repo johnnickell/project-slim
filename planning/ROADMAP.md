@@ -2,6 +2,16 @@
 
 ## In progress
 
+[TASK-00008's OWNER-01 host-boundary revision](tasks/00008-TASK.md#current-owner-01-host-boundary-revision--2026-10-25)
+moves read-only planning before Docker without replacing the gate or duplicating tests. Fresh independent Review
+and affected QA are next, before Land updates existing [PR #19](https://github.com/johnnickell/project-slim/pull/19).
+That PR still publishes the original `c3db219` subject at this Work handoff; its `556adc5` Review/QA provenance is
+not current approval of the behavior revision. TASK-00009 remains separately invoked and first ready; no successor
+work starts here. TICKET-00011/EPIC-00001 stay open for unfinished gate/HTTP work and required hosted integration.
+WF-002 remains paused; the [TASK Board](tickets/BOARD.md) owns routing.
+
+### Historical original TASK-00008 acceptance and publication
+
 [TASK-00008's behavior-suite and coverage implementation](tasks/00008-TASK.md#completion-notes) is independently
 accepted and behavioral-QA passed for candidate `556adc5`; [PR #19](https://github.com/johnnickell/project-slim/pull/19)
 is ready for human review and merge. It records 30 tests / 98 assertions in one execution, separate

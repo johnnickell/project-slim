@@ -91,6 +91,15 @@ The human maintainer approved these slices; each keeps the then-operative gate c
 
 ## Progress
 
+Current handoff (OWNER-01, 2026-10-25): [TASK-00008's narrow host-boundary revision](../tasks/00008-TASK.md#current-owner-01-host-boundary-revision--2026-10-25)
+moves planning validation before Docker while retaining one container test execution. It needs fresh independent
+Review and affected QA before Land updates existing [PR #19](https://github.com/johnnickell/project-slim/pull/19).
+Original acceptance/QA cover `556adc5` and administrative closeout `c3db219`, not this behavior revision; the PR
+still publishes the old subject at this Work handoff. No merge-readiness claim is made for the revised candidate.
+TASK-00009 remains first ready but separately invoked; final gate/hosted integration keep this requirement open.
+
+### Historical original TASK-00008 acceptance and publication
+
 Current handoff (TASK-00008, 2026-10-25): [suite/coverage implementation](../tasks/00008-TASK.md#completion-notes)
 is independently accepted and behavioral-QA passed for candidate `556adc5`; [PR #19](https://github.com/johnnickell/project-slim/pull/19)
 publishes it for human review and merge. It records 30 tests / 98 assertions in one PHPUnit run, separate

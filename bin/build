@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 set -eu
 
+./bin/planning-check
+
 image=${PROJECT_SLIM_BUILD_IMAGE:-project-slim-build}
 git_common_dir=$(git rev-parse --path-format=absolute --git-common-dir)
 iidfile=$(mktemp)
@@ -15,7 +17,6 @@ docker run --rm --volume "$(pwd):/app" --volume "$git_common_dir:$git_common_dir
   composer install --no-interaction --prefer-dist --no-progress
   composer check-platform-reqs
 
-  ./bin/planning-check
   php scripts/test.php
 
 '
