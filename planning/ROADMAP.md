@@ -2,6 +2,9 @@
 
 ## In progress
 
+Use the [current Board merge observation](tickets/BOARD.md#now): PR #19/#21 are verified merged/integrated;
+publication-pending text below remains historical and creates no recurring merge/reconciliation request.
+
 The [Board](tickets/BOARD.md) owns execution routing; this generated summary shares its record-owned selection.
 Delivery snapshots require the bounded live check under [the delivery contract](CONVENTIONS.md#current-delivery-handoffs).
 The [current planning handoff](tickets/BOARD.md#current-planning-handoff) owns decomposition, not this execution view.
