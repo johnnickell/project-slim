@@ -34,12 +34,16 @@ These are recorded publication snapshots, not live merge claims. Run
 `./bin/planning-check --check-delivery` before routing; verified merged/integrated handoffs resolve read-only.
 
 <!-- planning:delivery:start -->
-| TASK | Current delivery | PR |
-| --- | --- | --- |
-| [TASK-00018 — Keep Delivery Handoffs Fresh After Merge](../tasks/00018-TASK.md) | Published; verify live state | [https://github.com/johnnickell/project-slim/pull/21](https://github.com/johnnickell/project-slim/pull/21) |
+None.
 <!-- planning:delivery:end -->
 
 ## Now
+
+Current merge observation (2026-10-26): [PR #19](https://github.com/johnnickell/project-slim/pull/19) merged at
+`d0977d7aeded776b6bb4ccf9a316f99ff25f5840` (`2026-10-25T04:56:29Z`) and PR #21 at
+`16d82ea503e50ddbc42ca3c877ce244eb6e56293` (`2026-10-25T19:43:05Z`), both locally integrated in this base.
+No merge or routine cleanup request remains; the checkpoints below remain history. TASK-00018's marker retirement
+retains exact evidence. No new acceptance/QA/hosted result or unrelated planning decision is inferred.
 
 No new human scope decision is recorded. Use the generated TASK routing and delivery sections above, not older
 checkpoints below, for current actions. [TASK-00009's post-merge reconciliation](../tasks/00009-TASK.md#post-merge-reconciliation--pr-20)

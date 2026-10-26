@@ -66,7 +66,7 @@ def verify_delivery(handoffs: list[Record], repository: str | None) -> tuple[lis
         number = int(data["pr"].rsplit("/", 1)[1])
         try:
             result = subprocess.run(
-                ["gh", "pr", "view", str(number), "--repo", repository, "--json",
+                ["gh", "pr", "view", str(number), "--repo", "github.com/" + repository, "--json",
                  "number,url,title,state,isDraft,mergedAt,baseRefName,headRefName,headRefOid,mergeCommit"],
                 cwd=ROOT, capture_output=True, text=True, timeout=15, check=True,
                 env={**os.environ, "GH_PROMPT_DISABLED": "1"},
