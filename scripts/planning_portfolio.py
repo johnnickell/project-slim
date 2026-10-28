@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate Slim planning offline, check live delivery, or explicitly refresh/reconcile handoffs."""
+"""Validate Slim planning offline or explicitly refresh generated views."""
 
 from __future__ import annotations
 
@@ -133,7 +133,7 @@ def load_records(errors: list[str], documents: dict[Path, str] | None = None) ->
             records[identifier] = record
         for field in sorted(FIELDS[kind] - data.keys()):
             errors.append(f"{label}: missing metadata field {field}")
-        allowed = FIELDS[kind] | ({"standalone_reason", "delivery"} if kind == "TASK" else set())
+        allowed = FIELDS[kind] | ({"standalone_reason"} if kind == "TASK" else set())
         for field in sorted(data.keys() - allowed):
             errors.append(f"{label}: unsupported metadata field {field}")
         for field in ("id", "title", "status", "target") if kind == "EPIC" else ("id", "title", "status"):
@@ -154,11 +154,6 @@ def load_records(errors: list[str], documents: dict[Path, str] | None = None) ->
                 errors.append(f"{label}: standalone_reason is only valid without a parent ticket")
             if data.get("pr") and not re.fullmatch(r"https?://[^\s]+", data["pr"]):
                 errors.append(f"{label}: pr must be empty or an HTTP(S) URL")
-            if data.get("delivery"):
-                if data["delivery"] != "awaiting-merge" or path.parent.name == "archive":
-                    errors.append(f"{label}: delivery must be awaiting-merge on a live TASK, or empty")
-                if not re.fullmatch(r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/pull/[1-9][0-9]*", data.get("pr", "")):
-                    errors.append(f"{label}: an awaiting-merge delivery handoff requires its GitHub PR URL")
     if not records:
         errors.append("planning/: no supported work records found")
     return records
@@ -247,14 +242,10 @@ def main() -> int:
     )
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--write", action="store_true", help="offline: complete eligible parents and refresh marked views")
-    mode.add_argument("--check-delivery", action="store_true", help="read-only local validation and bounded live checks of marked delivery handoffs")
-    mode.add_argument("--reconcile-delivery", action="store_true", help="authorized write: retire verified merged/integrated done handoffs, retain evidence and refresh views")
     args = parser.parse_args()
-    writing = args.write or args.reconcile_delivery
+    writing = args.write
     errors: list[str] = []
     changes: dict[Path, str] = {}
-    resolved = []
-    handoffs = []
     try:
         documents = markdown_documents()
         records = load_records(errors, documents)
@@ -264,21 +255,11 @@ def main() -> int:
             errors.append(".runs/ must be gitignored")
         if not errors:
             from planning_views import refresh_plan
-            # Preflight every marker before live requests or any planned writes.
+            # Preflight every generated-view marker before planned writes.
             changes = refresh_plan(records, documents)
             if not writing:
                 errors.extend(f"{path.relative_to(ROOT)}: stale planning view/parent; run ./bin/planning-check --write"
                               for path in changes)
-        if not errors and (args.check_delivery or args.reconcile_delivery):
-            from planning_delivery import delivery_identity, reconcile_delivery, verify_delivery
-            handoffs, repository, identity_errors = delivery_identity(records)
-            errors.extend(identity_errors)
-            if not errors:
-                resolved, delivery_errors = verify_delivery(handoffs, repository)
-                errors.extend(delivery_errors)
-            if not errors and args.reconcile_delivery:
-                retired = reconcile_delivery(records, resolved)
-                changes = {**retired, **refresh_plan(records, {**documents, **retired})}
         if not errors and writing:
             for path, text in changes.items():
                 path.write_bytes(text.encode("utf-8"))
@@ -305,12 +286,6 @@ def main() -> int:
     )
     print(f"Planning validation passed: {len(records)} records, {active} active, {len(tasks)} TASKs")
     print("Ready TASKs (unfinished edges only): " + (", ".join(task.identifier for task in ready) or "None"))
-    if args.reconcile_delivery:
-        print(f"Delivery reconciliation passed: {len(resolved)} ended handoff(s) retired; OPEN handoffs preserved. No historical PRs queried.")
-    elif args.check_delivery:
-        print(f"Delivery verification passed: {len(handoffs) - len(resolved)} OPEN handoff(s), {len(resolved)} merged/integrated handoff(s) resolved read-only; no historical PRs queried.")
-    else:
-        print("Delivery freshness NOT CHECKED; routing publication/merge handoffs requires --check-delivery.")
     return 0
 
 

@@ -34,11 +34,10 @@ command once implemented; schema migration does not authorize moving records int
 After authorized planning edits, run `./bin/planning-check --write` to validate first, complete eligible parents
 bottom-up and refresh marked sections. Then run `./bin/planning-check`: it validates EPIC/TICKET/TASK, local Markdown
 file targets and view freshness without writing. Heading anchors are not validated; unsupported options fail.
-Build invokes only the offline read-only mode. Current TASK routing summaries and explicit delivery snapshots are
-generated, while strategy and decomposition decisions remain authored. Before routing, run
-`./bin/planning-check --check-delivery`; at authorized Work/planning/Land intake, run `--reconcile-delivery` to retire
-only verified merged/integrated done snapshots without another routine cleanup request. See
-[the delivery contract](CONVENTIONS.md#current-delivery-handoffs); historical evidence remains in owning TASKs.
+Build invokes only the offline read-only mode. Current TASK routing summaries are generated, while strategy
+and decomposition decisions remain authored. [Land closeout](CONVENTIONS.md#publication-closeout) validates the
+exact live subject, closes accepted TASK/current docs and retires eligible owned local resources. Human merge
+remains separate; no persistent delivery queue or recurring post-merge planning chore. Historical evidence stays.
 The new-only archive command requires a separate explicit request, reviewed dry run and matching confirmation digest;
 see [archive rules](CONVENTIONS.md#archive-explicit-requests-only). TASK-00002 performs no archives, so archive
 apply/link repair remains dynamically unexercised. Direct checks are not the full canonical gate; do not commit or
