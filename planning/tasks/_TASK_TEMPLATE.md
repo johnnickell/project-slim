@@ -33,9 +33,10 @@ repair when possible; otherwise record why. Validate tooling directly rather tha
 ## Review and Delivery
 
 Record independent Spec/Standards review and the exact reviewed snapshot separately from implementation completion.
-Commit, publication, merge, archive, release, and deployment each require their own authority. Land may add
-optional `delivery: awaiting-merge` with a verified OPEN PR URL as a publication snapshot under
-[the delivery contract](../CONVENTIONS.md#current-delivery-handoffs); never infer live state from the marker.
+Commit, publication, merge, archive, release, and deployment each require their own authority. Land owns
+[publication closeout](../CONVENTIONS.md#publication-closeout), exact live own-PR validation and eligible owned
+local cleanup. Keep publication history separate from live evidence; no persistent pending-merge queue or
+recurring post-merge planning work.
 
 ## Completion Notes
 

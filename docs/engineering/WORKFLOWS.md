@@ -22,7 +22,7 @@ Local accepted requirements and gates prevail over provider application examples
 | Foundation | `ARCHITECTURE.md` and `planning/epics/00001-EPIC.md`; no required `planning/FOUNDATION.md` |
 | Technical standards/ownership | `docs/engineering/STANDARDS.md` and `planning/adr/0001-application-ownership-and-orchestration.md` |
 | Record templates and ID allocation | Target `planning/{epics,tickets,tasks}/` templates, live/archive inventory and `planning/MIGRATION.md` |
-| Planning refresh and delivery | Offline `./bin/planning-check --write` completes eligible parents and refreshes views; default check rejects drift. Routing uses read-only `--check-delivery`; authorized Work/planning/Land intake uses `--reconcile-delivery` under [the local contract](../../planning/CONVENTIONS.md#current-delivery-handoffs). The Board remains `planning/tickets/BOARD.md` |
+| Planning refresh and delivery | Offline `./bin/planning-check --write` completes eligible parents and refreshes views; default check rejects drift. Land owns [publication closeout](../../planning/CONVENTIONS.md#publication-closeout), exact live subject validation and eligible resource retirement without a persistent delivery queue. The Board remains `planning/tickets/BOARD.md` |
 | Parent completion | Apply local bottom-up automatic parent completion in the same change; preserve terminal/archived parents and historical dependency edges |
 | Branch and checkout | Selected checkout, `feature/<description>` from `develop`; preserve an authorized existing branch |
 | Runtime/gates | Target `./bin/*` wrappers and current `./bin/build`; do not invoke provider services, database resets or frontend builds |
@@ -88,28 +88,20 @@ repair allowance and outstanding effects on resume. Cleanup touches only ownersh
 These Slim substitutions apply to shared Work/planning/Land, including accepted-candidate closeout resumed after
 acceptance. They preserve independent review/QA, the A→B contract, required hosted proof and publication authority.
 
-1. At authorized Work, Land or substantive planning intake on the selected feature branch, run
-   `./bin/planning-check --reconcile-delivery` before record edits and inspect its administrative diff. This
-   retirement of verified merged/integrated done handoffs is included in those scopes, not another cleanup
-   request. Routing, Review and QA use only read-only checks.
-2. Land runs `./bin/planning-check --check-delivery` at intake, immediately before push/PR publication, and after
-   final metadata changes/publication. An earlier offline gate or live snapshot cannot substitute. Exact merged,
-   done, locally integrated handoffs resolve and permit continuation; closed-unmerged, uncertain identity,
-   non-terminal scope, missing integration or inaccessible evidence holds the affected action. No fetch, merge,
-   historic-PR scan or checking-side repair is authorized.
-3. Verify the owned OPEN PR's repository/TASK/title/bound policy base/feature branch/head before recording its actual
-   `pr` URL and `delivery: awaiting-merge` publication snapshot. Refresh views, inspect the administrative diff,
-   run applicable local gates and recheck live delivery after final publication. Draft remains Land/evidence work;
-   only a verified ready OPEN PR can be handed to human review/merge, and all required final-head CI still applies.
-   Preserve final result/time/identity in the ignored receipt and PR body; do not make another tracked commit
-   merely to record final delivery success.
-4. A concurrent merge resolves only with exact published-head→merge→local-HEAD proof and already-done status.
-   Later read-only routing continues without another cleanup approval; the next authorized intake retires the
-   snapshot with durable evidence. Actual uncertainty requires its decision/evidence/integration owner. No agent
-   is required to predict a future human merge or run after stopping.
+1. Land closes the independently accepted TASK, eligible parents and applicable authored current Board/Roadmap/
+   README handoffs during delivery. Preserve historical acceptance/publication checkpoints and independent reports.
+   Refresh views offline and inspect the administrative diff; no persistent delivery marker/table or pending-merge queue.
+2. At intake, before publication and final handoff, verify the exact live own PR repository/subject/title, bound
+   default/base, feature branch, full head and remote candidate. Missing/conflicting proof holds the affected
+   effect. Closed-unmerged is not delivered; merge requires exact hosting and integration evidence, never inference.
+3. Keep actual PR URL as publication history, and current delivery/cleanup result/time/identity in the durable
+   ignored receipt and actual PR. Required hosted/final-head proof still applies. Draft remains evidence work;
+   only verified ready OPEN publication goes to human review/merge. Preserve its remote head.
+4. Complete eligible owned local Git/Docker/storage retirement under the contract below. Resume only missing
+   effects after interruption. Human merge remains separate; no routine post-merge planning maintenance or
+   another tracked commit merely to certify final delivery/cleanup success.
 
-The live check observes PR metadata, not hosted test success. Planning inside the build remains offline and
-read-only. Only explicit reconciliation writes delivery retirement; no operation infers independent acceptance.
+Planning checks/build remain offline and read-only. Routing never scans historical PRs or infers acceptance.
 
 ## Bound target and required retirement
 
@@ -126,8 +118,12 @@ acceptance gate. Discover orphan stacks independently of worktrees with source/p
 After worker exit continue from the safe checkout with original model/ledger/authority; preserve active sessions.
 Positively qualify Docker VM read-only sharing against all containers (including stopped), parent mounts, host
 cwd/writers and stable preservation manifests. Unknown readers hold; never stop the shared VM. Preserve active,
-dirty/shared resources, independent reports, credentials and durable data. Reobserve current consumers, resume
-only missing effects and verify exact postconditions with finite recovery actions.
+dirty/shared resources, independent reports, credentials and durable data. Capture creating-container mounts
+and named/image-anonymous volume creation provenance before removal. Inventory task-created versus merely used/
+shared containers, networks, volumes, images and caches with size, discard authority, dependencies and disposition.
+Reobserve exact identity and all consumers, including stopped containers, before each normal exact effect;
+unknown/shared/durable/excluded or denied inspection holds without force/prune, shared shutdown or suppressed
+cleanup errors. Resume only missing authorized effects and verify absence/preservation with finite recovery actions.
 
 ## Routing and Pi compatibility
 

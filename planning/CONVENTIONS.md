@@ -6,14 +6,10 @@ For “What's next?”, `next`, or an unqualified `/ask-matt`, use the routing e
 This read-only path precedes general orientation; full implementation, review, QA and delivery requirements
 still apply when the selected workflow is invoked.
 
-1. Run `./bin/planning-check --check-delivery` once before selection or recommending a publication/merge handoff.
-   It validates local views and checks only explicitly marked current delivery snapshots. OPEN retains its
-   handoff (draft means Land prerequisites, not human merge). A verified MERGED, already-done and locally
-   integrated handoff resolves read-only: continue selection without another routine cleanup request even
-   while its marker remains. Report the live observation, not an older publication checkpoint. Failure or
-   unavailable evidence stops selection with the actual identity and missing fact/owner; never infer merge
-   or refresh views. An offline `./bin/planning-check` pass is not live delivery freshness. Without a validator,
-   disclose that limitation and cross-check selected metadata against the authored Board.
+1. Run read-only `./bin/planning-check` once before selection. Failure stops selection with the actual error
+   and planning-owner handoff; never refresh views from routing. Historical publication checkpoints do not
+   create current merge actions. Land verifies its exact live subject during publication or explicit resume;
+   routing never scans historical PRs or requests recurring post-merge planning maintenance.
 2. Read only the Board's current human decision, active work, and (if no active work) first ready entry.
    Use local section names and authoritative order. Return all active TASKs, not a new winner. Inspect selected
    TASK metadata and its current handoff, plus blocker metadata only as needed. An unresolved contradiction
@@ -38,8 +34,8 @@ stop without invoking a workflow or changing files. Missing indexes are reported
 
 During authorized planning updates, keep current planning/decomposition handoffs source-linked and concise:
 phase, target and decision owner. Current TASK selection belongs in the generated Board `next` and Roadmap
-`execution` blocks, not duplicated mutable selection prose. TASKs own stage/evidence, and the generated Board
-`delivery` block mirrors explicit publication snapshots. Keep Wayfinder inventory/frontier pointers current.
+`execution` blocks, not duplicated mutable selection prose. TASKs own stage/evidence; actual PR and ignored
+Land receipts own live delivery results. Keep Wayfinder inventory/frontier pointers current.
 Preserve historical decisions in their owning records; checkpoints are not live publication or merge claims.
 
 Routing sources: [TASK Board](tickets/BOARD.md), [Wayfinder inventory](wayfinder/README.md), [Roadmap](ROADMAP.md).
@@ -142,40 +138,20 @@ quoted/block scalars, or inline comments. Duplicate and unknown fields are inval
 `pr` fields are permitted, but their keys are required where listed. EPIC `target` is a nonempty destination/version
 statement, not a release assertion. Nonempty `pr` must be an HTTP(S) URL.
 
-### Current delivery handoffs
+### Publication closeout
 
-A live TASK may carry optional `delivery: awaiting-merge` and its verified GitHub `pr` URL. Land records this
-publication snapshot for the matching OPEN PR, not a perpetual claim that it remains open. An empty delivery
-field is allowed; nonempty delivery is invalid on archived records or other record kinds. Neither `done`, a PR
-URL nor historical prose creates a live handoff. The generated Board delivery block says "Published; verify live
-state"; only a fresh live observation establishes the remaining action.
+Land closes independently accepted TASKs, eligible parents and applicable current Board/Roadmap/README handoffs
+during delivery under the [workflow binding](../docs/engineering/WORKFLOWS.md#delivery-pre-submit-and-final-handoff).
+Validate exact live repository/own PR/default/base/head/remote candidate and required delivery evidence; missing
+or conflicting identity holds the affected effect. Human merge remains separate; preserve open-PR remote heads.
+Keep live results in durable ignored receipts and the actual PR, not a tracked delivery marker/table, persistent
+pending-merge queue or recurring post-merge planning chore. Historical acceptance/publication and canonical
+independent reports remain evidence; a `pr` URL alone never proves current merge state.
 
-`./bin/planning-check --check-delivery` is read-only. It uses existing operator `gh` access for at most 16 marked
-PRs, one 15-second metadata request each, and bounded local Git calls. Repository/origin, URL, number, exact
-TASK/title, TASK feature branch, develop base and full published head OID must agree. OPEN preserves its handoff;
-OPEN/draft retains Land prerequisites rather than requesting human merge. MERGED resolves without blocking
-selection or requiring another cleanup approval only with valid merge time/OID, already-`done` status and local
-published-head→merge→HEAD ancestry proof. Local inspection disables replacement objects and lazy fetching; the
-checker never fetches or integrates Git objects. Merge/integration facts do not infer independent acceptance or QA.
-
-At authorized Work, Land or substantive planning intake on the selected feature branch, run
-`./bin/planning-check --reconcile-delivery` before record edits. This project-owned administrative operation is
-included in those scopes, not a new routine cleanup request. It performs the same live verification, removes
-only verified merged/integrated done markers, appends exact observation/head/merge/time/local-ancestry evidence
-to each owning TASK, and refreshes views and eligible parents. OPEN remains unchanged. Repeated use is
-idempotent; retired and unmarked historical PRs are never queried. Routing, Review and QA never run writing modes.
-
-CLOSED WITHOUT MERGE requires a disposition decision. A merged non-terminal TASK requires scope recovery; absent
-local ancestry requires authorized integration. Missing CLI/authentication, API/network failures, malformed or
-contradictory metadata, wrong identity and invalid local views stop with the precise prerequisite. Validation or
-live-evidence failure prevents all planned writes, including refreshing stale views. Actual write/I/O failure
-requires inspecting disk before retry; this is not a filesystem transaction. No failure infers merge or acceptance.
-
-All three modes (`--write`, `--check-delivery`, `--reconcile-delivery`) are mutually exclusive. Default checks and
-`--write` remain offline; `./bin/build` stays read-only and network-independent for planning. These commands do not
-check hosted CI, publish, approve, merge, release, archive or change acceptance. Land separately preserves required
-hosted delivery proof and runs live checks before publication and after final metadata changes under the
-[workflow binding](../docs/engineering/WORKFLOWS.md#delivery-pre-submit-and-final-handoff).
+`./bin/planning-check` and `--write` stay offline; the gate only checks planning. Land also owns complete eligible
+local task Git/Docker/storage retirement after creation provenance, fresh exact identity/all-consumer checks and
+preservation. Unknown/shared/durable/excluded or denied inspection resources hold without force/prune, shared
+shutdown or suppressed cleanup errors. Resume only missing authorized effects and verify postconditions.
 
 Optional priority `order` is a positive integer, lower first; unranked records come last and IDs break ties.
 Requirement blockers refer to requirements; TASK blockers refer to TASKs. Use comma-separated, whitespace-trimmed IDs
@@ -208,8 +184,7 @@ All active TASKs are returned before selecting the first ready TASK by positive 
 
 The generated Board `next` summary and Roadmap `execution` summary share the same TASK grouping/order as the
 full Board: all active TASKs, otherwise the first ready TASK, with info/human items and first waiting reason when
-no TASK is executable. The Board `delivery` summary selects only explicit delivery markers. Offline validation
-rejects drift in these summaries, not just full status tables. Generated selection never grants execution authority.
+no TASK is executable. Offline validation rejects drift in these summaries, not just full status tables. Generated selection never grants execution authority.
 
 The Board shows:
 

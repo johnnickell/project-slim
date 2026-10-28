@@ -165,11 +165,6 @@ def refresh_plan(records: dict[str, Record], documents: dict[Path, str] | None =
     for name, items in groups.items():
         project(path, name, table(headers, rows(items, path)))
     project(path, "next", routing_summary(groups, records, path))
-    from planning_delivery import current_delivery
-    project(path, "delivery", table(["TASK", "Current delivery", "PR"], [
-        [link(task, path, True), "Published; verify live state", f'[{cell(task.data["pr"])}]({task.data["pr"]})']
-        for task in current_delivery(records)
-    ]))
 
     path = PLANNING / "ROADMAP.md"
     project(path, "execution", routing_summary(groups, records, path))

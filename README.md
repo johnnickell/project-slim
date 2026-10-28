@@ -18,9 +18,9 @@ The [ownership ADR](planning/adr/0001-application-ownership-and-orchestration.md
 adopt the reusable Agent OS foundation without copying its domain. Container modules now follow its sorted callable
 contract. The later frontend/login adoption remains planned, not implemented. Planning views now refresh explicitly
 with `./bin/planning-check --write`; default `./bin/planning-check` and the build reject drift without writing or
-hosted access. Routing uses `./bin/planning-check --check-delivery` for bounded live checks of explicit publication
-snapshots. Authorized Work/planning/Land intake uses `--reconcile-delivery` to retire verified merged/integrated
-handoffs without another routine cleanup approval; see the [delivery contract](planning/CONVENTIONS.md#current-delivery-handoffs).
+hosted access. [Land closeout](planning/CONVENTIONS.md#publication-closeout) owns accepted TASK/current-doc
+closure, exact live PR validation and eligible owned local Git/Docker/storage retirement. Human merge remains
+separate, without a tracked pending-merge queue or recurring post-merge planning chore; historical evidence stays.
 The [TASK Board](planning/tickets/BOARD.md) is the sole execution view. New-only archive tooling requires a separately
 requested, reviewed dry run and explicit apply; TASK-00002 performs no archives and does not dynamically verify apply.
 TASK-00007 supplies isolation for the existing development service only. TASK-00008 supplies behavior-focused suites

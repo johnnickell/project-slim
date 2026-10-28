@@ -28,15 +28,6 @@ Requirements are not executable work; see the [requirement index](README.md). [M
 | Ready Frontier | [TASK-00010 — Sanitize HTTP Failures](../tasks/00010-TASK.md) | ready-for-agent | — |
 <!-- planning:next:end -->
 
-## Current Delivery Handoffs
-
-These are recorded publication snapshots, not live merge claims. Run
-`./bin/planning-check --check-delivery` before routing; verified merged/integrated handoffs resolve read-only.
-
-<!-- planning:delivery:start -->
-None.
-<!-- planning:delivery:end -->
-
 ## Now
 
 Current merge observation (2026-10-26): [PR #19](https://github.com/johnnickell/project-slim/pull/19) merged at
@@ -45,10 +36,10 @@ Current merge observation (2026-10-26): [PR #19](https://github.com/johnnickell/
 No merge or routine cleanup request remains; the checkpoints below remain history. TASK-00018's marker retirement
 retains exact evidence. No new acceptance/QA/hosted result or unrelated planning decision is inferred.
 
-No new human scope decision is recorded. Use the generated TASK routing and delivery sections above, not older
-checkpoints below, for current actions. [TASK-00009's post-merge reconciliation](../tasks/00009-TASK.md#post-merge-reconciliation--pr-20)
-records its completed delivery and integration. The [delivery contract](../CONVENTIONS.md#current-delivery-handoffs)
-prevents ended publication snapshots from requesting another routine cleanup approval.
+No new human scope decision is recorded. Use the generated TASK routing above, not older checkpoints below,
+for current actions. [TASK-00009's post-merge reconciliation](../tasks/00009-TASK.md#post-merge-reconciliation--pr-20)
+records its completed delivery and integration. [Land closeout](../CONVENTIONS.md#publication-closeout) preserves
+these historical facts without a tracked pending-merge queue or recurring post-merge planning chore.
 
 ### Historical TASK-00008 host-boundary closeout
 
