@@ -103,3 +103,5 @@ A local pass does **not** satisfy TASK-00009 AC-05, TICKET-00011 or EPIC-00001's
 execution on the selected lock remains required before TASK completion; independent review and authorized draft
 publication may obtain it. No hosted result, PR publication, independent acceptance or merge is implied by this file.
 Retired dependency matrices, receipts and no-dev certification remain retired.
+
+Use [local tooling](LOCAL_TOOLING.md) for receipt reuse and `--force`; the phase list here describes the full miss/fresh path.

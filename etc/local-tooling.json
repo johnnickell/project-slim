@@ -1,0 +1,38 @@
+{
+  "project": "project-slim",
+  "running": [
+    "web"
+  ],
+  "gate": [
+    "./bin/.build-full"
+  ],
+  "outputs": [
+    "var/coverage/full"
+  ],
+  "runtime_probes": [
+    [
+      "exec",
+      "-T",
+      "web",
+      "sh",
+      "-ec",
+      "php -r 'echo json_encode([PHP_VERSION, get_loaded_extensions(), ini_get_all(null, false)]);'; composer --version; git --version"
+    ]
+  ],
+  "directories": [
+    "var/cache"
+  ],
+  "environment": {
+    "PROJECT_SLIM_RUNTIME_IMAGE": "{project}-web",
+    "PROJECT_SLIM_CHECKOUT": "{checkout}",
+    "PROJECT_SLIM_HTTP_PORT": "0"
+  },
+  "startup": [
+    "sh",
+    "-ec",
+    "test -f vendor/autoload.php || { echo \"Run ./bin/composer install first\" >&2; exit 1; }"
+  ],
+  "images": [
+    "web"
+  ]
+}

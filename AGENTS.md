@@ -15,6 +15,10 @@ This routing path does not require reading README, architecture, full project co
 For execution or substantive planning changes, load the applicable guidance below. The read-only routing
 path above takes precedence over broad orientation reads; it does not waive engineering or delivery rules.
 
+For Docker preparation/teardown, isolated worktrees, guarded source removal and build-cache evidence, follow
+[local tooling](docs/engineering/LOCAL_TOOLING.md). Use normal `./bin/build` for fresh planning and qualified
+application reuse; use `--force` for deliberate fresh application execution.
+
 Read `ARCHITECTURE.md`, `planning/README.md`, `planning/CONVENTIONS.md`, `planning/agents/`, [engineering standards](docs/engineering/STANDARDS.md), and the [shared workflow binding](docs/engineering/WORKFLOWS.md) before changing behavior. Work in independently verifiable vertical slices. Use the repository-owned `./bin/build`, `./bin/phpunit`, `./bin/up`, `./bin/down`, `./bin/composer`, and `./bin/exec` commands; `./bin/build` is the single noninteractive local and hosted gate.
 
 Slim owns `src/`, its explicit Fight Common container definitions, routes, middleware, handlers, HTTP, presentation, and future adapters. Fight Common and Fight AccessControl are public Composer dependencies only. Do not implement login, persistence, browser journeys, releases, tags, Packagist publication, template enablement, or create-project distribution without a local ticket.
