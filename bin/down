@@ -1,6 +1,4 @@
 #!/usr/bin/env sh
 set -eu
-[ "$#" -eq 0 ] || { echo 'Usage: ./bin/down (no options; never deletes volumes)' >&2; exit 2; }
-. "$(dirname -- "$0")/../scripts/development-runtime.sh"
-# No --volumes, --rmi or --remove-orphans: preserve data, images and unrequested services.
-runtime_compose down
+cd "$(dirname "$0")/.."
+exec ./bin/runtime down "$@"

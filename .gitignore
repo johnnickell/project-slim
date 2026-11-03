@@ -6,3 +6,8 @@
 /.env.local
 /.runs/
 /graphify-out/
+
+# Local gate cache and native worktree configuration
+/var/build.json
+/var/build.lock
+/var/worktrees/
