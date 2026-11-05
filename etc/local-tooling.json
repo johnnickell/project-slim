@@ -34,5 +34,6 @@
   ],
   "images": [
     "web"
-  ]
+  ],
+  "https_preview": {"service": "web", "network": "default", "port": 8080}
 }
