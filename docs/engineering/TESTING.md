@@ -51,10 +51,11 @@ Outside the product denominator: `config/`, `bootstrap/` and `public/` are compo
 upstream; `tests/` is fixtures/tests; `scripts/` and `bin/` are tooling. No generated product code currently exists.
 Do not exclude future uncovered behavior merely to improve percentages.
 
-The accepted [coverage policy](STANDARDS.md#behavior-tests-and-coverage) requires 100% meaningful Domain/Application
-executable lines across the single run. Separate Unit coverage is reported, never inferred from that union.
-Domain and Application currently do not exist: both are **N/A**, not 100%. Adapter gaps remain visible with 100%
-a practical target. Semantic ownership and meaningful tests still require independent review.
+The current reporter checks 100% meaningful Domain/Application executable lines across the single run and
+reports separate Unit attribution. The [required policy](STANDARDS.md#behavior-tests-and-coverage) now requires
+100% Unit-only lines for all owned unit-testable behavior, including Adapters; the current combined threshold
+does not enforce it. Domain and Application currently do not exist: both are **N/A**, not 100%. Record Unit gaps
+as unmet requirements. Semantic ownership and meaningful tests still require independent review.
 
 TASK-00008's initial verified source denominator is 10 executable Adapter lines:
 
