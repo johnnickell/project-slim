@@ -60,9 +60,9 @@ Deptrac's file emitter includes top-level composition references. Dependency gra
 is justified, service location is appropriate, authorization is authoritative or an integration is secure; those
 remain semantic review responsibilities. Dependencies inside `vendor/` are not analyzed as owned code.
 
-Coverage uses the [existing single-run policy and denominator](TESTING.md#denominator-and-interpretation), without
-an extra execution or threshold. Domain/Application are N/A; Adapter Unit gaps stay visible. Combined hits are not
-Unit coverage. Reports are `var/coverage/full/{junit.xml,clover.xml,coverage.php,summary.json}`; never execute an
+Coverage currently uses the [single-run reporter and denominator](TESTING.md#denominator-and-interpretation).
+It does not yet enforce the required 100% Unit-only line threshold. Domain/Application are N/A; Adapter Unit
+gaps remain unmet requirements. Combined hits are not Unit coverage. This guidance adds no execution phase. Reports are `var/coverage/full/{junit.xml,clover.xml,coverage.php,summary.json}`; never execute an
 uploaded PHP coverage artifact.
 
 ## Qualified development tools
